@@ -1,0 +1,12 @@
+img.anhtrangchu{
+    max-width: 300px;
+    height: 200px;
+    margin: 0 auto; display: block;
+}
+p.tensp{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: #060505;
+    font-family: Trebuchet Helvetica;
+}
