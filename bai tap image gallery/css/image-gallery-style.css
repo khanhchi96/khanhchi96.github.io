@@ -28,7 +28,6 @@ img.anhtrangchu{
 .anh:hover .anhtrangchu {opacity: 0.3;}
 .anh:hover .hover-effect {opacity: 1;}
 
-
 /* đa bo text trong file html
 .text-hover {
 
@@ -115,6 +114,10 @@ a.menu {
 width: 33.33%;
 height: auto;
 float: left;}
+
+#back-to-top {position: fixed;
+    right: 50px;
+    bottom: 30px;}
 
 /*
 .trai {width: 33.33%; height: auto; float: left;}
