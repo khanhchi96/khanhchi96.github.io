@@ -1,0 +1,24 @@
+img.anhtrangchu{
+    max-width: 100%;
+    height: 200px;
+    margin: 0 auto; display: block;
+}
+p.tensp{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: #060505;
+    font-family: Trebuchet Helvetica;
+}
+
+
+.image {
+    border: 1px solid #dddddd;
+    border-top-width: 5px;
+    width: 30%;
+    padding: 15px;
+}
+
+.anhtrai {width: 30%; float: left;}
+.anhphai {width: 30%; float: right;}
+.anhgiua {width: 30%; float: left;}
