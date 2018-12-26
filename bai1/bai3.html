@@ -5,10 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Demo heading</title>
+    <script>
+        function Bai1 (x){
+        return x*x;
+        }
+
+    let tong = (a,b,c) => {
+    let y=3*a+2*b-c;
+     return Bai1(y)
+}
+
+function Bai3(str){
+    let newstr = str.slice(0,9)+"..."
+    return newstr;
+}
+  
+function Bai4(str){
+    let newstr= str.charAt(0).toUpperCase() + str.slice(1);
+    return newstr;
+}
+
+
+
+function Bai5(arr){
+    arr.sort();
+    return arr[0];
+}
+
+function Bai6() {
+  arr.sort(function(a, b){
+    let x = a.toLowerCase();
+    let y = b.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return 0;
+    displayarr();
+  });
+  function displayarr() {
+  document.getElementById("chi").innerHTML = arr
+}
+
+}
+
+
+
+
+  </script>
 </head>
 <body>
 
-    <h1>Khóa học HTML căn bản</h1>
+    <h1 id="chi">Khóa học HTML căn bản</h1>
 
     <h2>Phần 1: Giới thiệu</h2>
 
