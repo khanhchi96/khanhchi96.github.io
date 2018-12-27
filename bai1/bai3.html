@@ -1,71 +1,108 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Demo heading</title>
-    <script>
-        function Bai1 (x){
-        return x*x;
-        }
-
-    let tong = (a,b,c) => {
-    let y=3*a+2*b-c;
-     return Bai1(y)
-}
-
-function Bai3(str){
-    let newstr = str.slice(0,9)+"..."
-    return newstr;
-}
-  
-function Bai4(str){
-    let newstr= str.charAt(0).toUpperCase() + str.slice(1);
-    return newstr;
-}
-
-
-
-function Bai5(arr){
-    arr.sort();
-    return arr[0];
-}
-
-function Bai6() {
-  arr.sort(function(a, b){
-    let x = a.toLowerCase();
-    let y = b.toLowerCase();
-    if (x < y) {return -1;}
-    if (x > y) {return 1;}
-    return 0;
-    displayarr();
-  });
-  function displayarr() {
-  document.getElementById("chi").innerHTML = arr
-}
-
-}
-
-
-
-
-  </script>
 </head>
 <body>
 
-    <h1 id="chi">Khóa học HTML căn bản</h1>
+    <script>
+ function printTriangle(n){
+    let str = "";
+  for (i = 1; i <= n; i++) {
+    for(j=1; j<=i; j++){ 
+      str += "* ";
+    }
+    str+="<br/>";
+  }
+     document.write(str);
+ }
 
-    <h2>Phần 1: Giới thiệu</h2>
 
-    <h2>Phần 2: HTML</h2>
+ function printEmptyRectangle (a, b){
+ let str ="";
+ for (i=1; i <=b; i++){
+     for(j=1; j<=a; j++){
+        if (i==1 || i==b || j==1 || j==a)             
+                {str += "*"}            
+            else
+                {str += "+"};   
+     }
+     str+="<br/>";
+ }
+ document.write(str);
+ }
 
-    <h2>Phần 3: CSS</h2>
 
-    <h2>Phần 4: Javascript</h2>
-&amp;lt; &amp;gt;  &#38;lt; 
-    <h2>Phần 5: Tổng kết</h2>
-        
-    
+function printSpecialTrigangle(n){
+    let str ="";
+    for(i=n; i>=1; i--){
+        for(m=0; m<n-i;m++){
+        str += "&nbsp&nbsp";}
+        for (j=2*i-1; j>=1; j--){
+        str +="*";}
+        str += "<br/>";
+    }
+document.write(str);
+}
+
+
+function printX(n){
+    let str ="";
+    for(i=n; i>=1; i--){
+        for(m=0; m<n-i;m++){
+            if(m==i || m==(n-i+1)){str += "*"} 
+            else{str += "&nbsp";}
+        }
+        for (j=i; j>=1; j--){
+        if (j==i || j==(n-i+1)) {str += "*"} else {str += "&nbsp"};   
+        }
+        str += "<br/>";
+    }
+document.write(str);
+}
+
+
+function printButterfly(n){
+    let str ="";
+    for(i=n; i>=1; i--){
+        for(m=0; m<n-i+1;m++){
+            if( m<=(i-1) || m>(n-i-1)){str += "*"} 
+            else{str += "+";}
+        }
+        for (j=(i-1); j>=1; j--){
+        if (j>i || j<=(n-i+1)) {str += "*"} else {str += "+"};   
+        }
+        str += "<br/>";
+    }
+document.write(str);
+}
+
+
+// function printButterfly(n){
+//     let str ="";
+//     for(i=n; i>=1; i--){
+//         for(m=0; m<n-i;m++){
+//             if (j>i || j<=(n-i+1)) {str += "*"} else {str += "+"}
+//         }
+//         for (j=i; j>=1; j--){   
+//             if(m<=(i-1) || m>(n-i-1)){str += "*"} 
+//             else{str += "+"}
+//         }
+//         str += "<br/>";
+//     }
+// document.write(str);
+// }
+
+
+// function printButterfly(n){
+//     let str ="";
+//     for(i=1; i<=n-1; i++){
+
+//     }
+
+    </script>
 </body>
 </html>

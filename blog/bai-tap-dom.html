@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bai tap DOM</title>
+    <style>
+        .wrap {max-width:80%;
+        margin-left: 10%;
+        border: solid 1px grey;}
+
+        .graph {text-indent: 30px;
+        text-align: justify;
+        margin-left: 1%;
+        margin-right: 1%;}
+        h1{ text-align: center; font-size: 30px;}
+        </style>
+        <script>
+            function changeFontSize(x){
+                let graphs = document.getElementsByClassName("graph")
+                for (i = 0; i < graphs.length; i++){
+                    graph = graphs[i];
+                    graph.style.fontSize = x + "px";
+                }
+            }
+
+            function increaseFontSize(paragraph){
+            let txt = document.getElementById(paragraph);
+            let style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+            let currentSize = parseFloat(style);
+            if (currentSize < 30){
+            txt.style.fontSize = (currentSize + 1) + 'px';}
+            else return 0;
+            }
+
+            function decreaseFontSize(paragraph){
+            let txt = document.getElementById(paragraph);
+            let style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+            let currentSize = parseFloat(style);
+            if (currentSize <= 11){
+            txt.style.fontSize = (currentSize - 1) + 'px';}
+            else return 0;
+            }
+
+            function changeColor(){
+            document.getElementById("p1").style.color="blue";
+            document.getElementById("p2").style.color="yellow";
+            document.getElementById("p3").style.color="red";
+            }
+
+            function changeBgColor(color){
+            document.body.style.backgroundColor = color;
+            }
+
+            function copyContent(paragraph1, paragraph2){
+            let p1=document.getElementById(paragraph1);
+            let p2=document.getElementById(paragraph2);
+            let p1Text = p1.innerText;
+            let p2Text = p2.innerText;
+            p1.innerText = p2Text;
+            p2.innerText = p1Text;
+            }
+        </script>
+</head>
+<body>
+
+    <div class="wrap">
+    <h1>Audi A1</h1>
+    <div class="content">
+    <p id="p1" class="graph">
+        The Audi A1 Sportback is the ideal 
+        companion for modern everyday life. The exterior 
+        design will win you over with its striking, masculine 
+        features and its visual proximity to the Audi 
+        Ur-quattro and Sport quattro. The interior is sporty 
+        and compact. All controls are strongly driver-oriented. 
+        The infotainment and driver assistance systems at the 
+        luxury class level are also optimally designed for 
+        future-oriented networking.
+    </p>
+    <p id ="p2" class="graph">
+        The wide, low-placed Singleframe grille and 
+        the implied side air inlets dominate the distinctive 
+        front. Below the edge of the hood are three flat slits 
+        – an homage to the Sport quattro, the brand’s rally icon. 
+        The distinctive daytime running light graphics of the 
+        optional full-LED lights echo the dynamic wing shapes 
+        from sailing, known as hydrofoils. A low-set, 
+        concentrated look in conjunction with the small 
+        rhombus segments in the top section of the headlights 
+        provides a sporty appearance.
+    </p>
+    <p id ="p3" class="graph">
+        The new A1 Sportback is available in a choice of ten 
+        colors that impressively showcase the design language. 
+        The roof of the compact model can be optionally finished 
+        in a contrasting color from the A-pillar to the roof edge 
+        spoiler. The exterior mirror housings, the side front 
+        spoiler lips and the side sills are also available in a 
+        contrasting color.
+    </p>
+    </div>
+    </div>
+</body>
+</html>
