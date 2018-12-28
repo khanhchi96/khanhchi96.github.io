@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <style>
+    
+
+body {
+    font-size: 64px;
+    background-color:yellow;
+}
+.container {
+  display: grid;
+  justify-content: left;
+  margin-left: 10%;
+  grid-template-columns: 80px 80px 80px 80px;
+  grid-template-rows: 80px 80px;
+  grid-template-areas: 
+  "header header header header" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main";
+}
+
+h1 {
+    font-size: 50px;
+    color: black;
+    margin-left: 10%;
+}
+#item-header {
+  grid-area: header;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  color: black;
+  text-align: right;
+}
+.btn {
+  background-color: dimgray;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin: 4px 2px;
+  border-radius: 50%;
+}
+.silver {
+  background-color: silver;
+  color: black;
+}
+.black {
+  background-color: black;
+}
+button {
+  font-size: 26px;
+}
+</style>
+</head>
+<body>
+        <h1> Magic Calculator</h1>
+    <div class="container">
+        
+        <div id="item-header">0</div>
+        
+        <button class="btn silver" onclick="press(this)">AC</button>
+        <button class="btn silver" onclick="press(this)">+/-</button>
+        <button class="btn silver" onclick="press(this)">%</button>
+        <button class="btn orange" onclick="press(this)">&permil;</button>
+
+        <button class="btn silver" onclick="press(this)">√ </button>
+        <button class="btn silver" onclick="press(this)">x<sub>2</sub></button>
+        <button class="btn silver" onclick="press(this)">x!</button>
+        <button class="btn black" onclick="press(this)">÷</button>
+        
+        <button class="btn" onclick="press(this)">7</button>
+        <button class="btn" onclick="press(this)">8</button>
+        <button class="btn" onclick="press(this)">9</button>
+        <button class="btn black" onclick="press(this)">X</button>
+        
+        <button class="btn" onclick="press(this)">4</button>
+        <button class="btn" onclick="press(this)">5</button>
+        <button class="btn" onclick="press(this)">6</button>
+        <button class="btn black" onclick="press(this)">-</button>
+        
+        <button class="btn" onclick="press(this)">1</button>
+        <button class="btn" onclick="press(this)">2</button>
+        <button class="btn" onclick="press(this)">3</button>
+        <button class="btn black" onclick="press(this)">+</button>
+        
+        <button class="btn" onclick="press(this)">0</button>
+        <button class="btn" onclick="press(this)">0</button>
+        <button class="btn" onclick="press(this)">.</button>
+        <button class="btn black" onclick="press(this)">=</button>
+      </div>
+
+      <script>
+          function press(button){
+            document.getElementById("item-header").innerHTML = button.innerHTML;
+          }
+          function sum(){
+              let x = document.getElementsByClassName("btn").value;
+              let y = document.getElementsByClassName("btn").value;
+              document.getElementById("item-header").innerText = x + y;
+          }
+    </script>
+</body>
+</html>

@@ -18,11 +18,7 @@
         </style>
         <script>
             function changeFontSize(x){
-                let graphs = document.getElementsByClassName("graph")
-                for (i = 0; i < graphs.length; i++){
-                    graph = graphs[i];
-                    graph.style.fontSize = x + "px";
-                }
+                document.body.style.fontSize = x + "px";
             }
 
             function increaseFontSize(paragraph){
