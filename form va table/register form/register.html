@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Form</title>
+    <style>
+
+    .dangky{box-sizing: border-box;
+        margin: 50px auto;
+       }
+        input[type=text] {
+        padding: 10px 15px;
+        max-width: 50%;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border:1px solid grey;
+        font-size: 14px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .hang1 {
+        width: 200px;}
+    .hang2{
+        width: 610px;
+    }
+    p{text-indent: 50px;}
+    h1{margin-left: 50px;}
+    input[type="password"]{
+        max-width: 70%;
+        padding: 12px 15px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border:1px solid grey;
+    }
+
+    input[type="submit"]{
+        font-size: 20px;
+        color: white;
+        background-color: #3491f6;  
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        padding: 12px 20px;
+        border-radius: 10px;
+        margin: 20px 20%;
+    }
+    header{
+        background-image: url("blog-header.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .header{height: 400px;}
+
+    .error{color: red; 
+        font-style: italic;}
+    
+    .chuthich{font-style: italic;
+            font-size: 12px;
+            text-indent: 30px;}
+    .batbuoc{color: red;}
+    </style>
+</head>
+
+<body onload='namsinh(), ngaysinh(), thangsinh()'>
+    <!-- <header>
+    <div class="header"></div>
+</header> -->
+    <div class="dangky">
+    <h1>Đăng ký thành viên</h1>
+    <p style="font-style: italic; color: red">Các trường có đánh dấu sao (<span class="batbuoc">*</span>) là bắt buộc</p>
+    <form action="result.html" id="form-register">
+        <p>Họ và tên<span class="batbuoc">*</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="hang1" type="text" name="lastname" id="lastname" placeholder="Họ" />
+            <input class="hang1" type="text" name="middlename" placeholder="Tên đệm (không bắt buộc)"/>
+            <input class="hang1" type="text" name="firstname" id="firstname" placeholder="Tên" />
+            <span class="error"></span></p>
+        <p>Ngày sinh<span class="batbuoc">*</span>:&nbsp;&nbsp;&nbsp;
+            <select name="day" id="day">
+                <option> Chọn ngày sinh ...</option>
+            </select>
+            <select name="month" id="month">
+                <option> Chọn tháng sinh ...</option>
+            </select>
+            <select name="year" id="year">
+                <option> Chọn năm sinh ...</option>
+            </select><span class="error"></span></p>
+        <p>Giới tính<span class="batbuoc">*</span>:&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" id="male" value="Nam" onclick="show1()" /><label for="male">Nam</label>
+            <input type="radio" name="gender" id="female" value="Nữ" onclick="show1()" /><label for="female">Nữ</label>
+            <input type="radio" name="gender" id="LGBT" onclick="show2()" /><label for="LGBT">LGBT</label>
+            <select name="LGBT" id="gioitinh" style="display: none;">
+                <option> Chọn giới tính ... </option>
+                <option value="Gay"> Gay </option>
+                <option value="Lesbian"> Lesbian </option>
+                <option value="Bisexual"> Bisexual </option>
+                <option value="Chuyển giới">Chuyển giới</option>
+            </select>
+            <input type="radio" name="gender" id="none" value="Không xác định" onclick="show1()" /><label for="none">Không
+                xác định</label>
+            <span class="error" id="chi"></span></p>
+
+        <p>Địa chỉ: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" class="hang2" id="address" name="address" placeholder="Địa chỉ"/></p>
+            <!-- <p id="address1" style="display: none">hhhhhhhhh</p> -->
+        <p> Số ĐT: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" class="hang2" id="phone" name="phone" placeholder="Điện thoại" onclick="goto(this)"/>
+            <span class="error"></span></p>
+            <p class="chuthich" id="phone1" style="display: none">* Số điện thoại di động không chứa ký tự đặc biệt như "."; ","; "-"; "@"</p>
+        <p> Email<span class="batbuoc">*</span>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" class="hang2" id="email" name="email" placeholder="Email"  onclick="goto(this)"/>
+            <span class="error"></span></p>
+            <p class="chuthich" id="email1" style="display: none">* Vui lòng điền địa chỉ email chính xác.
+                Địa chỉ email sẽ là tên đăng nhập của bạn. Địa chỉ email có dạng: id@example.com</p>
+        <p> Link Fb: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" class="hang2" id="facebook" name="facebook" placeholder="Địa chỉ Facebook"  onclick="goto(this)"/>
+            <span class="error"></span></p>
+            <p class="chuthich" id="facebook1" style="display: none">* Link facebook phải chứa fb.com hoặc facebook.com. 
+            Cách lấy đường dẫn link facebook: http://social68.com/lay-link-facebook/</p>
+        <p> Mật khẩu<span class="batbuoc">*</span>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="password" id="password" name="password" placeholder="Mật khẩu" onclick="goto(this)"/>
+            <span class="error"></span></p>
+        <p class="chuthich" id="password1" style="display: none">* Mật khẩu dài từ 6 - 40 ký tự, phải có ít nhất 1 chữ hoa,
+            1 chữ thường, 1 ký tự đặc biệt và không được có khoảng trắng</p>
+        <p> Xác nhận mật khẩu<span class="batbuoc">*</span>:
+            <input type="password" id="confirm" name="confirm-password" placeholder="Xác nhận mật khẩu" />
+            <span class="error"></span></p>
+
+        <input type="submit" value="Đăng ký thành viên" />
+    </form>
+    </div>
+    <script>
+        let d = document.getElementById("day");
+        let m = document.getElementById("month");
+        let y = document.getElementById("year");
+
+        function ngaysinh() {
+            for (i = 1; i <= 31; i++) {
+                d.insertAdjacentHTML('beforeend', `
+             <option value="${i}">${i}</option>
+            `)
+            }
+        }
+
+        function thangsinh() {
+            for (i = 1; i <= 12; i++) {
+                m.insertAdjacentHTML('beforeend', `
+             <option value="${i}">${i}</option>
+            `)
+            }
+        }
+
+        function namsinh() {
+            let n = 2000;
+            for (i = 0; i <= 60; i++) {
+                y.insertAdjacentHTML('beforeend', `
+             <option value="${n - i}">${n - i}</option>
+            `)
+            }
+        }
+        function show1() {
+            document.getElementById('gioitinh').style.display = 'none';
+        }
+        function show2() {
+            document.getElementById('gioitinh').style.display = 'inline-block';
+        }
+        
+        function goto(obj) {
+            // document.getElementById('address1').style.display= 'none';
+            document.getElementById('phone1').style.display= 'none';
+            document.getElementById('email1').style.display= 'none';
+            document.getElementById('password1').style.display= 'none';
+            document.getElementById(`${obj.id}1`).style.display="inline-block";
+        };
+        
+        
+ 
+    </script>
+    <script src="jquery-3.3.1.min.js">
+    </script>
+    <script>
+
+        let isValid = true;
+        $('#form-register').on('submit', function () {
+            if ($('#lastname').val().trim() == "" || $('#firstname').val().trim() == "") {
+                $('#firstname').next('span').text('Hãy điền đầy đủ họ tên!')
+                isValid = false;
+            } else {
+                $('#firstname').next('span').text('');
+            }
+
+            let ngay = $('#day').val();
+            let thang = $('#month').val();
+            let nam = $('#year').val();
+            if (isNaN(ngay) || isNaN(thang) || isNaN(nam)) {
+                $('#year').next('span').text(' Hãy điền đầy đủ ngày tháng năm sinh!')
+                isValid = false;
+            } else {
+                $('#year').next('span').text('');
+            }
+
+            if (!$("input[name='gender']:checked").val()) {
+                document.getElementById('chi').innerHTML = ' Hãy chọn giới tính';
+                isValid = false;
+            }
+            else {
+                document.getElementById('chi').innerHTML = '';
+            }
+
+            if ($('#gioitinh').val().trim() == "Chọn giới tính ...") {
+                document.getElementById('chi').innerHTML = ' Hãy chọn giới tính';
+                isValid = false;
+            }
+            else {
+                document.getElementById('chi').innerHTML = '';
+            }
+
+            let didong = $('#phone').val().trim();
+            didong = didong.replace('(+84)', '0');
+            didong = didong.replace('+84', '0');
+            didong = didong.replace('0084', '0');
+            didong = didong.replace(/ /g, '');
+
+            if (didong != '') {
+                let firstNumber = didong.substring(0, 2);
+                if ((firstNumber == '09' || firstNumber == '08' || firstNumber == '07' || firstNumber == '05' || firstNumber == '03') && didong.length == 10) { $('#phone').next('span').text(''); }
+                else {
+                    $('#phone').next('span').text('Hãy điền đúng số điện thoại!');
+                    isValid = false;
+                }
+            }
+
+            if ($('#email').val().match(/^((([!#$%&'*+\-/=?^_`{|}~\w])|([!#$%&'*+\-/=?^_`{|}~\w][!#$%&'*+\-/=?^_`{|}~\.\w]{0,}[!#$%&'*+\-/=?^_`{|}~\w]))[@]\w+([-.]\w+)*\.\w+([-.]\w+)*)$/) == null) {
+                $('#email').next('span').text(' Hãy điền địa chỉ email! Mẫu email: id@example.com')
+                isValid = false;
+            } else {
+                $('#email').next('span').text('');
+            }
+
+            if ($('#facebook').val().match(/(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/) == null) {
+                $('#facebook').next('span').text(' Hãy điền địa chỉ facebook hợp lệ!')
+                isValid = false;
+            } else {
+                $('#facebook').next('span').text('');
+            }
+
+            if ($('#password').val().match(/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])[\w\d!@#$%_]{6,40}$/) == null) {
+                $('#password').next('span').text('Hãy điền mật khẩu đúng quy định!')
+                isValid = false;
+            } else {
+                $('#password').next('span').text('');
+            }
+
+            if ($('#confirm').val() !== $('#password').val()) {
+                $('#confirm').next('span').text('Mật khẩu không khớp!')
+                isValid = false;
+            } else {
+                $('#confirm').next('span').text('');
+            }
+
+            return isValid;
+        });
+
+
+    </script>
+
+</body>
+
+</html>

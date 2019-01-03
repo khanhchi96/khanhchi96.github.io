@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Confirmation</title>
+</head>
+<body onload='gioitinh()'>
+    <h1>Đăng ký thành công</h1>
+    <p> Bạn đã đăng ký thành công!</p>
+    <p> Thông tin của bạn:</p>
+    <p id="name">Họ tên: </p>
+    <p id="birthday">Ngày sinh:</p>
+    <p id="gender">Giới tính:</p>
+    <p id="address">Địa chỉ:</p>
+    <p id="phone">Số ĐT:</p>
+    <p id="email">Email:</p>
+    <p> Cảm ơn bạn đã đăng ký dịch vụ của chúng tôi</p>
+
+    <script>
+
+        function GetURLParameter(sParam)
+{
+    let sPageURL = window.location.search.substring(1);
+    let sURLVariables = sPageURL.split('&');
+    for (i = 0; i < sURLVariables.length; i++)
+    {
+        let sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return decodeURIComponent(sParameterName[1]);
+        }
+    }
+}
+
+let lastname = GetURLParameter('lastname');
+let middlename= GetURLParameter('middlename');
+let firstname = GetURLParameter('firstname');
+let day = GetURLParameter('day');
+let month = GetURLParameter('month');
+let year = GetURLParameter('year');
+let gender= GetURLParameter('gender');
+let LGBT=GetURLParameter('LGBT');
+let address = GetURLParameter('address');
+let phone = GetURLParameter('phone');
+let email = GetURLParameter('email');
+
+
+document.getElementById("name").innerHTML="Họ tên: " + lastname + " " + middlename + " " + firstname;
+document.getElementById("birthday").innerHTML="Ngày sinh: " + day + " tháng " + month + " năm " + year; 
+function gioitinh(){
+    if (gender=="on"){document.getElementById("gender").innerHTML="Giới tính: " + LGBT.split("+").join(" ")}
+    else {document.getElementById("gender").innerHTML="Giới tính: " + gender}
+}
+document.getElementById("address").innerHTML="Địa chỉ: " + address.split("+").join(" ");
+document.getElementById("phone").innerHTML="Số điện thoại: " + phone.split("+").join(" ");
+document.getElementById("email").innerHTML="Email: " + email;
+    </script>
+</body>
+</html>
