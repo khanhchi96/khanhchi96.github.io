@@ -138,7 +138,7 @@
             <input type="password" id="confirm" name="confirm-password" placeholder="Xác nhận mật khẩu" />
             <span class="error"></span></p>
 
-        <input type="submit" value="Đăng ký thành viên" />
+        <input type="submit" id="submit" value="Đăng ký thành viên" />
     </form>
     </div>
     <div class="anh"><img src="tinder2.jpg"/></div>
@@ -180,6 +180,11 @@
             document.getElementById('facebook1').style.display= 'none';
             document.getElementById(`${obj.id}1`).style.display="inline-block";
         };
+
+        let play=document.getElementById('submit');
+        play.onclick = function(){
+            window.location.href = "result.html"
+        }
     </script>
     <script src="jquery-3.3.1.min.js">
     </script>
