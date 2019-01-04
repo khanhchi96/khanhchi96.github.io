@@ -210,15 +210,16 @@
             }
             else {
                 document.getElementById('chi').innerHTML = '';
-            }
-
-            if ($('#gioitinh').val().trim() == "Chọn giới tính ...") {
+                if($('#LGBT').prop('checked')){
+            if ($('#gioitinh').val() == "Chọn giới tính ...") {
                 document.getElementById('chi').innerHTML = ' Hãy chọn giới tính!';
                 isValid = false;
             }
             else {
                 document.getElementById('chi').innerHTML = '';
+            }}
             }
+            
 
             let didong = $('#phone').val().trim();
             didong = didong.replace('(+84)', '0');
@@ -268,7 +269,8 @@
             return isValid;
         });
 
-
+        
+           
     </script>
 
 </body>
