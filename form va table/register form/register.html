@@ -9,11 +9,13 @@
     <style>
 
     .dangky{box-sizing: border-box;
-        margin: 50px auto;
+        margin: 20px auto;
+        position: absolute;
+        float: left;
+        background-color: #fef3f5;
        }
         input[type=text] {
         padding: 10px 15px;
-        max-width: 50%;
         margin: 8px 0;
         box-sizing: border-box;
         border-radius: 10px;
@@ -27,7 +29,8 @@
         width: 610px;
     }
     p{text-indent: 50px;}
-    h1{margin-left: 50px;}
+    h1{margin-left: 50px;
+    margin-top: 20px;}
     input[type="password"]{
         max-width: 70%;
         padding: 12px 15px;
@@ -43,7 +46,7 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
         padding: 12px 20px;
         border-radius: 10px;
-        margin: 20px 20%;
+        margin: 30px 300px;
     }
     header{
         background-image: url("blog-header.png");
@@ -55,19 +58,26 @@
     .header{height: 400px;}
 
     .error{color: red; 
-        font-style: italic;}
+        font-style: italic;
+        font-size: 13px;}
     
     .chuthich{font-style: italic;
-            font-size: 12px;
+            font-size: 13px;
             text-indent: 30px;}
     .batbuoc{color: red;}
+    .anh{
+    float: right;
+    width: 500px;
+    }
+    img{max-height: 800px;}
+   
+
     </style>
 </head>
 
-<body onload='namsinh(), ngaysinh(), thangsinh()'>
-    <!-- <header>
-    <div class="header"></div>
-</header> -->
+<body onload='birthday()'>
+
+<div id="content" class="content">
     <div class="dangky">
     <h1>Đăng ký thành viên</h1>
     <p style="font-style: italic; color: red">Các trường có đánh dấu sao (<span class="batbuoc">*</span>) là bắt buộc</p>
@@ -131,28 +141,24 @@
         <input type="submit" value="Đăng ký thành viên" />
     </form>
     </div>
+    <div class="anh"><img src="tinder2.jpg"/></div>
+    </div>
     <script>
         let d = document.getElementById("day");
         let m = document.getElementById("month");
         let y = document.getElementById("year");
 
-        function ngaysinh() {
+        function birthday() {
             for (i = 1; i <= 31; i++) {
                 d.insertAdjacentHTML('beforeend', `
              <option value="${i}">${i}</option>
             `)
             }
-        }
-
-        function thangsinh() {
             for (i = 1; i <= 12; i++) {
                 m.insertAdjacentHTML('beforeend', `
              <option value="${i}">${i}</option>
             `)
             }
-        }
-
-        function namsinh() {
             let n = 2000;
             for (i = 0; i <= 60; i++) {
                 y.insertAdjacentHTML('beforeend', `
@@ -168,15 +174,12 @@
         }
         
         function goto(obj) {
-            // document.getElementById('address1').style.display= 'none';
             document.getElementById('phone1').style.display= 'none';
             document.getElementById('email1').style.display= 'none';
             document.getElementById('password1').style.display= 'none';
+            document.getElementById('facebook1').style.display= 'none';
             document.getElementById(`${obj.id}1`).style.display="inline-block";
         };
-        
-        
- 
     </script>
     <script src="jquery-3.3.1.min.js">
     </script>
@@ -210,7 +213,7 @@
             }
 
             if ($('#gioitinh').val().trim() == "Chọn giới tính ...") {
-                document.getElementById('chi').innerHTML = ' Hãy chọn giới tính';
+                document.getElementById('chi').innerHTML = ' Hãy chọn giới tính!';
                 isValid = false;
             }
             else {
@@ -239,11 +242,13 @@
                 $('#email').next('span').text('');
             }
 
+            if (didong != '') {
             if ($('#facebook').val().match(/(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/) == null) {
                 $('#facebook').next('span').text(' Hãy điền địa chỉ facebook hợp lệ!')
                 isValid = false;
             } else {
                 $('#facebook').next('span').text('');
+            }
             }
 
             if ($('#password').val().match(/^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])[\w\d!@#$%_]{6,40}$/) == null) {

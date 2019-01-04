@@ -5,19 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register Confirmation</title>
+
+    <style>
+        h1{
+            font-weight: bold;
+            font-size: 60px;
+            margin-left: 50px;
+        }
+
+        li{
+           margin: 10px 50px;
+        }
+
+        .info{font-style: italic;
+        font-weight: bold;
+        text-indent: 50px;}
+
+        .content{
+    
+            margin: 150px auto;
+        }
+
+    </style>
 </head>
 <body onload='gioitinh()'>
-    <h1>Đăng ký thành công</h1>
-    <p> Bạn đã đăng ký thành công!</p>
-    <p> Thông tin của bạn:</p>
-    <p id="name">Họ tên: </p>
-    <p id="birthday">Ngày sinh:</p>
-    <p id="gender">Giới tính:</p>
-    <p id="address">Địa chỉ:</p>
-    <p id="phone">Số ĐT:</p>
-    <p id="email">Email:</p>
-    <p> Cảm ơn bạn đã đăng ký dịch vụ của chúng tôi</p>
-
+<div class="content">
+    <h1>Đăng ký thành công!</h1>
+    <p class='confirm info'> Bạn đã đăng ký thành công!</p>
+    <p class='confirm info'> Thông tin của bạn:</p>
+    <ul>
+    <li class='confirm' id="name">Họ tên:</li>
+    <li class='confirm' id="birthday">Ngày sinh:</li>
+    <li class='confirm' id="gender">Giới tính:</li>
+    <li class='confirm' id="address">Địa chỉ:</li>
+    <li class='confirm' id="phone">Số điện thoại:</li>
+    <li class='confirm' id="email">Email:</li>
+    </ul>
+    <p class='confirm info'> Cảm ơn bạn đã đăng ký dịch vụ của chúng tôi!</p>
+</div>
     <script>
 
         function GetURLParameter(sParam)
