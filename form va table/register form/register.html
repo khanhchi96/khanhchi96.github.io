@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register Form</title>
     <style>
-
     .dangky{box-sizing: border-box;
         margin: 20px auto;
         position: absolute;
@@ -38,7 +37,6 @@
         border-radius: 10px;
         border:1px solid grey;
     }
-
     input[type="submit"]{
         font-size: 20px;
         color: white;
@@ -54,9 +52,7 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
     .header{height: 400px;}
-
     .error{color: red; 
         font-style: italic;
         font-size: 13px;}
@@ -71,7 +67,6 @@
     }
     img{max-height: 800px;}
    
-
     </style>
 </head>
 
@@ -138,7 +133,7 @@
             <input type="password" id="confirm" name="confirm-password" placeholder="Xác nhận mật khẩu" />
             <span class="error"></span></p>
 
-        <input type="submit" id="submit" value="Đăng ký thành viên" />
+        <input type="submit" value="Đăng ký thành viên" />
     </form>
     </div>
     <div class="anh"><img src="tinder2.jpg"/></div>
@@ -147,7 +142,6 @@
         let d = document.getElementById("day");
         let m = document.getElementById("month");
         let y = document.getElementById("year");
-
         function birthday() {
             for (i = 1; i <= 31; i++) {
                 d.insertAdjacentHTML('beforeend', `
@@ -180,25 +174,19 @@
             document.getElementById('facebook1').style.display= 'none';
             document.getElementById(`${obj.id}1`).style.display="inline-block";
         };
-
-        let play=document.getElementById('submit');
-        play.onclick = function(){
-            window.location.href = "result.html"
-        }
     </script>
     <script src="jquery-3.3.1.min.js">
     </script>
     <script>
-
-        let isValid = true;
+        
         $('#form-register').on('submit', function () {
+            let isValid = true;
             if ($('#lastname').val().trim() == "" || $('#firstname').val().trim() == "") {
                 $('#firstname').next('span').text('Hãy điền đầy đủ họ tên!')
                 isValid = false;
             } else {
                 $('#firstname').next('span').text('');
             }
-
             let ngay = $('#day').val();
             let thang = $('#month').val();
             let nam = $('#year').val();
@@ -209,6 +197,7 @@
                 $('#year').next('span').text('');
             }
 
+            
             if (!$("input[name='gender']:checked").val()) {
                 document.getElementById('chi').innerHTML = ' Hãy chọn giới tính';
                 isValid = false;
@@ -225,13 +214,11 @@
             }}
             }
             
-
             let didong = $('#phone').val().trim();
             didong = didong.replace('(+84)', '0');
             didong = didong.replace('+84', '0');
             didong = didong.replace('0084', '0');
             didong = didong.replace(/ /g, '');
-
             if (didong != '') {
                 let firstNumber = didong.substring(0, 2);
                 if ((firstNumber == '09' || firstNumber == '08' || firstNumber == '07' || firstNumber == '05' || firstNumber == '03') && didong.length == 10) { $('#phone').next('span').text(''); }
@@ -270,10 +257,8 @@
             } else {
                 $('#confirm').next('span').text('');
             }
-
             return isValid;
         });
-
         
            
     </script>
