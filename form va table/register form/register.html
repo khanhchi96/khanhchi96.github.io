@@ -178,9 +178,9 @@
     <script src="jquery-3.3.1.min.js">
     </script>
     <script>
-        
+        let isValid = true;
         $('#form-register').on('submit', function () {
-            let isValid = true;
+            
             if ($('#lastname').val().trim() == "" || $('#firstname').val().trim() == "") {
                 $('#firstname').next('span').text('Hãy điền đầy đủ họ tên!')
                 isValid = false;

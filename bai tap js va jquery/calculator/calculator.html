@@ -14,6 +14,8 @@ body {
 .container {
     float: left;
   display: grid;
+  /* border: 2px solid black; */
+  padding: 10px;
   justify-content: left;
   margin-left: 10%;
   grid-template-columns: 80px 80px 80px 80px;
@@ -55,6 +57,8 @@ font-size: 40px;
   text-align: right;
   font-size: 60px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* border: 1px solid black; */
+  padding: 10px;
 }
 .btn {
   background-color: dimgray;
@@ -122,7 +126,7 @@ button:hover {
         <button class="btn black" onclick="press(this)" value= "+">+</button>
         
         <button class ="btn" onclick="reset()">R</button>
-        <button class="btn" onclick="press(this)">0</button>
+        <button class="btn" onclick="press(this)" value="0">0</button>
         <button class="btn" onclick="press(this)" value=".">.</button>
         <button class="btn black" onclick="sum()">=</button>
     </div>
@@ -135,8 +139,8 @@ button:hover {
             console.log(document.getElementById("header").innerHTML)
           }
           function sum(){
-            // document.getElementById("header").innerHTML += button.innerHTML;
-            document.getElementById("header").innerHTML = eval(document.getElementById("header").innerHTML) 
+            document.getElementById("header").innerHTML=eval(document.getElementById("header").innerHTML);
+
           }
 
           function reset() {
