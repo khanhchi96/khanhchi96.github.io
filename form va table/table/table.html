@@ -55,6 +55,23 @@ border: 1px solid grey}
 #birth, #gender {width: 110px;}
 #phone{width: 150px;}
 
+
+
+.hang1 .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+.tooltiptext{margin-top: 30px;}
+.hang1:hover .tooltiptext {
+  visibility: visible;
+}
 </style>
 
 </head>
@@ -63,12 +80,18 @@ border: 1px solid grey}
     <table id="myTable">
         <thead>
           <tr>
-            <th class="hang1" id="name" onclick="sorttable(0, this), goto(this)">Tên học viên <span id="name1"></span></th>
-            <th class="hang1" id="image" onclick="sorttable(1, this), goto(this)">Ảnh chân dung<span id="image1"></span></th>
-            <th class="hang1" id="birth" onclick="sorttable(2, this), goto(this)">Năm sinh<span id="birth1"></span></th>
-            <th class="hang1" id="gender" onclick="sorttable(3, this), goto(this)">Giới tính<span id="gender1"></span></th>
-            <th class="hang1" id="email" onclick="sorttable(4, this), goto(this)">Email<span id="email1"></span></th>
-            <th class="hang1" id="phone" onclick="sorttable(5, this), goto(this)">Số điện thoại<span id="phone1"></span></th>
+            <th class="hang1" id="name" onclick="sorttable(0, this), goto(this)">Tên học viên 
+              <span class="tooltiptext">Click to sort</span><span id="name1"></span></th>
+            <th class="hang1" id="image" onclick="sorttable(1, this), goto(this)">Ảnh chân dung
+             <span id="image1"></span></th>
+            <th class="hang1" id="birth" onclick="sorttable(2, this), goto(this)">Năm sinh
+              <span class="tooltiptext">Click to sort</span><span id="birth1"></span></th>
+            <th class="hang1" id="gender" onclick="sorttable(3, this), goto(this)">Giới tính
+              <span class="tooltiptext">Click to sort</span><span id="gender1"></span></th>
+            <th class="hang1" id="email" onclick="sorttable(4, this), goto(this)">Email
+              <span class="tooltiptext">Click to sort</span><span id="email1"></span></th>
+            <th class="hang1" id="phone" onclick="sorttable(5, this), goto(this)">Số điện thoại
+              <span class="tooltiptext">Click to sort</span><span id="phone1"></span></th>
           </tr>
         </thead>
         <tbody>
