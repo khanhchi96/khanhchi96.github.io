@@ -5,49 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Image Gallery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/image-gallery-style.css">
-    <link rel="stylesheet" type="text/css" href="css/style-menu.css">
 
-
+<style>
+    nav{font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 20px;}
+</style>
 </head>
 
 <body>
 
 <header>
-<div style="float: left; width:12%;">
-<a href="image-gallery.html"><img src="img/logo-audi.png" title="Audi" 
-style="max-width:100%; height:40px; margin-left:20%;"/></a>
-</div>
 
-<div style="float:right; width:88%;">
-<ul>
-        <li><a href="image-gallery.html" id="trangchu" class="menu">Home</a></li>
-        <li><a href="about.html"class="menu">About</a></li>
-        <li class="serial-models">
-                <a href="javascript:void(0)" class="model menu">Serial models</a>
-                <div class="model-content">
-                  <a href="A1.html">Audi A1</a>
-                  <a href="A3.html">Audi A3</a>
-                  <a href="A4.html">Audi A4</a>
-                  <a href="A5.html">Audi A5</a>
-                  <a href="A6.html">Audi A6</a>
-                  <a href="A7.html">Audi A7</a>
-                  <a href="A8.html">Audi A8</a>
-                  <a href="Q2.html">Audi Q2</a>
-                  <a href="Q3.html">Audi Q3</a>
-                  <a href="Q5.html">Audi Q5</a>
-                  <a href="Q7.html">Audi A7</a>
-                  <a href="Q8.html">Audi A8</a>
-                  <a href="TT.html">Audi TT</a>
-                  <a href="etron.html">Audi e-tron</a>
-                </div>
-              </li>
-        <li><a href="contact.html"class="menu">Contact</a></li>
-</ul>
-</div>     
+<nav class="navbar navbar-light bg-light" style="float: left;">
+  <a class="navbar-brand" href="image-gallery.html">
+    <img src="img/logo-audi.png" width="60" height="30" alt="Audi">
+  </a>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="image-gallery.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Serial Models
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="A1.html">Audi A1</a>
+          <a class="dropdown-item" href="A3.html">Audi A3</a>
+          <a class="dropdown-item" href="A4.html">Audi A4</a>
+          <a class="dropdown-item" href="A5.html">Audi A5</a>
+          <a class="dropdown-item" href="A6.html">Audi A6</a>
+          <a class="dropdown-item" href="A7.html">Audi A7</a>
+          <a class="dropdown-item" href="A8.html">Audi A8</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="Q2.html">Audi Q2</a>
+          <a class="dropdown-item" href="Q3.html">Audi Q3</a>
+          <a class="dropdown-item" href="Q5.html">Audi Q5</a>
+          <a class="dropdown-item" href="Q7.html">Audi Q7</a>
+          <a class="dropdown-item" href="Q8.html">Audi Q8</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="TT.html">Audi TT</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="etron.html">Audi e-tron</a>
+        </div>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+    </ul>
+  </div>
+</nav>
+
+
 </header>
-
-
+</section>
 
 <div id="background">
     <img src="img/background.jpg" style="width:100%; height: auto;"/>
@@ -146,22 +169,28 @@ style="max-width:100%; height:40px; margin-left:20%;"/></a>
     <a href="Q8.html"><p class="tensp"> Audi Q8 </p></a>
 </div> 
 
-<div class="anh trai" style="width:50%;">
+<div class="anh trai">
     <a href="TT.html"><img src="img/TT_1.jpg" id="TT" class ="anhtrangchu" title="Audi TT" alt="Audi TT"/></a>
     <p class="serial-models"><span>Serial Models</span></p>
     <a href="TT.html"><p class="tensp"> Audi TT </p></a>
 </div> 
 
-<div class="anh giua" style="width:50%; margin-bottom: 50px;">
+<div class="anh giua" style="margin-bottom: 50px;">
     <a href="etron.html"><img src="img/etron_1.jpg" id="etron" class ="anhtrangchu" title="Audi  e-Tron" alt="Audi e-tron"/></a>
     <p class="serial-models"><span>Serial Models</span></p>
     <a href="etron.html"><p class="tensp"> Audi e-tron </p></a>
 </div> 
 
 <div id="back-to-top">
-        <a href=#trangchu><img src="img/back-to-top.png" style="width:50px; height:auto;"/></a>
+        <a href=#trangchu><img src="img/back-to-top.png" style="width:50px; height:auto; display: none"/></a>
 </div>
-    
+</section>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+
+</script>
 </body>
 </html>
