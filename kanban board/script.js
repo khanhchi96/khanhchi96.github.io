@@ -26,10 +26,15 @@ let list = DB.getData();
 
 
         function deleteJob (span){
-           
+            let btn = $('#deleteconfirm')
             let del = $(span).parent().parent();
-            $('#myModal').show();
-            $('#deleteconfirm').on('click', function(){
+            $('#myModal').show();          
+            btn.off('click');  
+            btn.on('click', function(){    
+                let columnType = del.parent().attr('id');
+                let delPosition = $('#' + columnType + '.item').index(del);
+                list[columnType].splice(delPosition, 1);
+                DB.setData(list);
                 del.remove();
                 $('#myModal').hide();
             });
