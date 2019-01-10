@@ -73,7 +73,7 @@ h5{
 .card {
         width: 280px;  
         border-radius: 20px;
-        padding: 10px 10px 20px 10px;
+        padding: 10px 10px 30px 10px;
         margin-bottom: 20px;}
 @media (max-width: 1300px){
     .col, .row, .container {margin: 20px auto;}
@@ -103,6 +103,14 @@ h5{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     position: relative;
+}
+
+.addme{
+    display:none;
+}
+
+.sorted-list:empty .addme{
+    display: block;
 }
 
 .nd{
