@@ -33,7 +33,8 @@ h5{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #fb0235;
     font-size: 30px;
-    margin: 0 0 10px 0;
+    margin: 0 auto 10px auto;
+    width: 210px;
 }
 
 
