@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <nav>
+    <div class="logo">
+      <h1>Kanban Board</h1>
+    </div>
+  </nav>
+
+  <section class="container">
+   
+    <div class="row">
+        <div class="col m1">
+                <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;To Do</h5>
+            <div class="card c1">
+                <div id="todo1" class="sorted-list">
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvinnn</p></div></div>
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>         
+                </div>
+                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="todo2" onkeyup="return displayWordCounter()"><button class="add" id="todo" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col m2">
+            <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;Planning</h5>
+            <div class="card c2">
+                <div id="planning1" class="sorted-list">
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>                    
+                </div>
+                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="planning2" onkeyup="return displayWordCounter()"><button class="add" id='planning' onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+            </div>
+        </div>
+    </div>
+   
+   
+    <div class="row">
+        <div class="col m3">
+            <h5><i class="fas fa-align-left"></i>&nbsp;In Progress</h5>
+            <div class="card c3">
+                <div id="doing1" class="sorted-list">
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>                   
+                </div>
+                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="doing2" onkeyup="return displayWordCounter()"><button class="add" id="doing" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col m4">
+            <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;Done</h5>
+            <div class="card c4">
+                <div id="done1" class= "sorted-list">
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>
+                <div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">Alvin</p></div></div>                
+                </div>
+                <div class="new"><input type="text" placeholder="New job..." id="done2" onkeyup="return displayWordCounter()"/><button class="add" id="done" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+    
+<div id="myModal" class="modal">
+
+    <div class="modal-content">
+            <span id="close">&times;</span>
+      <p>Are you sure you want to delete me?</p>
+      <div class="confirmmodal">
+      <button type="button" id="deleteconfirm">Delete</button>
+    <button type="button" id="cancel">Cancel</button>
+    </div>
+    </div>
+  
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+
+        function deleteJob (span){
+           
+            let del = $(span).parent().parent();
+            $('#myModal').show();
+            $('#deleteconfirm').on('click', function(){
+                del.remove();
+                $('#myModal').hide();
+            });
+            $('#cancel').on('click', function(){
+                $('#myModal').hide();
+            }); 
+            $('#close').on('click', function(){
+                $('#myModal').hide();
+            }); 
+        }
+
+
+        function newJob (obj){
+            let jobName = $('#' + `${obj.id}2`).val();
+            let item ='<div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">' + jobName +'</p></div></div>';
+            $('#' + `${obj.id}1`).append(item);
+            $('#' + `${obj.id}2`).val('')
+
+        }
+
+        function displayWordCounter(){
+                $('#done2').val($('#done2').val().substr(0, 62));
+                $('#doing2').val($('#doing2').val().substr(0, 62));
+                $('#planning2').val($('#planning2').val().substr(0, 62));
+                $('#todo2').val($('#todo2').val().substr(0, 62));
+                
+        }
+        
+            $( function() {
+              $( ".sorted-list" ).sortable({
+                connectWith: ".sorted-list",
+                placeholder: "ui-state-highlight",
+                start: function(event, ui){
+                    $(ui.item[0]).addClass('dragging');
+                },
+                stop: function(event, ui){
+                    $(ui.item[0]).removeClass('dragging');
+                }
+              });
+            } );
+            </script>
+          
+
+</body>
+</html>
