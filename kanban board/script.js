@@ -59,7 +59,7 @@ let list = DB.getData();
                 
         }
         
-        let app={newJob(obj){}, deleteJob(span){}}
+       
 
             $( function() {
 
