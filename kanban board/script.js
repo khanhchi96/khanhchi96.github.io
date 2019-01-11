@@ -54,12 +54,13 @@ let list = DB.getData();
         function newJob (obj){
             let jobName = $('#' + `${obj.id}2`).val();
             let item ='<div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">' + jobName +'</p></div></div>';
-           if (!list[`${obj.id}1`]) list[`${obj.id}1`] = [];
+            if(jobName.trim() !== ''){
+            if (!list[`${obj.id}1`]) list[`${obj.id}1`] = [];
            list[`${obj.id}1`].push(item);
            DB.setData(list);
             $('#' + `${obj.id}1`).append(item);
             $('#' + `${obj.id}2`).val('')
-        }
+        }};
 
 
         function addJob(e, type, input){
