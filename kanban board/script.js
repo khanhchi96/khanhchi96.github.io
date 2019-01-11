@@ -22,26 +22,33 @@ let DB = {
     }
 }
 
+
+
 let list = DB.getData();
 
 
         function deleteJob (span){
+            
             let btn = $('#deleteconfirm')
             let del = $(span).parent().parent();
+
             $('#myModal').show();          
             btn.off('click');  
             btn.on('click', function(){    
                 let columnType = del.parent().attr('id');
-                let delPosition = $('#' + columnType + '.item').index(del);
+                let delPosition = $(`#${columnType} .item`).index(del);
                 list[columnType].splice(delPosition, 1);
                 DB.setData(list);
                 del.remove();
                 $('#myModal').hide();
             });
+           
+
             $('#cancel, #close').on('click', function(){
                 $('#myModal').hide();
             }); 
         }
+
 
 
         function newJob (obj){
@@ -50,19 +57,30 @@ let list = DB.getData();
            if (!list[`${obj.id}1`]) list[`${obj.id}1`] = [];
            list[`${obj.id}1`].push(item);
            DB.setData(list);
-           
             $('#' + `${obj.id}1`).append(item);
             $('#' + `${obj.id}2`).val('')
-
         }
 
-        function displayWordCounter(){
+
+        function addJob(e, type, input){
+            let newItem = $(input).val();
+            let addedItem='<div class="item"><div class="item-content"><span onclick="deleteJob(this)"><i class="fas fa-trash-alt"></i></span><p class="nd">' +  newItem +'</p></div></div>';
+            let event=window.event || e;
+            if(event.keyCode === 13 && newItem.trim() !== ''){
+                if(!list[type]) list[type] = [];
+                list[type].push(addedItem);
+                DB.setData(list);
+                $('#' + type).append(addedItem);   
+                $(input).val('');
+            }
                 $('#done2').val($('#done2').val().substr(0, 62));
                 $('#doing2').val($('#doing2').val().substr(0, 62));
                 $('#planning2').val($('#planning2').val().substr(0, 62));
                 $('#todo2').val($('#todo2').val().substr(0, 62));
+        };
+            
                 
-        }
+        
         
        
 
@@ -72,6 +90,7 @@ let list = DB.getData();
                     let columnType = list[type] || [];
                     columnType.forEach(function(job){
                         $('#' + type).append(job);
+                        
                     })
                 });
 

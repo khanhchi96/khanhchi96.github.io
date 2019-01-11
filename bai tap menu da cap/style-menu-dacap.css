@@ -1,6 +1,7 @@
-.main{width: 100%; background: #eee;}
+.main{max-width: 80%;}
 /*General Menu Styling*/
-.mainnav{margin: 0 auto}
+.mainnav{margin: 0 auto;
+overflow: hidden;}
 li{list-style: none;}
 li a{text-decoration: none;}
 .dropdown{position: absolute; 
@@ -15,13 +16,13 @@ li a{text-decoration: none;}
 .mainnav li{
     float: left;
     padding: 5px;
-    background: maroon;
-    border-left: 1px dotted #fff;}
+    background: #fff;}
+   
 .mainnav li:first-child{border: none;}
 .mainnav li a{ 
     display: block;
     padding: 2px 20px;
-    color: #fff;
+    color: #626262;
     font-family: arial;}
 .mainnav li:hover{
     background: #fff;
@@ -29,7 +30,7 @@ li a{text-decoration: none;}
     -moz-transition: ease-in .35s;
     -webkit-transition: ease-in .35s;}
 .mainnav li:hover a{
-    color: maroon;
+    color: #626262;
     transition: ease-in .35s;
     -moz-transition: ease-in .35s;
     -webkit-transition: ease-in .35s;}
@@ -47,14 +48,14 @@ li a{text-decoration: none;}
     transition: ease-in .35s;
     -moz-transition: ease-in .35s;
     -webkit-transition: ease-in .35s;}
-.mainnav li:hover ul a,.mainnav li:hover ul li ul li a{color: white;}
+.mainnav li:hover ul a,.mainnav li:hover ul li ul li a{color:#626262;}
 .mainnav li ul li:hover,.mainnav li ul li ul li:hover{
     background: #fff;
     transition: ease-in-out .35s;
     -moz-transition: ease-in-out .35s;
     -webkit-transition: ease-in-out .35s;}
 .mainnav li ul li:hover a,.mainnav li ul li ul li:hover a{
-    color: maroon;
+    color: #626262;
     transition: ease-in-out .35s;
     -moz-transition: ease-in-out .35s;
     -webkit-transition: ease-in-out .35s;}
@@ -74,3 +75,5 @@ li a{text-decoration: none;}
     transition: ease-out .35s;
     -moz-transition: ease-out .35s;
     -webkit-transition: ease-out .35s;}
+
+    

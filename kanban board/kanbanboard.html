@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="wrap">
     <nav>
     <div class="logo">
       <h1>Kanban Board</h1>
@@ -24,7 +25,7 @@
                 <div id="todo1" class="sorted-list">
                       
                 </div>
-                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="todo2" onkeyup="return displayWordCounter()"><button class="add" id="todo" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="todo2" onkeydown = "addJob(event, 'todo1', this)"><button class="add" id="todo" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
             </div>
         </div>
     </div>
@@ -36,7 +37,7 @@
                 <div id="planning1" class="sorted-list">
                                    
                 </div>
-                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="planning2" onkeyup="return displayWordCounter()"><button class="add" id='planning' onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="planning2" onkeydown = "addJob(event, 'planning1', this)"><button class="add" id='planning' onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
             </div>
         </div>
     </div>
@@ -49,7 +50,7 @@
                 <div id="doing1" class="sorted-list">
                 
                 </div>
-                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="doing2" onkeyup="return displayWordCounter()"><button class="add" id="doing" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="doing2" onkeydown = "addJob(event, 'doing1', this)"><button class="add" id="doing" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
             </div>
         </div>
     </div>
@@ -61,7 +62,7 @@
                 <div id="done1" class= "sorted-list">
                
                 </div>
-                <div class="new"><input type="text" placeholder="New job..." id="done2" onkeyup="return displayWordCounter()"/><button class="add" id="done" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+                <div class="new"><input type="text" placeholder="New job..." id="done2" onkeydown = "addJob(event, 'done1', this)"/><button class="add" id="done" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
             </div>
         </div>
     </div>
@@ -80,9 +81,9 @@
     </div>
   
   </div>
+</div>
 
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="script.js"></script>
           
