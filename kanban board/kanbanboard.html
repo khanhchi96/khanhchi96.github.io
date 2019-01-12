@@ -20,50 +20,62 @@
    
     <div class="row">
         <div class="col m1">
-                <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;&nbsp;To Do</h5>
-            <div class="card c1 sorted-list">
+            <h5><i class="fas fa-align-left"></i>&nbsp;To Do<span id="todo1a">&nbsp;(0)</span></h5>
+            <h6>Maximum: <input type ='number' min="0" max="20" id="todo1c" onkeyup='saveValue(this);' onclick='saveValue(this);'/> job(s)</h6>
+            <div class="card c1">
                 <div id="todo1" class="sorted-list">
+                        <span class="spanClass">&nbsp;</span>
                       
                 </div>
-                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="todo2" onkeydown = "addJob(event, 'todo1', this)"><button class="add" id="todo" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+                <div class="new" id='todo1b'><input type="text" name="newjob" placeholder="New job..." id="todo2" onkeydown = "addJob(event, 'todo1', this)"><button class="add" id="todo" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
             </div>
+           
         </div>
     </div>
 
     <div class="row">
         <div class="col m2">
-            <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;Planning</h5>
-            <div class="card c2 sorted-list">
+            <h5 id='pl'><i class="fas fa-align-left"></i>&nbsp;Planning<span id="planning1a">&nbsp;(0)</span></h5>
+            <h6>Maximum: <input type ='number' min="0" max="20" id="planning1c" onkeyup='saveValue(this);' onclick='saveValue(this);'/> job(s)</h6>
+            <div class="card c2">
                 <div id="planning1" class="sorted-list">
+                        <span class="spanClass">&nbsp;</span>
                                    
                 </div>
-                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="planning2" onkeydown = "addJob(event, 'planning1', this)"><button class="add" id='planning' onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+                <div class="new" id="planning1b"><input type="text" name="newjob" placeholder="New job..." id="planning2" onkeydown = "addJob(event, 'planning1', this)"><button class="add" id='planning' onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
             </div>
+           
         </div>
     </div>
    
    
     <div class="row">
         <div class="col m3">
-            <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;&nbsp;Doing</h5> 
-            <div class="card c3 sorted-list">
+            <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;Doing<span id="doing1a">&nbsp;(0)</span></h5> 
+            <h6>Maximum: <input type ='number' min="0" max="20" id="doing1c" onkeyup='saveValue(this);' onclick='saveValue(this);'/> job(s)</h6>
+            <div class="card c3">
                 <div id="doing1" class="sorted-list">
+                        <span class="spanClass">&nbsp;</span>
                 
                 </div>
-                <div class="new"><input type="text" name="newjob" placeholder="New job..." id="doing2" onkeydown = "addJob(event, 'doing1', this)"><button class="add" id="doing" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+                <div class="new" id="doing1b"><input type="text" name="newjob" placeholder="New job..." id="doing2" onkeydown = "addJob(event, 'doing1', this)"><button class="add" id="doing" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
             </div>
+            
         </div>
     </div>
 
     <div class="row">
         <div class="col m4">
-            <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;Done</h5>
-            <div class="card c4 sorted-list">
+            <h5><i class="fas fa-align-left"></i>&nbsp;&nbsp;Done<span id="done1a">&nbsp;(0)</span></h5>
+            <h6>&nbsp;</h6>
+            <div class="card c4">
                 <div id="done1" class= "sorted-list">
+                        <span class="spanClass">&nbsp;</span>
                
                 </div>
-                <div class="new"><input type="text" placeholder="New job..." id="done2" onkeydown = "addJob(event, 'done1', this)"/><button class="add" id="done" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
+                <div class="new" id="done1b"><input type="text" placeholder="New job..." id="done2" onkeydown = "addJob(event, 'done1', this)"/><button class="add" id="done" onclick="newJob(this)"><i class="fas fa-plus"></i></button></div>
             </div>
+   
         </div>
     </div>
 
