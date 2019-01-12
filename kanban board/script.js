@@ -126,16 +126,23 @@ let list = DB.getData();
                     })
                 });
 
-
+                // if($('#planning1 .item').length ===1){
+                //     $('#todo1, #planning1, #doing1').sortable({
+                //         connectWith: "#todo1, #doing1",
+                //     })
+                // }
               $( ".sorted-list" ).sortable({
                 connectWith: ".sorted-list", 
                 placeholder: "ui-state-highlight",
+                
                 start: function (event, ui){
                     $(ui.item[0]).addClass('dragging');
                 ui.item.oldColumnType = ui.item.parent().attr('id');
                 ui.item.oldItemPosition = ui.item.index();
+                
                     
                 },
+                
                 stop: function (event, ui){
                     $(ui.item[0]).removeClass('dragging');
 
@@ -147,10 +154,18 @@ let list = DB.getData();
 
                     let html = a[0].outerHTML;  
                     
+                if ($(`#${newColumnType} .item`).length >  document.getElementById(`${newColumnType}c`).value){
+                    return false;
+                }
+        
+                    
                     if(!list[oldColumnType]) list[oldColumnType] = [];
                     list[oldColumnType].splice(oldItemPosition-1, 1);
                     if(!list[newColumnType]) list[newColumnType] = [];
                     list[newColumnType].splice(newItemPosition-1, 0, html);
+                    
+                        
+                    
                 
                     DB.setData(list);
                     document.getElementById(`${oldColumnType}a`).innerHTML = ' (' + $(`#${oldColumnType} .item`).length + ')';
@@ -160,12 +175,23 @@ let list = DB.getData();
                     document.getElementById(`${newColumnType}a`).innerHTML = ' (' + $(`#${newColumnType} .item`).length + ')';
                     if( $(`#${newColumnType} .item`).length ==  document.getElementById(`${newColumnType}c`).value){
                         document.getElementById(newColumnType + 'b').style.display='none';
+                        
+                       
+                      
+                    
+                    
                     }
+
+                    
+                
+                    
                 },
+               
               });
+              
             } );
 
-
+           
         document.getElementById("todo1c").value = getSavedValue("todo1c");   
         document.getElementById("planning1c").value = getSavedValue("planning1c"); 
         document.getElementById("doing1c").value = getSavedValue("doing1c");  
