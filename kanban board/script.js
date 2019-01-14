@@ -25,12 +25,6 @@ let DB = {
 
 let list = DB.getData();
 
-
-
-
-
-
-
         function deleteJob (span){
             
             let btn = $('#deleteconfirm')
@@ -46,8 +40,8 @@ let list = DB.getData();
                 del.remove();
                 $('#myModal').hide();
                
-                document.getElementById(columnType + 'a').innerText = ' (' + $(`#${columnType} .item`).length + ')';
-                document.getElementById(columnType + 'b').style.display="block"
+                document.getElementById(`${columnType}a`).innerText = ' (' + $(`#${columnType} .item`).length + ')';
+                document.getElementById(`${columnType}b`).style.display="block"
             });
            
             
@@ -95,7 +89,7 @@ let list = DB.getData();
                 document.getElementById(`${type}a`).innerHTML = ' (' + $(`#${type} .item`).length + ')';
                 
                 if( $(`#${type} .item`).length ==  $(`#${type}c`).val() || $(`#${type} .item`).length >  $(`#${type}c`).val()){
-                    document.getElementById(type + 'b').style.display='none';
+                    document.getElementById(`${type}b`).style.display='none';
                 }
           
             }
@@ -118,11 +112,11 @@ let list = DB.getData();
                    
                     columnType.forEach(function(job){
                         $('#' + type).append(job);
-                        document.getElementById(type + 'a').innerHTML = ' (' + $('#' + type + ' .item').length +')';
+                        document.getElementById(`${type}a`).innerHTML = ' (' + $('#' + type + ' .item').length +')';
                         if($('#' + type + ' .item').length == $(`#${type}c`).val() || $('#' + type + ' .item').length > $(`#${type}c`).val()){
-                            document.getElementById(type + 'b').style.display='none'
+                            document.getElementById(`${type}b`).style.display='none'
                         }
-                        else{document.getElementById(type + 'b').style.display='block'}
+                        else{document.getElementById(`${type}b`).style.display='block'}
                     })
                 });
 
@@ -168,11 +162,11 @@ let list = DB.getData();
                     DB.setData(list);
                     document.getElementById(`${oldColumnType}a`).innerHTML = ' (' + $(`#${oldColumnType} .item`).length + ')';
                     
-                        document.getElementById(oldColumnType + 'b').style.display='block';
+                        document.getElementById(`${oldColumnType}b`).style.display='block';
                     
                     document.getElementById(`${newColumnType}a`).innerHTML = ' (' + $(`#${newColumnType} .item`).length + ')';
                     if( $(`#${newColumnType} .item`).length ==  $(`#${newColumnType}c`).val() || $(`#${newColumnType} .item`).length >  $(`#${newColumnType}c`).val()){
-                        document.getElementById(newColumnType + 'b').style.display='none';
+                        document.getElementById(`${newColumnType}b`).style.display='none';
 
                     
                     }

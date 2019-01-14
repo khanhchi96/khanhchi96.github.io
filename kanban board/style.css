@@ -97,6 +97,7 @@ input[type='number']{
     .col, .row, .container {margin: 20px auto;}
     .container{max-width: 900px;}
     .card{margin: 20px 20px;}
+    .modal-content{width: 70%;}
 }
 
 .card{position: relative;}
@@ -203,12 +204,18 @@ border-radius: 2px;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 70%;
+    width: 60%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     border-radius: 20px;
   }
-  
+
+  @media(min-width: 1200px){
+      .modal-content{max-width: 30%;}
+  }
+  .modal-content>p{
+      text-align: center;
+  }
   .confirmmodal{
       width: 204px;
       margin: 10px auto;
