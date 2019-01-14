@@ -119,7 +119,7 @@ let list = DB.getData();
                     columnType.forEach(function(job){
                         $('#' + type).append(job);
                         document.getElementById(type + 'a').innerHTML = ' (' + $('#' + type + ' .item').length +')';
-                        if($('#' + type + ' .item').length == document.getElementById(type + 'c').value){
+                        if($('#' + type + ' .item').length == $(`#${type}c`).val()){
                             document.getElementById(type + 'b').style.display='none'
                         }
                         else{document.getElementById(type + 'b').style.display='block'}
@@ -153,18 +153,16 @@ let list = DB.getData();
                     let newItemPosition = a.index();
 
                     let html = a[0].outerHTML;  
-                    
+                if (newColumnType == "todo1" || newColumnType == "planning1" || newColumnType == "doing1"){    
                 if ($(`#${newColumnType} .item`).length >  document.getElementById(`${newColumnType}c`).value){
                     return false;
-                }
+                }}
         
                     
                     if(!list[oldColumnType]) list[oldColumnType] = [];
                     list[oldColumnType].splice(oldItemPosition-1, 1);
                     if(!list[newColumnType]) list[newColumnType] = [];
                     list[newColumnType].splice(newItemPosition-1, 0, html);
-                    
-                        
                     
                 
                     DB.setData(list);
@@ -173,7 +171,7 @@ let list = DB.getData();
                         document.getElementById(oldColumnType + 'b').style.display='block';
                     
                     document.getElementById(`${newColumnType}a`).innerHTML = ' (' + $(`#${newColumnType} .item`).length + ')';
-                    if( $(`#${newColumnType} .item`).length ==  document.getElementById(`${newColumnType}c`).value){
+                    if( $(`#${newColumnType} .item`).length ==  $(`#${newColumnType}c`).val()){
                         document.getElementById(newColumnType + 'b').style.display='none';
                         
                        
