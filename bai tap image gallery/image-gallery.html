@@ -7,6 +7,7 @@
     <title>Image Gallery</title>
     <link rel="stylesheet" type="text/css" href="css/image-gallery-style.css">
     <link rel="stylesheet" type="text/css" href="css/style-menu.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 <!-- <style>
     nav{font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -18,14 +19,14 @@
 
 <header>
 <div class="menu">
-<nav class="navbar navbar-light bg-light" style="float: left;">
-  <a class="navbar-brand" href="image-gallery.html">
-    <img src="img/logo-audi.png" width="60" height="30" alt="Audi">
+<nav style="float: left;">
+  <a href="image-gallery.html">
+    <img src="img/logo-audi.png" style="margin-top: 5px;" width="60" height="30" alt="Audi">
   </a>
 </nav>
-    <nav id="nav">
+    <nav >
     <div class="main">
-    <ul class="mainnav">
+    <ul class="mainnav" id="nav">
        
         <li><a class="first" href="home.html" id="trangchu"><span>Home</span></a></li>
         
@@ -61,8 +62,8 @@
         <li><a class="first" href="contact.html"><span>Contact</span></a></li>
    
     </ul>
-    <a href="javascript:void(0);" class="icon">
-            <i onclick="myFunction()" class="fa fa-bars"></i>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
           </a>
     </div>    
     </nav>      
@@ -71,16 +72,16 @@
 
 
 </header>
-</section>
+<section>
 
 <div id="background">
     <img src="img/background.jpg" style="width:100%; height: auto;"/>
-        <div style="text-align: center; margin-top: 20px;">
-        <span> Fuel consumption combined *: 6.8-6.6 l/100km</span> 
-        <span>CO₂-emissions combined *: 179-172 g/km</span> 
+        <div style="text-align: center; margin-top: 10px;">
+        <span class="detail"> Fuel consumption combined *: 6.8-6.6 l/100km</span> 
+        <span class="detail">CO₂-emissions combined *: 179-172 g/km</span> 
         </div>
         <br/> <h1>Model overview</h1>
-        <p class="gioithieu" style="margin-bottom: 20px; font-size: 19px;"> 
+        <p class="gioithieu" style="margin-bottom: 20px;"> 
             Whether sporty, luxurious or compact - at Audi you will 
             find the right vehicle for every requirement. Discover our series vehicles! </p>
 </div>
@@ -183,15 +184,30 @@
 </div> 
 
 <div id="back-to-top">
-        <a href=#trangchu><img src="img/back-to-top.png" style="width:50px; height:auto; display: none"/></a>
+       <img src="img/back-to-top.png" onclick="topFunction()" style="width:50px; height:auto;"/>
 </div>
 </section>
+<footer>
+     <div class="menu-footer">
+         <a href="#">About us</a>
+         <a href="#">Media</a>
+         <a href="#">Models and Technology</a>
+         <a href="#">Mobility and Trend</a>
+         <a href="#">Inpiration and Lifestyle</a>
+         <a href="#">Contact</a>
+     </div>
+     <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"> <i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+     </div>
+     <div class="copyright"><p style="text-align: center;">Copyright &copy; 2018</p></div>
+ </footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<script>
-
-</script>
+<script src="script.js"></script>
 </body>
 </html>

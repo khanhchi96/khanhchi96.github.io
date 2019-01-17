@@ -5,64 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Audi TT</title>
-    <link rel="stylesheet" type="text/css" href="css/style2.css">
+   
     <link rel="stylesheet" type="text/css" href="css/style-menu.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
 </head>
 <body>
 
 <header>
-        <div class="header" style="float: left; width:12%;">
-        <a href="image-gallery.html"><img src="img/logo-audi.png" title="Audi" 
-        style="max-width:100%; height:40px; margin-left:20%;"/></a>
-        </div>
+<div class="menu">
+<nav style="float: left;">
+  <a class="navbar-brand" href="image-gallery.html">
+    <img src="img/logo-audi.png" width="60" height="30" alt="Audi">
+  </a>
+</nav>
+    <nav>
+    <div class="main">
+    <ul class="mainnav" id="nav">
+       
+        <li><a class="first" href="home.html" id="trangchu"><span>Home</span></a></li>
         
-        <div class="header" style="float:right; width:88%;">
-        <ul>
-                <li><a href="image-gallery.html" class="menu">Home</a></li>
-                <li><a href="about.html"class="menu">About</a></li>
-                <li class="serial-models">
-                        <a href="javascript:void(0)" class="model menu">Serial models</a>
-                        <div class="model-content">
-                          <a href="A1.html">Audi A1</a>
-                          <a href="A3.html">Audi A3</a>
-                          <a href="A4.html">Audi A4</a>
-                          <a href="A5.html">Audi A5</a>
-                          <a href="A6.html">Audi A6</a>
-                          <a href="A7.html">Audi A7</a>
-                          <a href="A8.html">Audi A8</a>
-                          <a href="Q2.html">Audi Q2</a>
-                          <a href="Q3.html">Audi Q3</a>
-                          <a href="Q5.html">Audi Q5</a>
-                          <a href="Q7.html">Audi A7</a>
-                          <a href="Q8.html">Audi A8</a>
-                          <a href="TT.html">Audi TT</a>
-                          <a href="etron.html">Audi e-tron</a>
+        <li><a class="first" href="about.html"><span>About</span></a></li>
+        <li class="hassubs"><a class="first" href="menu.html"><span>Serial Modals</span></a>   
+            <ul class="dropdown">
+                        <div class="model">
+                            <li class="subs"><a href="#">Audi A1</a></li>
+                            <li class="subs"><a href="#">Audi A3</a></li>
+                            <li class="subs"><a href="#">Audi A4</a></li>
+                            <li class="subs"><a href="#">Audi A5</a></li>
+                            <li class="subs"><a href="#">Audi A6</a></li>
+                            <li class="subs"><a href="#">Audi A7</a></li>
+                            <li class="subs"><a href="#">Audi A8</a></li>
                         </div>
-                      </li>
-                <li><a href="image-gallery.html"class="menu">Contact</a></li>
-        </ul>
-        </div>     
-        </header>
-<br/>
+                        <div class="model">
+                            <li class="subs"><a href="#">Audi Q2</a></li>
+                            <li class="subs"><a href="#">Audi Q3</a></li>
+                            <li class="subs"><a href="#">Audi Q5</a></li>
+                            <li class="subs"><a href="#">Audi Q7</a></li>
+                            <li class="subs"><a href="#">Audi Q8</a></li>
+                        </div>
+                        <div class="model">
+                            <li class="subs"><a href="#">Audi TT</a></li>
+                        </div>
+                        <div class="model">
+                            <li class="subs"><a href="#">Audi e-tron</a></li>
+                        </div>
+                </ul>
+                    
+        </li>
+        <li><a class="first" href="contact.html"><span>News</span></a></li>
+        <li><a class="first" href="contact.html"><span>Contact</span></a></li>
+   
+    </ul>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()" >
+            <i class="fa fa-bars"></i>
+          </a>
+    </div>    
+    </nav>      
+</div>
+</header>
 
+
+<section>
 <a href="image-gallery.html#TT"><h2>Audi TT</h2></a>
     <br/>
-    <p class="gioithieu" style="margin-left:15%; margin-right:15%;">
+    <p class="gioithieu">
         The Audi TT stands for driving pleasure, design and attention to detail. 
         The compact sports car with its sporty exterior has been developed further 
         without forgetting its history. Distinctive details such as the characteristic 
         round fuel filler cap with TT lettering bear witness to this. Its precise 
         handling and powerful engines reinforce this character.</p><br/><br/>
     
-    <div style="text-align: center; margin-left: 25%; margin-right: 25%">
+    <div class="overall-info">
         <span>Fuel consumption combined *: 7.0-6.0 l/100km</span> 
         <span>CO₂-emissions combined *: 161-137 g/km</span> 
     </div>
 
-    <a href="image-gallery.html#TT"><img src="img/TT_1.jpg" title="TT_1" alt="TT_1"
-        style="max-width: 100%; height:auto; margin-left:0; margin-right:0; margin-top: 100px;"/></a>
+    <img class="anh-size-1" src="img/TT_1.jpg" title="TT_1" alt="TT_1"/>
     
-    <div style="text-align: left; margin-left: 5%; margin-top: 10px; margin-bottom: 100px;">
+    <div class="image-info">
             <span>Fuel consumption combined *: 7.0-6.0 l/100km</span>
             <span>CO₂-emissions combined *: 161-137 g/km</span>
     </div> 
@@ -70,59 +90,35 @@
 <h1>A design icon</h1>
 
 <div class="content">
-        <div style="position: relative; width: 60%; height: auto; float:right;">
-                <a href="image-gallery.html#TT"><img src="img/TT_2.jpg"
-                    title="TT_2" alt="TT_2"/></a>
-        </div>
-
-        <div style="position: relative; width: 40%; float: right; margin-top: 0;">
+        <img class="anh-size-3 right" src="img/TT_2.jpg" title="TT_2" alt="TT_2"/>
             <p class="noidung">The Audi TT Coupé is 4.19 meters (13.7 ft) in length 
                 with a have short overhangs; their wheelbase measures 2.51 meters 
                 (8.2 ft). The Audi TT Coupé  leaves the factory on 17-inch wheels; 
                 Audi and Audi Sport optionally offer 18, 19 and 20-inch wheels.</p>
                  <div class="thongso">
                         <p>
-                            <span>Fuel consumption combined *: 7.0-6.0 l/100km</span><br/>
-                            <span>CO₂-emissions combined *: 161-137 g/km</span>
-                        </p>
-                </div>
-        </div>
-</div>
-
-<div class="content">
-        <div style="position: relative; width: 60%; height: auto; float:left;">
-                <a href="image-gallery.html#TT"><img src="img/TT_3.jpg"
-                    title="TT_3" alt="TT_3"/></a>
-        </div>
-
-        <div style="position: relative; width: 40%; float: right; margin-top: 0;">
-            <h3 style="text-align:left; margin-left:9%;">The light</h3>
-            <p class="noidung">Headlights with LED or Matrix LED technology are 
-                optionally available. The dynamic turn signals are a visual highlight 
-                here. </p>
-                 <div class="thongso">
-                        <p>
-                            <span>Fuel consumption combined *: 7.0-6.0 l/100km</span><br/>
-                            <span>CO₂-emissions combined *: 161-137 g/km</span>
-                        </p>
-                </div>
-        </div>
-</div>
-
-<div class="content" style="margin-top: 0;">
-        <div style="position: relative; width: 60%; height: auto; float:right;
-        margin-top: 130px;">
-                <a href="image-gallery.html#TT"><img src="img/TT_4.jpg" title="TT_4" alt="TT_4"
-                    style="margin-bottom:10px;"/></a>
-                        <p style="text-align:right; margin-right:8%;">
                             <span>Fuel consumption combined *: 7.0-6.0 l/100km</span>
                             <span>CO₂-emissions combined *: 161-137 g/km</span>
                         </p>
-        </div>
+                </div>
+</div>
 
-        <div style="position: relative; width: 40%; float: right; margin-top: 0;">
-            <h3 style="text-align:left; margin-left:9%;">
-                Driver-oriented: das cockpit and infotainment</h3>
+<div class="content" style="width: 80%">
+        <img class="anh-size-3 left" src="img/TT_3.jpg" title="TT_3" alt="TT_3"/>
+            <h3>The light</h3>
+            <p class="noidung">Headlights with LED or Matrix LED technology are optionally available. The dynamic turn signals are a visual highlight 
+                here. </p>
+                 <div class="thongso">
+                        <p>
+                            <span>Fuel consumption combined *: 7.0-6.0 l/100km</span>
+                            <span>CO₂-emissions combined *: 161-137 g/km</span>
+                        </p>
+                </div>
+</div>
+
+<div class="content">
+       <img class="anh-size-3 right" src="img/TT_4.jpg" title="TT_4" alt="TT_4"/>
+            <h3 style="margin-top: 100px;">Driver-oriented: das cockpit and infotainment</h3>
             <p class="noidung">The optionally top-of-the-line MMI navigation plus with 
                 MMI touch integrates a touchpad on the upper surface of the 
                 rotary/push-button control that recognizes handwritten input and 
@@ -134,9 +130,35 @@
                 controlled entirely using the steering wheel. Also standard are the 
                 illuminated USB ports as well as Bluetooth for wireless pairing of 
                 devices. </p>
-        </div>
+                <div class="thongso">
+                        <p>
+                            <span>Fuel consumption combined *: 7.0-6.0 l/100km</span>
+                            <span>CO₂-emissions combined *: 161-137 g/km</span>
+                        </p>
+                </div>
 </div>
-    
-
+  
+<div id="back-to-top">
+        <img src="img/back-to-top.png" onclick="topFunction()" style="width:50px; height:auto;"/>
+ </div>
+ </section>
+<footer>
+     <div class="menu-footer">
+         <a href="#">About us</a>
+         <a href="#">Media</a>
+         <a href="#">Models and Technology</a>
+         <a href="#">Mobility and Trend</a>
+         <a href="#">Inpiration and Lifestyle</a>
+         <a href="#">Contact</a>
+     </div>
+     <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"> <i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+     </div>
+     <div class="copyright"><p style="text-align: center;">Copyright &copy; 2018</p></div>
+ </footer>
+ <script src="script.js"></script>
 </body>
 </html>

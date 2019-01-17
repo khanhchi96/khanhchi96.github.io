@@ -14,10 +14,7 @@ img.anhtrangchu{
     height: auto;
     margin: 0 auto; display: block;
     padding: 5px;
-    margin-top: 50px;
-    margin-bottom: 5px;
-    margin-left: 2px;
-    margin-right: 5px;
+    margin: 50px auto 5px auto;
     opacity: 1;
     transition: .5s ease;
     backface-visibility: hidden;
@@ -30,59 +27,61 @@ img.anhtrangchu{
 
 h1{
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 36px;
     font-size: 70px;
-    font-family: "Cambria", "Cochin", Georgia, Times, 'Times New Roman', serif;;
+    font-family: AvenirNext-Regular;
     color: #060505;
     word-spacing: 15px;
     letter-spacing: 8px;}
 
-span {
+p.serial-models>span {
     color: #292828;
-    font-size: 15px;
-    font-family: "Cambria", "Cochin", Georgia, Times, 'Times New Roman', serif;
+    font-size: 13px;
+    font-family: AvenirNext-Regular;
     text-align: center;
     margin-right: 12px;
     line-height: 17pt;
     }
 
-p.gioithieu {font-family: "Cambria", "Cochin", Georgia, Times, 'Times New Roman', serif;
-    margin-block-end: 4em;
+p.gioithieu {font-family: AvenirNext-Regular;
+    /* margin-block-end: 4em;
     margin-block-start: 0em;
-    /*line-height: 0em;*/
+    line-height: 0em; */
     text-align: center;
+    font-size: 14px;
 }
 p.tensp{
     display: block;
-    font-size: 25px;
+    font-size: 20px;
     margin-block-end: 4em;
     margin-block-start: 0em;
     margin-inline-start: 20px;
     margin-inline-end: 0px;
-    font-weight: bold;
-    font-family: "Cambria", "Cochin", Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+    font-family: AvenirNext-Regular;
     margin-bottom: 30px;
     line-height: 0.5rem;
-
-
 }
 
 p.serial-models{
     margin-inline-start: 20px;
     color: inherit;
     opacity: .6;
-    font-family: "Cambria", "Cochin", Georgia, Times, 'Times New Roman', serif;
+    font-family: AvenirNext-Regular;
     font-weight: 400;
     font-style: normal;
     line-height: 0rem;
 }
-
+.detail{
+    font-family: AvenirNext-Regular;
+}
+/* 
 a.menu {
-    font-family: "Cambria", "Cochin", Georgia, Times, 'Times New Roman', serif;
+    font-family: AvenirNext-Regular;
     font-size: 20px;
     font-weight:500;
-}
+} */
 
 .image {
     border: 1px solid #dddddd;
@@ -91,12 +90,16 @@ a.menu {
     padding: 15px;
 }
 
-@media (min-width: 800px){
+@media (min-width: 900px){
 .anh {position: relative;
 width: 33.33%;
 height: auto;
-float: left;}}
+float: left;}
+p.tensp{
+    font-size: 25px;
+}
+p.gioithieu{
+    font-size: 18px;
+}
+}
 
-#back-to-top {position: fixed;
-    right: 50px;
-    bottom: 30px;}
