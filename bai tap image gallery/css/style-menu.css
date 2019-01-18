@@ -166,9 +166,7 @@
     .model > li {
         width: 20%;
     }
-    .menu-footer{
-       flex-wrap: wrap;
-    }
+    
 }
     footer{
         clear: both; 
@@ -208,7 +206,8 @@
     margin: auto;
     font-family: AvenirNext-Regular;
     font-size: 13px;
-    color: #626262
+    color: #626262;
+    flex-wrap: wrap;
 }
 .menu-footer>a:hover{
     color: black;

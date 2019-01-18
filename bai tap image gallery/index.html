@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+<style>
+    *{
+        font-family: AvenirNext-Regular;
+        box-sizing: inherit;
+    }
+    .container{
+        padding: 0;
+        width: calc(100%-40px);
+        margin: auto;
+    }
+    .gioithieu{
+        text-align: center;
+        margin: 20px auto 50px auto;
+    }
+    .detail{
+        font-size: 10px;
+        display: inline-block;
+    }
+    h1{
+        text-align: center;
+        font-weight: 600;
+        margin: 50px auto 0 auto;
+        font-size: 60px;
+    }
+    .tensp{
+        font-weight: 500;
+        margin-bottom: 40px;
+        font-size: 20px;
+    }
+
+    .serial-models{
+        font-size: 12px;
+        margin: 10px 0 0 0;
+        color: #626262;
+    }
+
+    a:link {color: inherit;
+    text-decoration: none;}
+    a:hover {color: grey;
+        text-decoration: none;}
+    a:visited {color: inherit;
+        text-decoration: none;}
+    a:active {color: inherit;
+        text-decoration: none;}
+
+        footer{
+        clear: both; 
+        border-top: 1px solid #eaeaea;
+    } 
+    
+    .col-sm:hover .anhtrangchu {opacity: 0.3;
+        transition: .5s ease;
+    backface-visibility: hidden;}
+#back-to-top {position: fixed;
+    right: 50px;
+    bottom: 30px;}
+
+.fab {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fab:hover {
+    opacity: 0.7;
+}
+
+.social-media{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.menu-footer>a{
+    margin: 10px 10px;
+    text-align: center;
+}
+.menu-footer{
+    display: flex;
+    max-width: 650px;
+    margin: auto;
+    font-family: AvenirNext-Regular;
+    font-size: 13px;
+    color: #626262;
+    flex-wrap: wrap;
+}
+.menu-footer>a:hover{
+    color: black;
+}
+
+.copyright{
+    font-family: AvenirNext-Regular;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+    <img src="img/logo-audi.png" width="50" height="30" class="d-inline-block align-top" alt="">
+  </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Serial Models
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Audi A1</a>
+            <a class="dropdown-item" href="#">Audi A3</a>
+            <a class="dropdown-item" href="#">Audi A4</a>
+            <a class="dropdown-item" href="#">Audi A5</a>
+            <a class="dropdown-item" href="#">Audi A6</a>
+            <a class="dropdown-item" href="#">Audi A7</a>
+            <a class="dropdown-item" href="#">Audi A8</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Audi Q2</a>
+            <a class="dropdown-item" href="#">Audi Q4</a>
+            <a class="dropdown-item" href="#">Audi Q5</a>
+            <a class="dropdown-item" href="#">Audi Q6</a>
+            <a class="dropdown-item" href="#">Audi Q7</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Audi TT</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Audi etron</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+
+</header>
+<section>
+
+<div id="background">
+    <img src="img/background.jpg" style="width:100%; height: auto;"/>
+        <div style="text-align: center; margin-top: 10px;">
+        <span class="detail"> Fuel consumption combined *: 6.8-6.6 l/100km</span> 
+        <span class="detail">CO₂-emissions combined *: 179-172 g/km</span> 
+        </div>
+        <br/> <h1>Model overview</h1>
+        <p class="gioithieu"> 
+            Whether sporty, luxurious or compact - at Audi you will 
+            find the right vehicle for every requirement. Discover our series vehicles! </p>
+</div>
+<br/><br/>
+<div class="container">
+<div class='row'>
+<div class="col-sm">
+    <a href="A1.html"><img src="img/A1_1.jpg" id="A1" class ="anhtrangchu img-thumbnail img-fluid" title="Audi A1" alt="Audi A1"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="A1.html"><p class="tensp"> Audi A1 </p></a>        
+</div>
+
+
+<div class="col-sm">
+    <a href="A3.html"><img src="img/A3_2.jpg" id="A3" class ="anhtrangchu img-thumbnail img-fluid" title="Audi A3" alt="Audi A3"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="A3.html"><p class="tensp"> Audi A3 </p></a>
+</div>
+
+<div class="col-sm">
+    <a href="A4.html"><img src="img/A4_1.jpg" id="A4" class ="anhtrangchu img-thumbnail img-fluid" title="Audi A4" alt="Audi A4"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="A4.html"><p class="tensp"> Audi A4 </p></a>
+</div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-sm">
+    <a href="A5.html"><img src="img/A5_1.jpg" id="A5" class ="anhtrangchu img-thumbnail img-fluid" title="Audi A5" alt="Audi A5"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="A5.html"><p class="tensp"> Audi A5 </p></a>
+</div> 
+   
+
+<div class="col-sm">
+    <a href="A6.html"><img src="img/A6_1.jpg" id="A6" class ="anhtrangchu img-thumbnail img-fluid" title="Audi A6" alt="Audi A6"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="A6.html"><p class="tensp"> Audi A6 </p></a>
+</div> 
+   
+
+<div class="col-sm">
+    <a href="A7.html"><img src="img/A7_2.jpg" id="A7" class ="anhtrangchu img-thumbnail img-fluid" title="Audi A7" alt="Audi A7"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="A7.html"><p class="tensp"> Audi A7 </p></a>
+</div> 
+</div>
+</div>
+
+ 
+<div class="container">
+<div class="row">
+<div class="col-sm">
+    <a href="A8.html"><img src="img/A8_1.jpg" id="A8" class ="anhtrangchu img-thumbnail img-fluid" title="Audi A8" alt="Audi A8"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="A8.html"><p class="tensp"> Audi A8 </p></a>
+</div> 
+  
+
+<div class="col-sm">
+    <a href="Q2.html"><img src="img/Q2_1.jpg" id="Q2" class ="anhtrangchu img-thumbnail img-fluid" title="Audi Q2" alt="Audi Q2"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="Q2.html"><p class="tensp"> Audi Q2 </p></a>
+</div> 
+    <br/>
+
+<div class="col-sm">
+    <a href="Q3.html"><img src="img/Q3_1.jpg" id="Q3" class ="anhtrangchu img-thumbnail img-fluid" title="Audi Q3" alt="Audi Q3"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="Q3.html"><p class="tensp"> Audi Q3 </p></a>
+</div> 
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-sm">
+    <a href="Q5.html"><img src="img/Q5_1.jpg" id="Q5" class ="anhtrangchu img-thumbnail img-fluid" title="Audi Q5" alt="Audi Q5"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="Q5.html"><p class="tensp"> Audi Q5 </p></a>
+</div> 
+
+<div class="col-sm">
+    <a href="Q7.html"><img src="img/Q7_1.jpg" id="Q7" class ="anhtrangchu img-thumbnail img-fluid" title="Audi Q7" alt="Audi Q7"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="Q7.html"><p class="tensp"> Audi Q7 </p></a>
+</div> 
+
+<div class="col-sm">
+    <a href="Q8.html"><img src="img/Q8_1.jpg" id="Q8" class ="anhtrangchu img-thumbnail img-fluid" title="Audi Q8" alt="Audi Q8"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="Q8.html"><p class="tensp"> Audi Q8 </p></a>
+</div> 
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-sm">
+    <a href="TT.html"><img src="img/TT_1.jpg" id="TT" class ="anhtrangchu img-thumbnail img-fluid" title="Audi TT" alt="Audi TT"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="TT.html"><p class="tensp"> Audi TT </p></a>
+</div> 
+
+<div class="col-sm" style="margin-bottom: 50px;">
+    <a href="etron.html"><img src="img/etron_1.jpg" id="etron" class ="anhtrangchu img-thumbnail img-fluid" title="Audi  e-Tron" alt="Audi e-tron"/></a>
+    <p class="serial-models"><span>Serial Models</span></p>
+    <a href="etron.html"><p class="tensp"> Audi e-tron </p></a>
+</div>
+</div>
+</div>
+<div id="back-to-top">
+       <img src="img/back-to-top.png" onclick="topFunction()" style="width:50px; height:auto;"/>
+</div>
+</section>
+<footer>
+     <div class="menu-footer">
+         <a href="#">About us</a>
+         <a href="#">Media</a>
+         <a href="#">Models and Technology</a>
+         <a href="#">Mobility and Trend</a>
+         <a href="#">Inpiration and Lifestyle</a>
+         <a href="#">Contact</a>
+     </div>
+     <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"> <i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+     </div>
+     <div class="copyright"><p style="text-align: center;">Copyright &copy; 2018</p></div>
+ </footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>

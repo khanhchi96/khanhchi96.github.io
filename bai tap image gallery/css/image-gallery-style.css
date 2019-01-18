@@ -42,6 +42,7 @@ p.serial-models>span {
     text-align: center;
     margin-right: 12px;
     line-height: 17pt;
+    display: inline-block;
     }
 
 p.gioithieu {font-family: AvenirNext-Regular;
