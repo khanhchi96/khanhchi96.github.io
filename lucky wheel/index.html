@@ -158,7 +158,7 @@
     <h1>Magic circle</h1>
     <div id="content">
         <div class="tinhdiem">
-            <div class="point"> Total points: <span id="result2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+            <div class="point"> Total points: <span id="result2"></span></div>
             <div class="point"> Points: <span id="result">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
             <div class="count">Number of turns left: <span id="count">10</span></div>
         </div>
@@ -265,7 +265,6 @@
             
             
         let arr = [];
-        
         container.on("click", spin);
         function spin(d){
             container.on("click", null);
@@ -308,7 +307,7 @@
                         }
                     oldrotation = rotation;
 
-                    //luu vao local storage
+                
                     let a;
                     if (data[picked].label != "LOSE TURN" && data[picked].label != "LOSE ALL POINTS" && data[picked].label != "STOP"){
                         a = parseInt(data[picked].label)}
@@ -320,15 +319,18 @@
                         document.getElementById("count").innerHTML = "0"; 
                         return;}
                     arr.push(a);
-                  
+                    
                     
                     if(arr.length===10){document.getElementById("count").innerHTML = "0"; 
                     return;}
                     container.on("click", spin);
                     // let sum = arr.reduce((x, y) => x + y);
-                        // console.log(arr);
+                    //     console.log(arr);
                         document.getElementById("count").innerHTML = 10 - arr.length;
-                        let b = parseInt(document.getElementById("result2").innerHTML)
+                        let b = parseInt(document.getElementById("result2").innerHTML) || 0;
+                        
+                      
+                        // document.getElementById("result2").innerHTML= b + a;
                         document.getElementById("result2").innerHTML= b + a;
                         localStorage.setItem("points", b+a);
                     
