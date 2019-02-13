@@ -10,21 +10,50 @@
     <link href="https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body>
     <header class="header">
-    <!-- <nav id="nav-large" chi-include-html="menu.html"></nav> -->
+        <nav id="nav-large" chi-include-html="menu.html"></nav>
+                
+            <!-- <div class="menu-icon">
+                    <i class="fas fa-bars" onclick="openNav()"></i>
+            </div>
+            <div class="logo">
+                <p>Cecece</p>
+            </div>
+            <ul class="menu-large" id="menu-large">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Menu</a><span class="plus-icon"><i class="fas fa-plus-circle" onclick="showMenu(1)"></i></span>
+                    <ul class="sub-menu responsive" id="sub-menu-1">
+                        <li><a href="#">Special combo</a></li>
+                        <li><a href="#">Brown rice recipe</a>
+                            <span style="color: black; margin-top: -40px; margin-right: 15px;" class="plus-icon"><i class="fas fa-plus-circle" onclick="showMenu(2)"></i></span>
+                            <ul class="sub-menu responsive" id="sub-menu-2">
+                                <li><a href="#">Protein-rich recipe</a></li>
+                                <li><a href="#">Carb-rich recipe</a></li>
+                                <li><a href="#">Low-carb recipe</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Steak</a></li>
+                        <li><a href="#">Salad</a></li>
+                        <li><a href="#">Dessert</a></li>
+                        <li><a href="#">Drinks</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">News & Promotions</a><span class="plus-icon"><i class="fas fa-plus-circle" onclick="showMenu(3)"></i></span>
+                    <ul class="sub-menu responsive" id="sub-menu-3">
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Promotions</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Reservation</a></li>
+            </ul>
+        </nav> -->
+        
 
-
-
-    <nav id="nav-large">
-        <object width="100%" height="700px" data="menu.html"></object>
-    </nav>
-    
-
-    <!-- <nav id="nav-large"></nav> -->
-    
         <div class="slideshow">
             <div class="slide-container">
                 <div class="slide1 move"></div>
@@ -36,13 +65,13 @@
             </div>
         </div>
 
-       
+        <!-- <img class="header-image" src="img/header-background.png"/> -->
+
     </header>
 
     <section>
 
-            <!-- <p> include html </p>
-            <div w3-include-html="test.html"></div>  -->
+            
     
     </section>
 
@@ -52,9 +81,24 @@
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-<!--     
+    <!-- <script>
+        changeSize()
+function changeSize(){
+  let x = document.getElementById('menu-large')
+//   let x = $(".menu-large")
+  if (x){
+    // $(".menu-large").setAttribute("id", "menu-large");
+    $(".sub-menu").addClass(".responsive");
+    alert("a")
+  }
+//   else if (window.innerWidth > 932){
+//     $(".sub-menu").className = "sub-menu";
+//   }
+}
+    </script> -->
     <script>
             includeHTML();
-        </script> -->
+            </script>
+
 </body>
 </html>
