@@ -112,11 +112,11 @@ let list = DB.getData();
                    
                     columnType.forEach(function(job){
                         $('#' + type).append(job);
-                        document.getElementById(`${type}a`).innerHTML = ' (' + $('#' + type + ' .item').length +')';
-                        if($('#' + type + ' .item').length == $(`#${type}c`).val() || $('#' + type + ' .item').length > $(`#${type}c`).val()){
-                            document.getElementById(`${type}b`).style.display='none'
-                        }
-                        else{document.getElementById(`${type}b`).style.display='block'}
+                        // document.getElementById(`${type}a`).innerHTML = ' (' + $('#' + type + ' .item').length +')';
+                        // if($('#' + type + ' .item').length == $(`#${type}c`).val() || $('#' + type + ' .item').length > $(`#${type}c`).val()){
+                        //     document.getElementById(`${type}b`).style.display='none'
+                        // }
+                        // else{document.getElementById(`${type}b`).style.display='block'}
                     })
                 });
 

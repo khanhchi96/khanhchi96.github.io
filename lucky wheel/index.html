@@ -208,7 +208,7 @@
                     {"label":"-400",  "value":1,  "result":"You have lost 400 points!"}, 
                     {"label":"900",  "value":1,  "result":"You have won 900 points!"}, 
                     {"label":"-1000",  "value":1,  "result":"You have lost 1000 points!"}, 
-                    {"label":"LOSE ALL POINTS",  "value":1,  "result":"Oops! You've lost all points!"},
+                    {"label":"WIN ALL POINTS",  "value":1,  "result":"Oops! You've lost all points!"},
                     {"label":"600",  "value":1,  "result":"You have won 600 points!"}, 
                     {"label":"-100",  "value":1,  "result":"You have lost 100 points!"},
                     {"label":"1500",  "value":1,  "result":"You have won 1500 points!"}, 
@@ -229,7 +229,7 @@
             .call(responsivefy);
      
            
-        //tao mui ten chi vao o quay duoc
+        
         let container = svg.append("g")
             .attr("class", "chartholder")
             .attr("transform", "translate(" + (w/2 + padding.left) + "," + (h/2 + padding.top) + ")");
@@ -253,13 +253,14 @@
 
 
 
-
+            
 
         // add the text
         arcs.append("text").attr("transform", function(d){
                 d.innerRadius = 0;
                 d.outerRadius = r;
                 d.angle = (d.startAngle + d.endAngle)/2;
+                
                 return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius -10) +")";
             })
             .attr("text-anchor", "end")
@@ -286,13 +287,16 @@
             rotation = (Math.round(rng / ps) * ps);
             
             picked = Math.round(data.length - (rotation % 360)/ps);
+            console.log(picked)
             picked = picked >= data.length ? (picked % data.length) : picked;
             if(oldpick.indexOf(picked) !== -1){
                 d3.select(this).call(spin);
                 return;
             } else {
                 oldpick.push(picked);
+                
             }
+            
             rotation += 90 - Math.round(ps/2);
             vis.transition()
                 .duration(4000)
@@ -317,7 +321,7 @@
                         a = parseInt(data[picked].label)}
                         else{a=0};
                     if (data[picked].label == "LOSE ALL POINTS"){
-                        document.getElementById("result2").innerHTML = 0
+                        document.getElementById("result2").innerHTML = 0;
                     }
                     if (data[picked].label == "STOP"){
                         document.getElementById("count").innerHTML = "0"; 
