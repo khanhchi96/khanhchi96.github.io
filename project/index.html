@@ -8,56 +8,31 @@
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header class="header">
-        <nav id="nav-large" chi-include-html="menu.html"></nav>
-                
-            <!-- <div class="menu-icon">
-                    <i class="fas fa-bars" onclick="openNav()"></i>
-            </div>
-            <div class="logo">
-                <p>Cecece</p>
-            </div>
-            <ul class="menu-large" id="menu-large">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Menu</a><span class="plus-icon"><i class="fas fa-plus-circle" onclick="showMenu(1)"></i></span>
-                    <ul class="sub-menu responsive" id="sub-menu-1">
-                        <li><a href="#">Special combo</a></li>
-                        <li><a href="#">Brown rice recipe</a>
-                            <span style="color: black; margin-top: -40px; margin-right: 15px;" class="plus-icon"><i class="fas fa-plus-circle" onclick="showMenu(2)"></i></span>
-                            <ul class="sub-menu responsive" id="sub-menu-2">
-                                <li><a href="#">Protein-rich recipe</a></li>
-                                <li><a href="#">Carb-rich recipe</a></li>
-                                <li><a href="#">Low-carb recipe</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Steak</a></li>
-                        <li><a href="#">Salad</a></li>
-                        <li><a href="#">Dessert</a></li>
-                        <li><a href="#">Drinks</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">News & Promotions</a><span class="plus-icon"><i class="fas fa-plus-circle" onclick="showMenu(3)"></i></span>
-                    <ul class="sub-menu responsive" id="sub-menu-3">
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Promotions</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Career</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Reservation</a></li>
-            </ul>
-        </nav> -->
         
+        <nav id="nav-large" chi-include-html="menu.html"></nav>
 
         <div class="slideshow">
             <div class="slide-container">
-                <div class="slide1 move"></div>
-                <div class="slide2 move"></div>
+                <div class="slide1 move">
+                    <div class="modal-homepage">
+                        <h3>Welcome to Cecece</h3>
+                        <p>Whether part of a party of fifty or a party of two, your experience throughout our elegant, yet comfortable space is eventful. We are sharing our long held Lebanese-Mediterranean traditions with a modern contemporary twist. You will feel both close to home and apart of something new.</p>
+                        <p class="explore-text">Explore</p>
+                    </div>
+                </div>
+                <div class="slide2 move">
+                    <div class="modal-homepage">
+                        <h3>Welcome to Cecece</h3>
+                        <p>Whether part of a party of fifty or a party of two, your experience throughout our elegant, yet comfortable space is eventful. We are sharing our long held Lebanese-Mediterranean traditions with a modern contemporary twist. You will feel both close to home and apart of something new.</p>
+                        <p class="explore-text">Explore</p>
+                    </div>
+                </div>
             </div>
             <div class="dot-container">
                 <span class="dot" onclick="currentSlide(1)"></span> 
@@ -70,9 +45,55 @@
     </header>
 
     <section>
-
+        <div class="intro">
+            <h3>Our garden restaurant provides a retreat like no other – casual elegance, soothing ambiance, and picturesque garden vistas. Whether you want to meet friends for lunch, enjoy brunch with family, spend an evening overlooking the gardens accompanied by a brilliant dinner, or just have a casual tea midday, we want to make your moments memorable. </h3>
+        </div>
+    <div class="parallax">
+        <div class="about-us-homepage">
+            <p>We bring you delicious and fresh food with the best price</p>
+            <button type="button">About us</button>
+        </div>
+    </div>
+     
+    <div class="menu-homepage">
+        <div class="explore-button-wrap">
+            <span class="section-title">BEST SELLER</span><button type="button" class="explore-button">Explore our menu</button>
+        </div>
+        <div class="best-seller">
+            <div class="best-seller-item">
+                <img src="img/appetizer-cooking-cuisine.jpg"/>
+            </div>
+            <div class="best-seller-item">
+                <img src="img/appetizer-cooking-cuisine.jpg"/>
+            </div>
+            <div class="best-seller-item">
+                <img src="img/appetizer-cooking-cuisine.jpg"/>
+            </div>
+            <div class="best-seller-item">
+                <img src="img/appetizer-cooking-cuisine.jpg"/>
+            </div>
+            <div class="best-seller-item">
+                <img src="img/appetizer-cooking-cuisine.jpg"/>
+            </div>
+            <div class="best-seller-item">
+                <img src="img/appetizer-cooking-cuisine.jpg"/>
+            </div>
             
-    
+        </div>
+    </div>    
+  
+        <div class="intro-detail">
+            <div class="intro-detail-img">
+                <div class="intro-detail-text">
+                        <h3><span>“Magic of Fresh Taste”</span>is the origin of our restaurant.</h3>
+                        <p>Back in 2005, the founder of Pizza 4P's, Masuko, built a wood-fired pizza oven with his friends in the backyard of his house. He invited his friends and family and hosted pizza parties.<br/>
+                                In 2011, the original members who once made the pizza oven gathered again and started the history of Pizza 4P's. We named our restaurant Pizza 4P's, based on our vision, Make the World Smile "For Peace."</p>                    
+                </div>
+            </div>
+        </div>
+        
+   
+            
     </section>
 
     <footer>
@@ -81,24 +102,11 @@
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-    <!-- <script>
-        changeSize()
-function changeSize(){
-  let x = document.getElementById('menu-large')
-//   let x = $(".menu-large")
-  if (x){
-    // $(".menu-large").setAttribute("id", "menu-large");
-    $(".sub-menu").addClass(".responsive");
-    alert("a")
-  }
-//   else if (window.innerWidth > 932){
-//     $(".sub-menu").className = "sub-menu";
-//   }
-}
-    </script> -->
-    <script>
+    
+
+        <script>
             includeHTML();
-            </script>
+        </script>
 
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header class="header"> 
+        <div class="header-wrap">      
+            <nav id="nav-large" chi-include-html="menu.html"></nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="cart-wrap wrap">
+            <h1>Giỏ hàng: &nbsp; <span class="number-of-items"></span></h1><br/>
+            <div class="cart-info"></div>
+            <div class="cart-value">
+                <h3>Tạm tính: <span id="total-value"></span> VNĐ</h3>
+                <h3>Mã giảm giá: <span id="discount-code"></span></h3>
+                <h3>Tổng tiền: <span id="bill-value"></span>VNĐ</h3>
+            </div>
+        </div>
+    </section>
+    <footer chi-include-html="footer.html"></footer>
+        
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+    <script>
+        let orderInfo = JSON.parse(localStorage.getItem("productGroup"));
+// use it
+// console.log(JSON.parse(info));
+// let orderInfo = JSON.parse(info);
+
+// console.log(JSON.parse(info).productName)
+let groupPrice = [];
+        $(document).ready(function() {
+            for(var i=0; i < orderInfo.length; i++ ){
+                $(".number-of-items").text('( ' + orderInfo.length + ' sản phẩm)');
+                $(".cart-info").append($('<div class="item-info"><div class="product-image"><img src="'+orderInfo[i].productImage+'"/></div><div class="cart-content">'+
+                    '<div class="name-quantity-price"><h3 class="product-name">'+orderInfo[i].productName+'</h3>'+
+                    '<p class="quantity">Số lượng<button type="button" id="sub" class="sub">-</button>'+
+                    '<input type="number" id="1" value="1" min="1" max="3"/><button type="button" id="add" class="add">+</button>'+
+                    '<span style="margin-left: 20px;"><i class="fas fa-trash-alt"></i></span></p></div>'+
+                    '<p class="product-price">'+orderInfo[i].productPrice+'</p><p class="note">Ghi chú: '+orderInfo[i].note+'</p><p>SỐ ĐO: </p>'+
+                    '<div class="measurements-cart"><div>Cổ: '+orderInfo[i].neck+'</div>'+ 
+                    '<div>Ngực: '+orderInfo[i].chest+'</div><div>Eo: '+orderInfo[i].belly+'</div>'+ 
+                    '<div>Vai: '+orderInfo[i].shoulder+'</div><div>Dài tay: '+orderInfo[i].arm+'</div>'+ 
+                    '<div>Bắp tay: '+orderInfo[i].biceps+'</div><div>Lưng: '+orderInfo[i].back+'</div>'+ 
+                    '<div>Mông: '+orderInfo[i].butt+'</div><div>Đùi: '+orderInfo[i].thigh+'</div>'+ 
+                    '<div>Gối: '+orderInfo[i].knee+'</div><div>Dài quần: '+orderInfo[i].pantLength+'</div></div></div>'
+
+                ))
+
+                let priceString= orderInfo[i].productPrice.match(/\d/g).join("");
+                
+                let price=parseInt(priceString);
+                groupPrice.push(price);
+                
+
+            }
+            let totalValue = 0;
+                totalValue = groupPrice.reduce(function(a, b) { return a + b; }, 0);
+                $('#total-value').text(totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                $('#bill-value').text($('#total-value').text());
+        })
+
+        $('.add').click(function () {
+            if ($(this).prev().val() < 3) {
+                $(this).prev().val(+$(this).prev().val() + 1);
+            }
+        });
+        $('.sub').click(function () {
+            if ($(this).next().val() > 1) {
+                if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+                }
+        });
+            
+    </script>
+        <script>
+            includeHTML();
+        </script>
+</body>
+</html>

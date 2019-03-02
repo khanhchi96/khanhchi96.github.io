@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+
+</style>
+</head>
+<body>
+    <header class="header"> 
+        <div class="header-wrap">      
+            <nav id="nav-large" chi-include-html="menu.html"></nav>
+        </div>
+
+        <ul class="breadcrumb">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="product-list.html">Sản phẩm</a></li>
+            <li>Áo khoác</li>
+        </ul>
+    </header>
+
+    <section style="margin-bottom: 100px;">
+        <div class="title wrap">
+            <h1>Áo khoác<span class="product-total-number"></span></h1>
+            <div class="sorting-select">
+                <select class="sorting" name="sorting">
+                        <option selected disabled>Sắp xếp</option>
+                        <option value="newest">Mới nhất</option>
+                        <option value="l2h">Giá thấp đến cao</option>
+                        <option value="h2l">Giá cao đến thấp</option>
+                </select>
+            </div>
+        </div>
+        <div class="products-page-wrap wrap">
+            <button type="button" id="showFilter">Lọc sản phẩm</button>
+            <div class="refine">
+                <h3>Lọc sản phẩm</h3>
+                <p>Chiều dài</p>
+                <form>
+                    <label for="long"><input type="checkbox" name="coat-length" value="long" id="long"/>Áo khoác dài</label>
+                    <br>
+                    <label for="short"><input type="checkbox" name="coat-length" value="short" id="short"/>Áo khoác ngắn</label>
+                    <br>
+                </form>
+
+                <p>Kiểu dáng</p>
+                <form>
+                    <label for="single-row"><input type="checkbox" name="coat-type" value="single-row" id="single-row"/>Một hàng khuy</label>
+                    <br>
+                    <label for="double-row"><input type="checkbox" name="coat-type" value="double-row" id="double-row"/>Hai hàng khuy</label>
+                    <br>
+                </form>
+
+                <p>Hoạ tiết</p>
+                <form>
+                    <label for="plaid"><input type="checkbox" name="coat-pattern" value="plaid" id="plaid"/>Kẻ caro</label>
+                    <br>
+                    <label for="spotted"><input type="checkbox" name="coat-pattern" value="spotted" id="spotted"/>Chấm bi</label>
+                    <br>
+                </form>
+
+                <p>Màu sắc</p>
+                <form class="color">
+                    <input type="checkbox" name="coat-color" value="black" id="black"/><label for="black" style="background-color: black;"></label>
+                    <input type="checkbox" name="coat-color" value="blue" id="blue"/><label for="blue" style="background-color: blue"></label>
+                    <input type="checkbox" name="coat-color" value="grey" id="grey"/><label for="grey" style="background-color: grey;"></label>
+                    <input type="checkbox" name="coat-color" value="pink" id="pink"/><label for="pink" style="background-color: pink;"></label>
+                    <input type="checkbox" name="coat-color" value="brown" id="brown"/><label for="brown" style="background-color: brown;"></label>
+                    <input type="checkbox" name="coat-color" value="yellow" id="yellow"/><label for="yellow" style="background-color: yellow"></label>
+                    <input type="checkbox" name="coat-color" value="white" id="white"/><label for="white" style="background-color: white"></label>
+                </form>
+
+                <p>Mức giá</p>
+                <form>
+                    <label for="under2"><input type="checkbox" name="coat-price-range" value="under2" id="under2"/>&#60;2.000.000VNĐ</label>
+                    <br>
+                    <label for="2to3"><input type="checkbox" name="coat-price-range" value="2to3" id="2to3"/>2.000.000 - 3.000.000VNĐ</label>
+                    <br>
+                    <label for="over3"><input type="checkbox" name="coat-price-range" value="over3" id="over3"/>&#62;3.000.000VNĐ</label>
+                    <br>
+                </form>
+                <button type="button" id="filter">OK</button>
+            </div>
+            <div class="products-page-content">
+                
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                    <span id="close" onclick="hide()">&times;</span>
+              
+             <div style="overflow: hidden"> 
+              <div class="sizeguide" ><img src = "img/so_do.jpg" alt="so_do" name="so_do"/></div>
+              <div class="customer-info">
+                    <h3 class="product-name"></h3>
+                    <p class="product-price"></p>
+                    <div style="display:none" class="product-image"></div>
+                    <p>Ghi chú<textarea class="note" rows="4" cols="50"></textarea></p>
+                    <form class="submit-to-order" action="#">
+                        <p>Vui lòng nhập đầy đủ số đo</p>
+                        <input type="text" class="measurements" id="neck" placeholder="Cổ"> 
+                        <input type="text" class="measurements" id="chest" placeholder="Ngực"> 
+                        <input type="text" class="measurements" id="belly"placeholder="Eo">
+                        <input type="text" class="measurements" id="shoulder" placeholder="Vai">
+                        <input type="text" class="measurements" id="arm" placeholder="Dài tay">
+                        <input type="text" class="measurements" id="biceps" placeholder="Bắp tay">
+                        <input type="text" class="measurements" id="back" placeholder="Dài lưng">
+                        <input type="text" class="measurements" id="butt" placeholder="Mông">
+                        <input type="text" class="measurements" id="thigh" placeholder="Đùi">
+                        <input type="text" class="measurements" id="knee" placeholder="Gối">
+                        <input type="text" class="measurements" id="pant-length" placeholder="Dài quần">
+                        <br/>
+                        <input type="submit" value="Tiến hành đặt may"/>
+                        <p class="error"></p>
+                    </form>
+              </div>
+              </div>
+              <div class="modal-confirm"> <button type="button" id="confirm" onclick = "hide()">Got it!</button> </div>
+            
+        </div>
+        </section>
+
+        <footer chi-include-html="footer.html"></footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+    <script src="script/test.js"></script>
+    <script>
+        let coat=[
+            {"image":"img/ao_khoac_1.jpg", "length": "long", "type": "single-row", "pattern": "", "color":"black grey", "priceRange":"2to3", "price":"2000000", "id":"0002"}, 
+            {"image":"img/ao_khoac_2.jpg", "length": "long", "type": "single-row", "pattern": "", "color":"black brown", "priceRange":"2to3", "price":"3000000", "id":"0006"}, 
+            {"image":"img/ao_khoac_3.jpg", "length": "short", "type": "double-row", "pattern": "", "color":"black brown", "priceRange":"over2", "price":"4000000", "id":"0009"}, 
+            {"image":"img/ao_khoac_5.jpg", "length": "long", "type": "single-row", "pattern": "", "color":"black", "priceRange":"under2", "price":"1900000", "id":"0010"},
+            {"image":"img/sp_1.jpg", "length": "long", "type": "single-row", "pattern": "", "color":"black", "priceRange":"2to3", "price":"2000000", "id":"0001"}, 
+            {"image":"img/sp_2.jpg", "length": "long", "type": "single-row", "pattern": "", "color":"black", "priceRange":"2to3", "price":"3000000", "id":"0003"}, 
+            {"image":"img/sp_3.jpg", "length": "short", "type": "double-row", "pattern": "", "color":"black", "priceRange":"over2", "price":"4000000", "id":"0005"}, 
+            {"image":"img/sp_4.jpg", "length": "long", "type": "single-row", "pattern": "", "color":"black", "priceRange":"under2", "price":"1900000", "id":"0004"}
+        ]
+
+        $(document).ready(function() {
+        for (var i=0;i<coat.length; i++) {
+        $(".products-page-content").append($('<div id="'+ coat[i].id +'"class="product-wrap" data-category="'+ coat[i].length +' '+ coat[i].type+' '+
+            coat[i].pattern +' '+ coat[i].color +' '+ coat[i].priceRange +' '+ '" data-price="'+coat[i].price+ '" data-number="'+coat[i].id+
+             '"><img src="' + coat[i].image + '"/><h1>Áo khoác A'+ coat[i].id +'</h1>'+
+            '<p>Giá: ' + coat[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +
+            ' VNĐ</p><div class="button-wrap"><button type="button" class="order">Đặt may</button><button type="button">Xem thêm</button></div></div>'));
+        $('.product-total-number').text('(' + coat.length + ' sản phẩm)');
+        }
+            
+            $(".order").click(function(){
+                $('#myModal').show();
+                let id = $(this).parent().parent().attr("id");
+                $(".product-name").text($(`#${id}>h1`).text())
+                $(".product-price").text($(`#${id}>p`).text())
+                $(".product-image").text($(`#${id}>img`).attr('src'))
+                // $(".product-name").text(this.parent().parent().find(h1).html())
+                
+            })
+
+        });
+
+        let modal = document.getElementById('myModal');
+                window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+                }
+
+        function hide(){
+            $('#myModal').hide();
+        }
+        // data-category="'+array[i].type+ array[i].button-row + array[i].color+
+        //     '"
+
+        var $filterCheckboxes = $('input[type="checkbox"]');
+
+$filterCheckboxes.on('change', function() {
+
+  var selectedFilters = {};
+
+  $filterCheckboxes.filter(':checked').each(function() {
+
+    if (!selectedFilters.hasOwnProperty(this.name)) {
+      selectedFilters[this.name] = [];
+    }
+
+    selectedFilters[this.name].push(this.value);
+
+  });
+
+  // create a collection containing all of the filterable elements
+  var $filteredResults = $('.product-wrap');
+
+  // loop over the selected filter name -> (array) values pairs
+  $.each(selectedFilters, function(name, filterValues) {
+
+    // filter each .flower element
+    $filteredResults = $filteredResults.filter(function() {
+
+      var matched = false,
+        currentFilterValues = $(this).data('category').split(' ');
+
+      // loop over each category value in the current .flower's data-category
+      $.each(currentFilterValues, function(_, currentFilterValue) {
+
+        // if the current category exists in the selected filters array
+        // set matched to true, and stop looping. as we're ORing in each
+        // set of filters, we only need to match once
+
+        if ($.inArray(currentFilterValue, filterValues) != -1) {
+          matched = true;
+          return false;
+        }
+      });
+
+      // if matched is true the current .flower element is returned
+      return matched;
+
+    });
+  });
+
+  $('.product-wrap').hide().filter($filteredResults).show();
+
+});
+
+
+
+$(".sorting").on("change", function() {
+
+var sortingMethod = $(this).val();
+
+if(sortingMethod == 'newest')
+{
+    newest();
+}
+else if(sortingMethod == 'l2h')
+{
+    lowToHigh();
+}
+else if(sortingMethod == 'h2l')
+{
+    highToLow();
+}
+
+});
+
+function newest()
+{
+var products = $('.product-wrap');
+products.sort(function(a, b){ return $(b).data("number")-$(a).data("number")});
+$(".products-page-content").html(products);
+
+}
+
+
+function lowToHigh()
+{
+var products = $('.product-wrap');
+products.sort(function(a, b){ return $(a).data("price")-$(b).data("price")});
+$(".products-page-content").html(products);
+
+}
+
+function highToLow()
+{
+var products = $('.product-wrap');
+products.sort(function(a, b){ return $(b).data("price") - $(a).data("price")});
+$(".products-page-content").html(products);
+
+}
+    
+    // let info = {};
+    // let productGroup=[];
+    //     $('.submit-to-order').on('submit', function (e) {
+    //         let isValid = true;
+    //         $('.measurements').each(function(){
+    //         if ($.trim($(this).val()) == "" || $(this).val().match(/^\d+$/) == null){
+    //             $('.error').text('Vui lòng cung cấp đầy đủ số đo!')
+    //             isValid = false;
+                
+    //         } else {
+    //             $('.error').text('');
+    //         }
+    //     });
+    //     if (isValid == false) e.preventDefault();
+
+    //     else {
+    //         info.productName = $(".product-name").text(); // string
+    //         info.productPrice = $(".product-price").text();  
+    //         info.productImage = $(".product-image").text();  
+    //         info.note = $(".note").val();
+    //         info.neck = $("#neck").val();
+    //         info.chest = $("#chest").val();
+    //         info.belly = $("#belly").val();
+    //         info.shoulder = $("#shoulder").val();
+    //         info.arm = $("#arm").val();
+    //         info.biceps = $("#biceps").val();
+    //         info.back = $("#back").val();
+    //         info.butt = $("#butt").val();
+    //         info.thigh = $("#thigh").val();
+    //         info.knee = $("#knee").val();
+    //         info.pantLength = $("#pant-length").val();
+    //         // console.log(JSON.stringify(productGroup))
+    //         // store it into locale storage as a string  
+    //         productGroup = JSON.parse(localStorage.getItem('productGroup'));
+    // // Push the new data (whether it be an object or anything else) onto the array
+    // productGroup.push(info);
+    // // Alert the array value
+    // console.log(productGroup);  // Should be something like [Object array]
+    // // Re-serialize the array back into a string and store it in localStorage
+    // localStorage.setItem('productGroup', JSON.stringify(productGroup));
+    //     }
+        
+    //     // localStorage.setItem("productGroup", JSON.stringify(productGroup));
+            
+            
+
+    // });
+
+//     function SaveDataToLocalStorage(info)
+// {
+//     let productGroup = [];
+//     // Parse the serialized data back into an aray of objects
+//     productGroup = JSON.parse(localStorage.getItem('productGroup'));
+//     // Push the new data (whether it be an object or anything else) onto the array
+//     productGroup.push(info);
+//     // Alert the array value
+//     console.log(productGroup);  // Should be something like [Object array]
+//     // Re-serialize the array back into a string and store it in localStorage
+//     localStorage.setItem('productGroup', JSON.stringify(productGroup));
+// }
+
+            $("#showFilter").click(function(){
+                $(".refine").show();
+            });
+            
+            $("#filter").click(function(){
+                $(".refine").hide();
+            });
+            
+            
+            
+            
+    
+
+    
+                
+    </script>
+        <script>
+            includeHTML();
+        </script>
+</body>
+</html>

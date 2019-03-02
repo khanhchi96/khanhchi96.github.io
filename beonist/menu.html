@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+        
+    <div class="menu-mobile">
+        <div class="menu-icon">
+            <i class="fas fa-bars" onclick="openNav()"></i>
+        </div>
+
+        <div class="logo-mobile">
+            <img src = "img/logo-dark-background.png"/>
+        </div>
+        <ul class="menu-small" id="menu-small">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li style="padding-top: 30px"><a href="about-us.html">Về chúng tôi</a></li>
+            <li><a href="product-list.html">Sản phẩm&nbsp;<span class="chevron-down"><i class="fas fa-chevron-down" onclick="showMenu(1)"></i></span>
+                                          <span class="chevron-up"><i class="fas fa-chevron-up" onclick="hideMenu(1)"></i></span>
+                </a>
+                <ul class="sub-menu-responsive" id="sub-menu-1">
+                    <li><a href="#">Áo vest</a></li>
+                    <li><a href="#">Áo gile</a></li>
+                    <li><a href="#">Áo sơ mi</a></li>
+                    <li><a href="#">Quần tây</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Thư viện ảnh</a></li>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Đặt lịch</a></li>
+        </ul>
+    </div>
+
+
+    <div class="menu-desktop">
+        <div class="logo">
+            <img src = "img/logo.png"/>
+        </div>
+        <div class="logo-scroll">
+            <img src = "img/logo.png"/>
+        </div>
+        <ul class="menu-large menu-large-sidenav" id="menu-large">
+            <li><a href="about-us.html">Về chúng tôi</a></li>
+            <li><a href="product-list.html">Sản phẩm</a>
+                <ul class="sub-menu responsive" id="sub-menu-1">
+                    <li><a href="products.html">Áo vest</a></li>
+                    <li><a href="products.html">Áo gile</a></li>
+                    <li><a href="products.html">Áo sơ mi</a></li>
+                    <li><a href="products.html">Quần tây</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Thư viện ảnh</a></li>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Đặt lịch</a></li>
+        </ul>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+    <script>
+        window.on("resize", function(){
+            if (window.innerWidth<=992){
+                $("#menu-desktop").hide();
+                $("#menu-mobile").show();
+            }
+            else if (window.innerWidth>992){
+                $("#menu-desktop").show();
+                $("#menu-mobile").hide();
+            }
+        });
+    </script>
+   
+</body>
+</html>

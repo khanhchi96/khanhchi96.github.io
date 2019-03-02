@@ -2,9 +2,11 @@
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
+  
   z = document.getElementsByTagName("*");
   for (i = 0; i < z.length; i++) {
     elmnt = z[i];
+    
     /*search for elements with a certain atrribute:*/
     file = elmnt.getAttribute("chi-include-html");
     if (file) {
@@ -28,6 +30,53 @@ function includeHTML() {
 };
 
 
+
+
+
+window.onscroll = function() {scrollFunction()};
+window.onload = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    $(".menu-large").css("top", "0");
+    $("#nav-large").css("background-color", "rgba(0, 0, 0, 0.9");
+    $(".menu-large").children().css("padding", "5px 20px");
+    $(".menu-large").css("background-color", "transparent");
+    // $(".sub-menu").eq(0).css("margin-top", "9px");
+    // $(".sub-menu").eq(2).css("margin-top", "9px");
+    // $(".menu-large").children().children().css("padding", "5px 0");
+    $(".menu-large").css("margin-right", "0");
+    $(".menu-large").css("transition", "all 0.2s");
+    $("#nav-large").css("transition", "all 0.2s");
+    $(".logo").css("display", "none");
+    $(".logo-scroll").css("display", "block");
+    $(".logo").css("margin-top", "0");
+  } else {
+    $(".menu-large").css("top", "40px")
+    $(".menu-large").css("width", "unset");
+    $(".menu-large").css("margin-right", "30px");
+    $("#nav-large").css("background-color", "transparent");
+    $(".logo-scroll").css("display", "none");
+    $(".logo").css("display", "block");
+    // $(".sub-menu").eq(0).css("margin-top", "14px");
+    // $(".sub-menu").eq(2).css("margin-top", "14px");
+    $(".menu-large").children().css("padding", "0 20px");
+    $(".menu-large").css("background-color", "rgba(0, 0, 0, 0.6)");
+    // $(".sub-menu").children().css("height", "unset");
+    // $(".menu-large").children().children().css("padding", "unset");
+  }
+}
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
+
+
+$(window).on('load',function(){
+  $('.modal-homepage').css("display", "block")
+  $('.modal-homepage').css("transition", "all 0.5s ease-in-out");
+});
 
 
 
@@ -84,6 +133,7 @@ function showMenu(n){
     if (n===2){
       $("#sub-menu-1").css("display", "block");
     };
+    return;
       }
 
     
@@ -116,3 +166,9 @@ function showMenu(n){
   // function hide(){
   //   $(".sub-menu").css("display", "none");
   // }
+
+
+
+
+
+

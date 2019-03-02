@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header class="header">       
+        <nav id="nav-large" chi-include-html="menu.html"></nav>
+            <div class="video-background" style="overflow: hidden">
+                <video autoplay muted loop id="myVideo">
+                    <source src="img/video-background.mp4" type="video/mp4">
+                </video>
+
+                <div class="content">
+                    <!-- <h1>Khám phá các mẫu áo vest mới của chúng tôi</h1> -->
+                    <p>Các mẫu áo vest của chúng tôi hướng tới sự thoải mái tối đa khi mặc âu phục thiết kế, cùng với đó 
+                        là nét thanh lịch có phần nổi trội đúng với cái tên Beonist - Những người theo chủ 
+                        nghĩa nổi bật.</p>
+                    <button type="button">Xem tất cả các mẫu áo vest</button>
+                </div>
+            </div>
+    </header>
+    <section>
+        <div class="product-list-wrap wrap">
+            <h1>Các sản phẩm khác </h1>
+            <div class="product-list first-column">
+                <img src="img/sp_1.jpg" alt="ao-khoac" name="ao-khoac"/>
+                <a href="#">Áo khoác</a>
+            </div>
+
+            <div class="product-list">
+                <img src="img/sp_2.jpg" alt="ao-gile" name="ao-gile"/>
+                <a href="#">Áo gile</a>
+            </div>
+
+            <div class="product-list first-column">
+                <img src="img/sp_3.jpg" alt="ao-so-mi" name="ao-so-mi"/>
+                <a href="#">Áo sơ mi</a>
+            </div>
+
+            <div class="product-list">
+                <img src="img/sp_4.jpg" alt="quan-tay" name="quan-tay"/>
+                <a href="#">Quần tây</a>
+            </div>
+
+        </div>
+        
+
+
+    </section>
+
+    <footer chi-include-html="footer.html"></footer>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+
+        <script>
+            includeHTML();
+        </script>
+</body>
+</html>
