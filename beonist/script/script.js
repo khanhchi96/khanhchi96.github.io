@@ -221,50 +221,5 @@ function hideMenu(n){
 
 
 
-window.onload=function(){
-  $('.slider').slick({
-  autoplay:true,
-  autoplaySpeed:1500,
-  arrows:true,
-  prevArrow: '<span class="slick-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>',
-  nextArrow: '<span class="slick-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>',
-
-  // nextArrow: '<a class="slick-right"><i class="fas fa-chevron-right"></i></a>',
-  // prevArrow: '<a class="slick-left"><i class="fas fa-chevron-left"></i></a>',
-  // centerMode:true,
-  // centerPadding: '50px',
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  infinite: true,
-  responsive: [
-    {
-      breakpoint: 1124,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      }
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]});
-};
-
-
-
 
 

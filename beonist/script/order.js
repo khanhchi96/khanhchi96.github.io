@@ -45,3 +45,15 @@ let info = {};
             
 
     });
+
+
+    let modal = document.getElementById('myModal');
+                window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+                }
+
+        function hide(){
+            $('#myModal').hide();
+        }
