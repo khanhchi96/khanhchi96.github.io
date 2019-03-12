@@ -17,35 +17,35 @@
         </div>
 
         <div class="logo-mobile">
-            <img src = "img/logo-dark-background.png"/>
+            <a href = "index.html"><img src = "img/logo-dark-background.png" alt="logo" title="logo" class="logo-beonist-mobile"/></a>
         </div>
         <ul class="menu-small" id="menu-small">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <li style="padding-top: 30px"><a href="about-us.html">Về chúng tôi</a></li>
-            <li><a href="product-list.html">Sản phẩm&nbsp;<span class="chevron-down"><i class="fas fa-chevron-down" onclick="showMenu(1)"></i></span>
+            <li><a href="product-list.html">Sản phẩm&nbsp;</a><span class="chevron-down"><i class="fas fa-chevron-down" onclick="showMenu(1)"></i></span>
                                           <span class="chevron-up"><i class="fas fa-chevron-up" onclick="hideMenu(1)"></i></span>
-                </a>
+                
                 <ul class="sub-menu-responsive" id="sub-menu-1">
-                    <li><a href="#">Áo vest</a></li>
-                    <li><a href="#">Áo gile</a></li>
-                    <li><a href="#">Áo sơ mi</a></li>
-                    <li><a href="#">Quần tây</a></li>
+                    <li><a href="products.html">Áo vest</a></li>
+                    <li><a href="products.html">Áo gile</a></li>
+                    <li><a href="products.html">Áo sơ mi</a></li>
+                    <li><a href="products.html">Quần tây</a></li>
                 </ul>
             </li>
-            <li><a href="#">Tin tức</a></li>
-            <li><a href="#">Thư viện ảnh</a></li>
-            <li><a href="#">Liên hệ</a></li>
-            <li><a href="#">Đặt lịch</a></li>
+            <li><a href="news.html">Tin tức</a></li>
+            <li><a href="image-gallery.html">Thư viện ảnh</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a href="contact.html#reservation">Đặt lịch</a></li>
         </ul>
     </div>
 
 
     <div class="menu-desktop">
         <div class="logo">
-            <img src = "img/logo.png"/>
+            <a href = "index.html"><img src = "img/logo.png" alt="logo" title="logo" class="logo-beonist"/></a>
         </div>
         <div class="logo-scroll">
-            <img src = "img/logo.png"/>
+            <a href = "index.html"><img src = "img/logo.png" alt="logo" title="logo" class="logo-beonist-scroll"/></a>
         </div>
         <ul class="menu-large menu-large-sidenav" id="menu-large">
             <li><a href="about-us.html">Về chúng tôi</a></li>
@@ -57,16 +57,18 @@
                     <li><a href="products.html">Quần tây</a></li>
                 </ul>
             </li>
-            <li><a href="#">Tin tức</a></li>
-            <li><a href="#">Thư viện ảnh</a></li>
-            <li><a href="#">Liên hệ</a></li>
-            <li><a href="#">Đặt lịch</a></li>
+            <li><a href="news.html">Tin tức</a></li>
+            <li><a href="image-gallery.html">Thư viện ảnh</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a href="contact.html#reservation">Đặt lịch</a></li>
         </ul>
     </div>
+    <!-- <div class="cart-icon"></div> -->
     
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
+    <!-- <script src="script/order.js"></script> -->
     <script>
         window.on("resize", function(){
             if (window.innerWidth<=992){

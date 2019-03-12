@@ -7,6 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+    .first-footer{
+        bottom: 0!important;
+    }
+    .secondary-footer{
+        display: none;
+    }
+</style>
 </head>
 <body>
     <header class="header"> 
@@ -17,14 +25,19 @@
 
     <section>
         <div class="cart-wrap wrap">
-            <h1>Giỏ hàng: &nbsp; <span class="number-of-items"></span></h1><br/>
+            <h1>Giỏ hàng <span class="number-of-items"></span></h1><br/>
             <div class="cart-info"></div>
             <div class="cart-value">
                 <h3>Tạm tính: <span id="total-value"></span> VNĐ</h3>
                 <h3>Mã giảm giá: <span id="discount-code"></span></h3>
                 <h3>Tổng tiền: <span id="bill-value"></span>VNĐ</h3>
             </div>
+            <div style="width: 100%; overflow: hidden">
+            <button type="button" class="check-out-button">Tiến hành thanh toán</button>
+            </div>
         </div>
+
+    
     </section>
     <footer chi-include-html="footer.html"></footer>
         
@@ -33,23 +46,24 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
+    <script src="script/order.js"></script>
     <script>
         let orderInfo = JSON.parse(localStorage.getItem("productGroup"));
-// use it
-// console.log(JSON.parse(info));
-// let orderInfo = JSON.parse(info);
 
-// console.log(JSON.parse(info).productName)
 let groupPrice = [];
+let numberOfItems = [];
         $(document).ready(function() {
             for(var i=0; i < orderInfo.length; i++ ){
-                $(".number-of-items").text('( ' + orderInfo.length + ' sản phẩm)');
-                $(".cart-info").append($('<div class="item-info"><div class="product-image"><img src="'+orderInfo[i].productImage+'"/></div><div class="cart-content">'+
-                    '<div class="name-quantity-price"><h3 class="product-name">'+orderInfo[i].productName+'</h3>'+
-                    '<p class="quantity">Số lượng<button type="button" id="sub" class="sub">-</button>'+
-                    '<input type="number" id="1" value="1" min="1" max="3"/><button type="button" id="add" class="add">+</button>'+
-                    '<span style="margin-left: 20px;"><i class="fas fa-trash-alt"></i></span></p></div>'+
-                    '<p class="product-price">'+orderInfo[i].productPrice+'</p><p class="note">Ghi chú: '+orderInfo[i].note+'</p><p>SỐ ĐO: </p>'+
+                
+                numberOfItems.push(parseInt(orderInfo[i].productQuantity));
+                $(".number-of-items").text('( ' + numberOfItems.reduce(function(a, b) { return a + b; }) + ' sản phẩm)');
+                $(".cart-info").append($('<div class="item-info"><div class="product-image-cart"><img src="'+orderInfo[i].productImage+'"/></div><div class="cart-content">'+
+                    '<div class="name-quantity-price"><h3 class="product-name-cart">'+orderInfo[i].productName+'</h3>'+
+                    '<p class="quantity">Số lượng: <button type="button" class="sub">-</button>'+
+                    '<input type="number" value="'+orderInfo[i].productQuantity+'" min="1" max="10"/><button type="button" class="add">+</button>'+
+                    '<p class="product-price-cart">'+orderInfo[i].productPrice+
+                    '</p><span style="margin-left: 20px;"><i class="fas fa-trash-alt"></i></span></div>'+
+                    '<p class="sodo">SỐ ĐO: </p>'+
                     '<div class="measurements-cart"><div>Cổ: '+orderInfo[i].neck+'</div>'+ 
                     '<div>Ngực: '+orderInfo[i].chest+'</div><div>Eo: '+orderInfo[i].belly+'</div>'+ 
                     '<div>Vai: '+orderInfo[i].shoulder+'</div><div>Dài tay: '+orderInfo[i].arm+'</div>'+ 
@@ -58,31 +72,85 @@ let groupPrice = [];
                     '<div>Gối: '+orderInfo[i].knee+'</div><div>Dài quần: '+orderInfo[i].pantLength+'</div></div></div>'
 
                 ))
-
-                let priceString= orderInfo[i].productPrice.match(/\d/g).join("");
+                        
+                let priceString;
+                priceString= orderInfo[i].productPrice.match(/\d/g).join("");
                 
                 let price=parseInt(priceString);
                 groupPrice.push(price);
                 
-
             }
+            
             let totalValue = 0;
                 totalValue = groupPrice.reduce(function(a, b) { return a + b; }, 0);
                 $('#total-value').text(totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
                 $('#bill-value').text($('#total-value').text());
+                // console.log($('#total-value').text())
+          
+                    $('.fa-trash-alt').click(function(){
+                        let deleteName =  $(this).parent().siblings("h3").text();
+                        let deletePrice = $(this).parent().siblings(".product-price-cart").text().match(/\d/g).join("");
+                        let deleteNumber = $(this).parent().siblings("p").children('input').val();
+                        // let newNumber = parseInt($(".number-of-items").text().match(/\d/g).join("")) - parseInt(deleteNumber)
+                        $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) - parseInt(deleteNumber)) + ' sản phẩm)');
+                        console.log(deleteNumber);
+                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(deletePrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                        $('#bill-value').text($('#total-value').text());
+                        
+                        $(this).parent().parent().parent().parent().remove();
+                        orderInfo = orderInfo.filter(obj => obj.productName !== deleteName);
+                        console.log(orderInfo);
+                        localStorage.setItem('productGroup', JSON.stringify(orderInfo));
+                    })
+                
+
+            $('.add').click(function () {
+                if ($(this).prev('input').val() < 10) {
+               
+                    let itemPosition = orderInfo.findIndex(x => x.productName == $(this).parent().siblings('h3').text());
+                    
+                        $(this).prev('input').val(parseInt($(this).prev('input').val()) + 1);
+                        let plusPrice = $(this).parent().siblings('p').text().match(/\d/g).join("");
+                        console.log(plusPrice)
+                        // $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) + 1) + ' sản phẩm)');
+                        // console.log(parseInt(plusPrice)/parseInt($(this).prev('input').val() -1));
+                        $(this).parent().siblings('p').text('Giá: '+ (parseInt(plusPrice) + parseInt(plusPrice)/(parseInt($(this).prev('input').val()) -1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ');
+                        $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) + 1) + ' sản phẩm)');      
+                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) + parseInt(plusPrice)/(parseInt($(this).prev('input').val()) -1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                        $('#bill-value').text($('#total-value').text());
+                        orderInfo[itemPosition].productQuantity = $(this).prev('input').val();
+                        orderInfo[itemPosition].productPrice = $(this).parent().siblings('p').text();
+                        localStorage.setItem('productGroup', JSON.stringify(orderInfo));
+                       
+
+                        // console.log($('.add').prev('input').val())
+        
+                    }
+                    
+                });
+                $('.sub').click(function () {
+                    if ($(this).next('input').val() > 1) {
+                    
+                        if ($(this).next('input').val() > 1) $(this).next().val(parseInt($(this).next('input').val()) - 1);
+                        let minusPrice = $(this).parent().siblings('p').text().match(/\d/g).join("");
+                        $(this).parent().siblings('p').text('Giá: '+ (parseInt(minusPrice) - parseInt(minusPrice)/(parseInt($(this).next('input').val()) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ');
+                        $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) - 1) + ' sản phẩm)');
+                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(minusPrice)/(parseInt($(this).next('input').val()) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                        $('#bill-value').text($('#total-value').text());
+
+                        let itemPosition = orderInfo.findIndex(x => x.productName == $(this).parent().siblings('h3').text());
+                        orderInfo[itemPosition].productQuantity = $(this).next('input').val();
+                        orderInfo[itemPosition].productPrice = $(this).parent().siblings('p').text();
+                        localStorage.setItem('productGroup', JSON.stringify(orderInfo));
+                        }
+                });
+                
         })
 
-        $('.add').click(function () {
-            if ($(this).prev().val() < 3) {
-                $(this).prev().val(+$(this).prev().val() + 1);
-            }
-        });
-        $('.sub').click(function () {
-            if ($(this).next().val() > 1) {
-                if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-                }
-        });
-            
+        $('.check-out-button').click(function(){
+                    location.href = "check-out.html";
+                });
+
     </script>
         <script>
             includeHTML();

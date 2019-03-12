@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+    .first-footer{
+        bottom: 0!important;
+    }
+    .secondary-footer{
+        display: none;
+    }
+
+    .wrap>h3{
+        text-align: center;
+    }
+
+    @media (max-width: 1200px){
+        .measurements-cart>div {
+            flex-basis: calc(19% - 17px)!important;
+        }}
+
+    @media (min-width: 1200px){
+        .measurements-cart>div {
+            flex-basis: calc(15% - 17px)!important;
+        }}
+    .customer-info-confirmation{
+        margin-top: 44px;
+    }
+</style>
+</head>
+<body>
+    <header class="header"> 
+        <div class="header-wrap">      
+            <nav id="nav-large" chi-include-html="menu.html"></nav>
+        </div>
+    </header>
+    
+    <section style="margin-bottom: 50px;">
+        <div class="wrap">
+            <h1>Thông tin khách hàng</h1>
+            <div class="customer-info-confirmation"></div>
+        </div>
+        <div class="wrap" style="margin-top: 0">
+            <h1>Thông tin đơn hàng</h1>
+            <h3>Tổng giá trị: <span id="bill-value"></span>VNĐ</h3>
+            <div class="order-info-confirmation"></div>
+        </div>    
+
+        
+    </section>
+
+    <footer chi-include-html="footer.html"></footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+    <script src="script/order.js"></script>
+    <script>
+        
+        let infoConfirmation = JSON.parse(localStorage.getItem("customerInfo"));
+
+        let orderInfo = JSON.parse(localStorage.getItem("productGroup"));
+        let groupPrice = [];
+        $(document).ready(function() {
+            $(".customer-info-confirmation").append('<p>Tên khách hàng: ' + infoConfirmation.name +'</p><p>Địa chỉ: ' + infoConfirmation.address+
+            '</p><p>Số điện thoại: ' + infoConfirmation.phone +'</p><p>Phương thức thanh toán: '+ infoConfirmation.paymentMethod +'</p>');
+            for(var i=0; i < orderInfo.length; i++ ){
+                $(".order-info-confirmation").append($('<div class="item-info"><div class="product-image-cart"><img src="'+orderInfo[i].productImage+'"/></div><div class="cart-content">'+
+                    '<div class="name-quantity-price"><h3 class="product-name-cart"> '+orderInfo[i].productQuantity+'x '+orderInfo[i].productName+'</h3></div>'+
+                    '<p class="sodo">SỐ ĐO: </p>'+
+                    '<div class="measurements-cart"><div>Cổ: '+orderInfo[i].neck+'</div>'+ 
+                    '<div>Ngực: '+orderInfo[i].chest+'</div><div>Eo: '+orderInfo[i].belly+'</div>'+ 
+                    '<div>Vai: '+orderInfo[i].shoulder+'</div><div>Dài tay: '+orderInfo[i].arm+'</div>'+ 
+                    '<div>Bắp tay: '+orderInfo[i].biceps+'</div><div>Lưng: '+orderInfo[i].back+'</div>'+ 
+                    '<div>Mông: '+orderInfo[i].butt+'</div><div>Đùi: '+orderInfo[i].thigh+'</div>'+ 
+                    '<div>Gối: '+orderInfo[i].knee+'</div><div>Dài quần: '+orderInfo[i].pantLength+'</div></div></div>'
+
+                ))
+                        
+                let priceString;
+                priceString= orderInfo[i].productPrice.match(/\d/g).join("");
+                
+                let price=parseInt(priceString);
+                groupPrice.push(price);
+
+            }
+            let totalValue = 0;
+                totalValue = groupPrice.reduce(function(a, b) { return a + b; }, 0);
+                $('#bill-value').text(totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+
+        
+        })
+
+
+    </script>
+        <script>
+            includeHTML();
+        </script>
+</body>
+
+</html>

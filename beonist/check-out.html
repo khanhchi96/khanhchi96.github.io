@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+    .first-footer{
+        bottom: 0!important;
+    }
+    .secondary-footer{
+        display: none;
+    }
+</style>
+</head>
+
+<body>
+    <header class="header"> 
+        <div class="header-wrap">      
+            <nav id="nav-large" chi-include-html="menu.html"></nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="wrap">
+            <div class="progressbar-container">
+                <ul class="progressbar">
+                    <li>Đăng nhập/Đăng ký</li>
+                    <li>Địa chỉ giao hàng</li>
+                    <li>Thanh toán & Đặt mua</li>    
+                </ul>
+            </div>
+        </div>
+        <div class="cart-wrap wrap" style="min-height: unset">
+            <div class="cart-info"></div>
+            <div class="cart-value">
+                <h3>Mã giảm giá: <span id="discount-code"></span></h3>
+                <h3>Tổng tiền: <span id="bill-value"></span>VNĐ</h3>
+            </div>
+        </div>
+            <div class="login-signup">
+                <button class="btn-active btn-login">Đăng nhập</button><button class="btn-signup">Đăng ký</button>
+                <div class="login-container">
+                    <form class="login">
+                        <label for="username"><b>Tên đăng nhập/Email</b></label>
+                        <input type="text" placeholder="Tên đăng nhập/Email" name="username" required>
+                    
+                        <label for="password"><b>Mật khẩu</b></label>
+                        <input type="password" placeholder="Mật khẩu" name="password" required>
+                            
+                        <button type="submit" class="move-to-payment">Đăng nhập</button><br/>
+                        <a href="#">Quên mật khẩu?</a>
+                    </form>
+                </div>
+
+                <div class="signup-container">
+                    <form class="signup">
+                            <label for="username"><b>Tên đăng ký/Email</b></label>
+                            <input type="text" placeholder="Tên đăng nhập/Email" name="username" required>
+                        
+                            <label for="password"><b>Mật khẩu</b></label>
+                            <input type="password" placeholder="Mật khẩu" name="password" required>
+
+                            <label for="password"><b>Xác nhận mật khẩu</b></label>
+                            <input type="password" placeholder="Xác nhận mật khẩu" name="password" required>
+                                
+                            <button type="submit" class="move-to-payment">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+
+    
+    </section>
+    <footer chi-include-html="footer.html"></footer>
+        
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+    <script src="script/order.js"></script>
+    <script>
+        let orderInfo = JSON.parse(localStorage.getItem("productGroup"));
+        let groupPrice = [];
+        $(document).ready(function() {
+            for(var i=0; i < orderInfo.length; i++ ){
+                $(".number-of-items").text('( ' + orderInfo.length + ' sản phẩm)');
+                $(".cart-info").append($('<div class="item-info"><div class="product-image-cart"><img src="'+orderInfo[i].productImage+'"/></div><div class="cart-content">'+
+                    '<div class="name-quantity-price"><h3 class="product-name-cart"> '+orderInfo[i].productQuantity+'x '+orderInfo[i].productName+'</h3>'+
+                    '<p class="sodo">SỐ ĐO: </p>'+
+                    '<div class="measurements-cart"><div>Cổ: '+orderInfo[i].neck+'</div>'+ 
+                    '<div>Ngực: '+orderInfo[i].chest+'</div><div>Eo: '+orderInfo[i].belly+'</div>'+ 
+                    '<div>Vai: '+orderInfo[i].shoulder+'</div><div>Dài tay: '+orderInfo[i].arm+'</div>'+ 
+                    '<div>Bắp tay: '+orderInfo[i].biceps+'</div><div>Lưng: '+orderInfo[i].back+'</div>'+ 
+                    '<div>Mông: '+orderInfo[i].butt+'</div><div>Đùi: '+orderInfo[i].thigh+'</div>'+ 
+                    '<div>Gối: '+orderInfo[i].knee+'</div><div>Dài quần: '+orderInfo[i].pantLength+'</div></div></div>'
+
+                ))
+                        
+                let priceString;
+                priceString= orderInfo[i].productPrice.match(/\d/g).join("");
+                
+                let price=parseInt(priceString);
+                groupPrice.push(price);
+
+            }
+            let totalValue = 0;
+                totalValue = groupPrice.reduce(function(a, b) { return a + b; }, 0);
+                $('#bill-value').text(totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+
+        
+        })
+
+
+        $('.btn-signup').click(function(){
+            $('.btn-login').removeClass('btn-active');
+            $('.btn-signup').addClass('btn-active');
+            $('.signup').css('display', 'block');
+            $('.login').css('display', 'none');
+        })
+
+        $('.btn-login').click(function(){
+            $('.btn-signup').removeClass('btn-active');
+            $('.btn-login').addClass('btn-active');
+            $('.signup').css('display', 'none');
+            $('.login').css('display', 'block');
+        })
+
+        $('.move-to-payment').click(function(){
+                    location.href = "payment.html";
+                });
+
+        
+    </script>
+        <script>
+            includeHTML();
+        </script>
+</body>
+</html>

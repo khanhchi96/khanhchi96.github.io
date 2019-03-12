@@ -1,4 +1,7 @@
 
+
+
+
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
@@ -30,12 +33,17 @@ function includeHTML() {
 };
 
 
+$('.logo').click(function(){
+    location.href = "index.html";
+})
 
 window.onscroll = function() {
   scrollBottom();
   if (window.innerWidth > 992) scrollFunction();
   };
-window.onload = function() {scrollFunction()};
+window.onload = function() { 
+  scrollBottom();
+  scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -62,46 +70,40 @@ function scrollFunction() {
 }
 
 
+
 function scrollBottom(){
-    
-  // height of the document (total height)
+
   let d = $(document).height();
-  
-  // height of the window (visible page)
   let w = $(window).height();
-  
-  // scroll level
   let s = $(this).scrollTop();
-  
-  // bottom bound - or the width of your 'big footer'
   let bottomBound = 72;
   
-  // are we beneath the bottom bound?
-  if(d - (w + s) < bottomBound) {
-      // if yes, start scrolling our own way, which is the
-      // bottom bound minus where we are in the page
+  if(d - (w + s) < bottomBound) { 
       $('.first-footer').css({
           bottom: bottomBound - (d - (w + s))
       });
   } else {
-      // if we're beneath the bottom bound, then anchor ourselves
-      // to the bottom of the page in traditional footer style
       $('.first-footer').css({
           bottom: 0
       });            
   }
 };
 
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-// }
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
 
 
-// $(window).on('load',function(){
-//   $('.modal-homepage').css("display", "block")
-//   $('.modal-homepage').css("transition", "all 0.5s ease-in-out");
-// });
+$(window).on('load',function(){
+  $('.modal-homepage').css("display", "block")
+  $('.modal-homepage').css("transition", "all 0.5s ease-in-out");
+  // if($("body").height() <= $(window).height())
+  // {$('.first-footer').css('bottom', '0');
+  //  $('.secondary-footer').css('display', 'none')}
+});
+
 
 
 // display slideshow

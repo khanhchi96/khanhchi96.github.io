@@ -1,6 +1,7 @@
 let info = {};
     let productGroup=[];
-        $('.submit-to-order').on('submit', function (e) {
+    let itemCount = 0;
+        $('#add-to-cart').click(function (e) {
             let isValid = true;
             $('.measurements').each(function(){
             if ($.trim($(this).val()) == "" || $(this).val().match(/^\d+$/) == null){
@@ -17,7 +18,7 @@ let info = {};
             info.productName = $(".product-name").text(); // string
             info.productPrice = $(".product-price").text();  
             info.productImage = $(".product-image").text();  
-            info.note = $(".note").val();
+            info.productQuantity = 1; 
             info.neck = $("#neck").val();
             info.chest = $("#chest").val();
             info.belly = $("#belly").val();
@@ -29,15 +30,16 @@ let info = {};
             info.thigh = $("#thigh").val();
             info.knee = $("#knee").val();
             info.pantLength = $("#pant-length").val();
-            // console.log(JSON.stringify(productGroup))
-            // store it into locale storage as a string  
-            productGroup = JSON.parse(localStorage.getItem('productGroup'));
+             
+            productGroup = JSON.parse(localStorage.getItem('productGroup')) || [];
     // Push the new data (whether it be an object or anything else) onto the array
     productGroup.push(info);
-    // Alert the array value
-    console.log(productGroup);  // Should be something like [Object array]
-    // Re-serialize the array back into a string and store it in localStorage
+    // $('.cart-icon').css('display', 'block');
+    $('.cart-icon').html('<i class="fas fa-shopping-cart"></i><span> ('+ productGroup.length +')</span>');
+    console.log(productGroup.length);
     localStorage.setItem('productGroup', JSON.stringify(productGroup));
+    localStorage.setItem('itemCount', JSON.stringify(productGroup.length));
+    $('#myModal').hide();
         }
         
         // localStorage.setItem("productGroup", JSON.stringify(productGroup));
@@ -45,15 +47,31 @@ let info = {};
             
 
     });
-
+    
+    $(document).ready(function() {
+        itemCount = JSON.parse(localStorage.getItem('itemCount')) || 0;
+            $('.cart-icon').html('<i class="fas fa-shopping-cart"></i><span> ('+ itemCount +')</span>');
+        
+    })
 
     let modal = document.getElementById('myModal');
+    let modalDetail = document.getElementById('modal-detail-id');
+
                 window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
+                }
+                if (event.target == modalDetail) {
+                    modalDetail.style.display = "none";
                 }
                 }
 
         function hide(){
             $('#myModal').hide();
         }
+
+        $('.cart-icon').click(function(){
+                    location.href = "cart.html";
+                });
+
+        

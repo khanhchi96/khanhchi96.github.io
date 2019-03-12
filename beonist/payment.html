@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+    .first-footer{
+        bottom: 0!important;
+    }
+    .secondary-footer{
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <header class="header"> 
+        <div class="header-wrap">      
+            <nav id="nav-large" chi-include-html="menu.html"></nav>
+        </div>
+    </header>
+
+    <section style="margin-bottom: 50px;">
+        <div class="wrap">
+            <div class="progressbar-container">
+                <ul class="progressbar">
+                    <li class="progress-active">Đăng nhập/Đăng ký</li>
+                    <li class="step2">Địa chỉ giao hàng</li>
+                    <li class="step3">Thanh toán & Đặt mua</li>    
+                </ul>
+            </div>
+        </div>
+        
+        <div class="wrap shiping-wrap">
+            
+                <form class="shipping" action="#">
+                    <h1>Địa chỉ giao hàng</h1>
+                        <label for="name"><b>Họ và tên</b></label>
+                        <input type="text" placeholder="Họ tên" name="name" id="customer-name"><br/>
+                        <span class="error"></span><br/>
+                    
+                        <label for="address"><b>Địa chỉ</b></label>
+                        <input type="text" placeholder="Địa chỉ" name="address" id="customer-address"/><br/>
+                        <span class="error"></span><br/>
+
+                        <label for="phone"><b>Số điện thoại</b></label>
+                        <input type="text" placeholder="Số điện thoại" name="phone" id="customer-phone"><br/>
+                        <span class="error"></span><br/>
+                            
+                        <button type="button" id="btn" >Xác nhận</button>
+                </form>
+        </div>
+        
+        <div class="wrap payment-wrap">
+                    <form class="payment" action="#">
+                            <h1>Phương thức thanh toán</h1>
+                        <input type="radio" name="payment" id="transfer" onclick="show1()" value="Chuyển khoản ngân hàng"/><label for="transfer">Chuyển khoản ngân hàng</label><br/>
+                            <div class="transfer-info">
+                                <p>THÔNG TIN CHUYỂN KHOẢN:</p>
+                                <p>STK: 0011004215063<br>Chủ tài khoản: PHUNG KHANH CHI<br/> Ngân hàng: Vietcombank Chi nhánh Chùa Láng</p>
+                            </div>
+
+                        <input type="radio" name="payment" id="bank-card" onclick="show2()" value="Thẻ ngân hàng"/><label for="bank-card">Thẻ ngân hàng</label><br/>
+                            <div class="bank-card-option">
+                                <input type="radio" name="card" id="visa" onclick="show4()" /><label for="visa"><i class="fab fa-cc-visa"></i></label>
+                                <input type="radio" name="card" id="mastercard" onclick="show4()" /><label for="mastercard"><i class="fab fa-cc-mastercard"></i></label>
+                                <input type="radio" name="card" id="amex" onclick="show4()" /><label for="amex"><i class="fab fa-cc-amex"></i></label>
+                                <input type="radio" name="card" id="domestic" onclick="show4()" /><label for="domestic">Domestic card</label>
+                            </div>    
+                                <div class="bank-card-info">
+                                    <p>Số thẻ:<input id="number" type="text"/></p>
+                                    <p>Tên chủ thẻ:<input id="name" type="text"/></p>
+                                    <p>Ngày hết hạn:<input id="date" type="text"/></p>
+                                </div>
+                        <input type="radio" name="payment" id="e-wallet" onclick="show3()" value="Ví điện tử" /><label for="e-wallet">Ví điện tử</label><br/>
+                        <button type="button" id="complete">Tiến hành đặt hàng</button><br/>
+                        <span class="warning"></span>
+                    </form>
+            </div>
+    
+    </section>
+    <footer chi-include-html="footer.html"></footer>
+        
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+    <script src="script/order.js"></script>
+    <script>
+        let customerInfo = {};
+        $('#btn').click(function (e) {
+            let isValid = true;
+            $('.shipping>input[type=text]').each(function(){
+            if ($.trim($(this).val()) == ""){
+                $('.error').text('Vui lòng cung cấp đầy đủ thông tin!')
+                isValid = false;
+                
+            } else {
+                $('.error').text('');
+            }
+        });
+        if (isValid == false) e.preventDefault();
+
+        else {
+            $('.step2').addClass('progress-active');
+            $('.payment').css('display', 'block');
+            $('.payment')[0].scrollIntoView({ block: 'end',  behavior: 'smooth' });
+            customerInfo = JSON.parse(localStorage.getItem('customerInfo')) || {};
+            customerInfo.name = $('#customer-name').val();
+            customerInfo.address = $('#customer-address').val();
+            customerInfo.phone = $('#customer-phone').val();
+            localStorage.setItem('customerInfo', JSON.stringify(customerInfo));
+        }
+    })
+
+
+    $('#complete').click(function (e) {
+            let isValid = true;
+            if (!$("input[name='payment']:checked").val()) {
+                $('.warning').text('Hãy chọn phương thức thanh toán!');
+                isValid = false;
+                
+            } else if ($('#bank-card').prop('checked') && !$("input[name='card']:checked").val()){
+                $('.warning').text('Hãy chọn phương thức thanh toán!');
+                isValid = false;
+            }
+            else if ($('#bank-card').prop('checked') && ($('#visa').prop('checked') || $('#mastercard').prop('checked') || $('#amex').prop('checked') || $('#domestic').prop('checked')  )
+            && ($('#number').text().trim() == "" || $('#name').text().trim() == "" ||$ ('#date').text().trim() == "")){
+                $('.warning').text('Hãy điền đầy đủ thông tin!');
+                isValid = false;
+            }
+            else {
+                $('.error').text('');
+            }
+        if (isValid == false) e.preventDefault();
+
+        else {
+            customerInfo = JSON.parse(localStorage.getItem('customerInfo')) || {};
+            customerInfo.paymentMethod = $("input[name='payment']:checked").val();
+            localStorage.setItem('customerInfo', JSON.stringify(customerInfo));
+            location.href = "confirm.html";
+        }
+    })
+
+    function show1(){
+        $('.transfer-info').css('display', 'block');
+        $('.bank-card-option').css('display', 'none');
+        scrollBottom();
+    }
+    function show2(){
+        $('.bank-card-option').css('display', 'block');
+        $('.transfer-info').css('display', 'none');
+        scrollBottom();
+    }
+
+    function show3(){}
+
+    function show4(){
+        $('.bank-card-info').css('display', 'block');
+        scrollBottom();
+    }
+            
+    </script>
+        <script>
+            includeHTML();
+        </script>
+</body>
+</html>

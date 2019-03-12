@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+    .first-footer{
+        bottom: 0!important;
+    }
+    .secondary-footer{
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <header class="header"> 
+        <div class="header-wrap">      
+            <nav id="nav-large" chi-include-html="menu.html"></nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="wrap">
+            <h1 class="contact-title"> Liên hệ</h1>
+            <div class="contact-info">
+                <p> Địa chỉ:</p>
+                <p> Số điện thoại: 0904.802.801 </p>
+                <p> Giờ làm việc: 9h00 - 22h00</p>
+            </div>
+            <div class="map"><iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Hanoi%2C%20Vietnam+(Title)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/fr/">Embedgooglemaps.com/fr/</a> & <a href="http://fbaddlikebutton.com/">www://fbaddlikebutton.com/</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
+        </div>
+
+        <div id ="reservation" style="background-color: #000; color: white;">
+            <div class="wrap">
+                <h1> Đặt lịch hẹn</h1>
+                <p style="text-align: center">Beonis Tailoring phục vụ tận nhà, lấy số đo và thử đồ</p>
+                <form class="reservation">
+                    <label for="name">Họ tên*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <input type="text" placeholder="Họ tên khách hàng" name="name" id="reservation-name"><br/>
+
+                    <p>Thời gian*<span class="batbuoc"></span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select name="day" id="day">
+                            <option> Chọn ngày ...</option>
+                        </select>
+                        <select name="month" id="month">
+                            <option> Chọn tháng ...</option>
+                        </select>
+                        <select name="year" id="year">
+                            <option> Chọn năm ...</option>
+                        </select><br/><br/>
+                        <select name="hour" id="hour" style="margin-left: 115px;">
+                            <option> Chọn giờ ...</option>
+                        </select>
+                        <select name="minute" id="minute">
+                            <option> Chọn phút ...</option>
+                        </select></p>
+
+                    <label for="phone">Số điện thoại*:</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" placeholder="Số điện thoại" name="phone" id="reservation-phone"/><br/><br/>
+                            
+
+                    <label for="address">Địa chỉ*:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" placeholder="Địa chỉ" name="address" id="reservation-address"/><br/><br/>
+                           
+
+                    <label for="note">Lưu ý:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="textarea" placeholder="Lưu ý" name="note" id="reservation-note"/><br/><br/>
+                    <button type="button" id="click-to-reserve" >Đặt lịch hẹn</button><br/>
+                    <span class="error"></span>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <footer chi-include-html="footer.html"></footer>
+        
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+    <script>
+
+        let d = document.getElementById("day");
+        let mo = document.getElementById("month");
+        let y = document.getElementById("year");
+        let h = document.getElementById("hour");
+        let mi = document.getElementById("minute");
+
+        $(document).ready(function(){
+            for (i = 1; i <= 31; i++) {
+                d.insertAdjacentHTML('beforeend', `
+             <option value="${i}">${i}</option>
+            `)
+            }
+            for (i = 1; i <= 12; i++) {
+                mo.insertAdjacentHTML('beforeend', `
+             <option value="${i}">${i}</option>
+            `)
+            }
+            let n = 2019;
+            for (i = 0; i <= 10; i++) {
+                y.insertAdjacentHTML('beforeend', `
+             <option value="${n + i}">${n + i}</option>
+            `)
+            }
+            for (i = 9; i <= 20; i++) {
+                h.insertAdjacentHTML('beforeend', `
+             <option value="${i}">${i}</option>
+            `)
+            }
+            for (i = 1; i <= 60; i++) {
+                mi.insertAdjacentHTML('beforeend', `
+             <option value="${i}">${i}</option>
+            `)
+            }
+        })
+
+let reservationInfo={};
+        $('#click-to-reserve').click(function (e) {
+            let isValid = true;
+            $('.reservation>input[type=text]').each(function(){
+            if ($.trim($(this).val()) == ""){
+                $('.error').text('Vui lòng cung cấp đầy đủ thông tin!')
+                isValid = false;    
+            } else {
+                $('.error').text('');
+            };
+            if (isNaN($('#day').val()) || isNaN($('#month').val()) || isNaN($('#year').val()) || isNaN($('#hour').val()) || isNaN($('#minute').val())){
+                $('.error').text('Vui lòng cung cấp đầy đủ thông tin!')
+                isValid = false;    
+            }else {
+                $('.error').text('');
+            }
+        });
+        if (isValid == false) e.preventDefault();
+
+        else {
+            reservationInfo = JSON.parse(localStorage.getItem('reservationInfo')) || {};
+                reservationInfo.name = $('#reservation-name').val();
+                reservationInfo.day = $('#day').val();
+                reservationInfo.month = $('#month').val();
+                reservationInfo.year = $('#year').val();
+                reservationInfo.hour = $('#hour').val();
+                reservationInfo.minute = $('#minute').val();
+                reservationInfo.phone = $('#reservation-phone').val();
+                reservationInfo.address = $('#reservation-address').val();
+                reservationInfo.note = $('#reservation-note').val();
+            localStorage.setItem('reservationInfo', JSON.stringify(reservationInfo));
+            location.href = "reservation-confirm.html";
+        }
+    })
+
+       
+    </script>
+        <script>
+            includeHTML();
+        </script>
+</body>
+</html>
