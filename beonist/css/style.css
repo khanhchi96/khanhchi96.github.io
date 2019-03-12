@@ -1269,21 +1269,22 @@ footer{
     margin-right: 0;
 }
 
-.product-list>img{
+.product-list>a>img{
     width: 100%;
 }
 
-.product-list>a{
+.product-list>a>p{
     text-transform: uppercase;
     font-size: 22px;
     text-decoration: none;
     color: #000;
-    position: absolute;
-    left: 50%;
-    margin-top: 10px;
-    transform: translateX(-50%);
-    line-height: 44px;
+    text-align: center;
     cursor: pointer;
+}
+
+.product-list>a{
+    text-decoration: none;
+    color: #000;
 }
 
 @media (max-width: 1200px){
@@ -1394,6 +1395,47 @@ footer{
     margin-top: 450px;
 }
 
+.about-us-modal{
+    position: absolute;
+    width: 45%;
+    left: 10%;
+    top: 70%;
+    transform: translateY(-70%);
+    animation: move-in 1s;
+    -webkit-animation: move-in 1s;
+}
+
+@keyframes move-in{
+    from {left: -50%};
+    to {left: 30%};
+}
+
+.about-us-modal>h3{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 50px;
+}
+
+.about-us-modal>p{
+    color: white;
+    font-size: 18px;
+    font-weight: lighter;
+    line-height: 22px;
+}
+
+.about-us-modal>button{
+    text-transform: uppercase;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 300;
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+
 @media(max-width: 992px) and (min-width: 600px) {
     .about-us-1>h1, .about-us-3-text>h1{
         font-size: 30px;
@@ -1409,6 +1451,9 @@ footer{
     .about-us-3-text>h3{
         font-size: 20px;
         line-height: 30px;
+    }
+    .about-us-modal{
+        width: 55%;
     }
 }
 
@@ -1444,11 +1489,17 @@ footer{
     .about-us-3>img{
         margin-top: 200%;
     }
+    .about-us-modal{
+        width: 75%;
+    }
 }
 
 @media (max-width: 340px){
     .about-us-3>img{
         margin-top: 300%;
+    }
+    .about-us-modal{
+        width: 80%;
     }
 }
 
