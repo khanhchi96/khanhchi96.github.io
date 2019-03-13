@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
     .first-footer{
@@ -14,6 +15,33 @@
     .secondary-footer{
         display: none;
     }
+    .active{
+        background-color: transparent!important;
+    }
+    .row{
+        margin-bottom: 30px!important;
+    }
+
+    .input-field.col{
+        width: 70%;
+    }
+
+    .cart-value{
+        background-color: green!important;
+        color: #fff!important;
+    }
+    @media (min-width: 993px){
+        .cart-value{
+            top: 50px!important;
+        }
+        .fixed-bill{
+            top: 130px!important;
+        }
+        .measurements-cart>div {
+    flex-basis: calc(19% - 17px)!important;
+    }}
+
+
 </style>
 </head>
 <body>
@@ -28,56 +56,97 @@
             <div class="progressbar-container">
                 <ul class="progressbar">
                     <li class="progress-active">Đăng nhập/Đăng ký</li>
-                    <li class="step2">Địa chỉ giao hàng</li>
+                    <!-- <li class="step2">Địa chỉ giao hàng</li> -->
                     <li class="step3">Thanh toán & Đặt mua</li>    
                 </ul>
             </div>
         </div>
-        
-        <div class="wrap shiping-wrap">
-            
-                <form class="shipping" action="#">
-                    <h1>Địa chỉ giao hàng</h1>
-                        <label for="name"><b>Họ và tên</b></label>
-                        <input type="text" placeholder="Họ tên" name="name" id="customer-name"><br/>
-                        <span class="error"></span><br/>
-                    
-                        <label for="address"><b>Địa chỉ</b></label>
-                        <input type="text" placeholder="Địa chỉ" name="address" id="customer-address"/><br/>
-                        <span class="error"></span><br/>
 
-                        <label for="phone"><b>Số điện thoại</b></label>
-                        <input type="text" placeholder="Số điện thoại" name="phone" id="customer-phone"><br/>
-                        <span class="error"></span><br/>
-                            
-                        <button type="button" id="btn" >Xác nhận</button>
-                </form>
-        </div>
-        
+
         <div class="wrap payment-wrap">
-                    <form class="payment" action="#">
-                            <h1>Phương thức thanh toán</h1>
-                        <input type="radio" name="payment" id="transfer" onclick="show1()" value="Chuyển khoản ngân hàng"/><label for="transfer">Chuyển khoản ngân hàng</label><br/>
+                <div class="cart-value">
+                        <h3>Mã giảm giá: <span id="discount-code"></span></h3>
+                        <h3>Tổng tiền: <span id="bill-value"></span>VNĐ</h3>
+                </div>
+                    <form class="payment">
+                        <h1>Địa chỉ giao hàng</h1>
+
+                    <div class="row">
+                        <div class="input-field col">
+                          <input id="customer-name" type="text" class="validate">
+                          <label for="customer-name">Họ tên khách hàng</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col">
+                          <input id="customer-address" type="text" class="validate">
+                          <label for="customer-address">Địa chỉ</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col">
+                          <input id="customer-phone" type="text" class="validate">
+                          <label for="customer-phone">Số điện thoại</label>
+                        </div>
+                    </div>
+
+
+                        <h1>Phương thức thanh toán</h1>
+
+                        <p>
+                            <label>
+                              <input name="payment" type="radio" onclick="show1()" />
+                              <span>Chuyển khoản ngân hàng</span>
+                            </label>
+                            
                             <div class="transfer-info">
                                 <p>THÔNG TIN CHUYỂN KHOẢN:</p>
                                 <p>STK: 0011004215063<br>Chủ tài khoản: PHUNG KHANH CHI<br/> Ngân hàng: Vietcombank Chi nhánh Chùa Láng</p>
                             </div>
+                        </p>
 
-                        <input type="radio" name="payment" id="bank-card" onclick="show2()" value="Thẻ ngân hàng"/><label for="bank-card">Thẻ ngân hàng</label><br/>
+                        <p>
+                            <label>
+                              <input name="payment" type="radio" id ="bank-card" onclick="show2()" />
+                              <span>Thẻ ngân hàng</span>
+                            </label>
+
                             <div class="bank-card-option">
-                                <input type="radio" name="card" id="visa" onclick="show4()" /><label for="visa"><i class="fab fa-cc-visa"></i></label>
-                                <input type="radio" name="card" id="mastercard" onclick="show4()" /><label for="mastercard"><i class="fab fa-cc-mastercard"></i></label>
-                                <input type="radio" name="card" id="amex" onclick="show4()" /><label for="amex"><i class="fab fa-cc-amex"></i></label>
-                                <input type="radio" name="card" id="domestic" onclick="show4()" /><label for="domestic">Domestic card</label>
+                                <label>     
+                                    <input name="card" type="radio" id="visa" onclick="show4()" />
+                                    <span><i class="fab fa-cc-visa"></i></span>
+                                </label> 
+                                
+                                <label>     
+                                    <input name="card" type="radio" id="mastercard" onclick="show4()" />
+                                    <span><i class="fab fa-cc-mastercard"></i></span>
+                                </label> 
+
+                                <label>     
+                                    <input name="card" type="radio" id="amex" onclick="show4()" />
+                                    <span><i class="fab fa-cc-amex"></i></span>
+                                </label> 
+
+                                <label>     
+                                    <input name="card" type="radio" id="domestic" onclick="show4()" />
+                                    <span>Thẻ ngân hàng nội địa</span>
+                                </label> 
                             </div>    
                                 <div class="bank-card-info">
                                     <p>Số thẻ:<input id="number" type="text"/></p>
                                     <p>Tên chủ thẻ:<input id="name" type="text"/></p>
                                     <p>Ngày hết hạn:<input id="date" type="text"/></p>
                                 </div>
-                        <input type="radio" name="payment" id="e-wallet" onclick="show3()" value="Ví điện tử" /><label for="e-wallet">Ví điện tử</label><br/>
+                        </p>
+                        <p>
+                            <label>
+                              <input name="payment" type="radio" id="e-wallet" onclick="show3()" />
+                              <span>Ví điện tử</span>
+                            </label>
+                        </p>
                         <button type="button" id="complete">Tiến hành đặt hàng</button><br/>
-                        <span class="warning"></span>
                     </form>
             </div>
     
@@ -88,11 +157,32 @@
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script/script.js"></script>
     <script src="script/order.js"></script>
     <script>
-        let customerInfo = {};
-        $('#btn').click(function (e) {
+    
+    let orderInfo = JSON.parse(localStorage.getItem("productGroup"));
+        let groupPrice = [];
+        $(document).ready(function() {
+            for(var i=0; i < orderInfo.length; i++ ){                        
+                let priceString;
+                priceString= orderInfo[i].productPrice.match(/\d/g).join("");
+                let price=parseInt(priceString);
+                groupPrice.push(price);
+
+            }
+            let totalValue = 0;
+                totalValue = groupPrice.reduce(function(a, b) { return a + b; }, 0);
+                $('#bill-value').text(totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+
+        
+        });
+
+    
+    let customerInfo = {};
+
+    $('#complete').click(function (e) {
             let isValid = true;
             $('.shipping>input[type=text]').each(function(){
             if ($.trim($(this).val()) == ""){
@@ -103,23 +193,6 @@
                 $('.error').text('');
             }
         });
-        if (isValid == false) e.preventDefault();
-
-        else {
-            $('.step2').addClass('progress-active');
-            $('.payment').css('display', 'block');
-            $('.payment')[0].scrollIntoView({ block: 'end',  behavior: 'smooth' });
-            customerInfo = JSON.parse(localStorage.getItem('customerInfo')) || {};
-            customerInfo.name = $('#customer-name').val();
-            customerInfo.address = $('#customer-address').val();
-            customerInfo.phone = $('#customer-phone').val();
-            localStorage.setItem('customerInfo', JSON.stringify(customerInfo));
-        }
-    })
-
-
-    $('#complete').click(function (e) {
-            let isValid = true;
             if (!$("input[name='payment']:checked").val()) {
                 $('.warning').text('Hãy chọn phương thức thanh toán!');
                 isValid = false;
@@ -140,6 +213,9 @@
 
         else {
             customerInfo = JSON.parse(localStorage.getItem('customerInfo')) || {};
+            customerInfo.name = $('#customer-name').val();
+            customerInfo.address = $('#customer-address').val();
+            customerInfo.phone = $('#customer-phone').val();
             customerInfo.paymentMethod = $("input[name='payment']:checked").val();
             localStorage.setItem('customerInfo', JSON.stringify(customerInfo));
             location.href = "confirm.html";
@@ -149,6 +225,7 @@
     function show1(){
         $('.transfer-info').css('display', 'block');
         $('.bank-card-option').css('display', 'none');
+        $('.bank-card-info').css('display', 'none');
         scrollBottom();
     }
     function show2(){
@@ -157,7 +234,11 @@
         scrollBottom();
     }
 
-    function show3(){}
+    function show3(){
+        $('.transfer-info').css('display', 'none');
+        $('.bank-card-option').css('display', 'none');
+        $('.bank-card-info').css('display', 'none');
+    }
 
     function show4(){
         $('.bank-card-info').css('display', 'block');

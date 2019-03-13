@@ -6,74 +6,105 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
-    .first-footer{
-        bottom: 0!important;
+    
+
+    .active{
+        background-color: transparent!important;
     }
-    .secondary-footer{
-        display: none;
+
+    .menu-icon{
+    margin-top:2px!important;
+    }
+    .fa-bars{
+        font-size: 35px!important;  
     }
 </style>
 </head>
 <body>
-    <header class="header"> 
-        <div class="header-wrap">      
-            <nav id="nav-large" chi-include-html="menu.html"></nav>
-        </div>
-    </header>
-
+        <header class="header">       
+                <nav id="nav-large" chi-include-html="menu.html"></nav>
+                <div class="parallax parallax-header-contact">
+                    <div class="parallax-header-contact-content">
+                        <h3><span>Beonist Tailoring</span><span>cung cấp</span><span>dịch vụ</span><span>may đo</span>tận nhà</h3>
+                        <button type="button">Đặt lịch với chúng tôi</button>
+                    </div>
+                </div>
+        </header>
+        
+    
     <section>
         <div class="wrap">
             <h1 class="contact-title"> Liên hệ</h1>
             <div class="contact-info">
-                <p> Địa chỉ:</p>
+                <p> Địa chỉ: 900, René-Lévesque Boulevard West,<br/>
+                        Montréal, Québec H3B 4A5 </p>
                 <p> Số điện thoại: 0904.802.801 </p>
                 <p> Giờ làm việc: 9h00 - 22h00</p>
+                <p>Email: info@marcheartisans.com</p>
             </div>
-            <div class="map"><iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Hanoi%2C%20Vietnam+(Title)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="https://embedgooglemaps.com/fr/">Embedgooglemaps.com/fr/</a> & <a href="http://fbaddlikebutton.com/">www://fbaddlikebutton.com/</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
         </div>
+        
+        <div class="map"><iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Hanoi%2C%20Vietnam+(Title)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
 
-        <div id ="reservation" style="background-color: #000; color: white;">
-            <div class="wrap">
-                <h1> Đặt lịch hẹn</h1>
-                <p style="text-align: center">Beonis Tailoring phục vụ tận nhà, lấy số đo và thử đồ</p>
+        
+
+        <div id ="reservation" class="parallax" style="height: 100vh;">
+            <div class="wrap reservation-wrap">
                 <form class="reservation">
-                    <label for="name">Họ tên*:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" placeholder="Họ tên khách hàng" name="name" id="reservation-name"><br/>
+                    <h1> Đặt lịch hẹn</h1>
+                    <p style="text-align: center; font-style: italic;">Beonist Tailoring phục vụ tận nhà, lấy số đo và thử đồ</p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">Họ tên</label>   
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>         
+                            </div>
+                        </div>
 
-                    <p>Thời gian*<span class="batbuoc"></span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <select name="day" id="day">
-                            <option> Chọn ngày ...</option>
-                        </select>
-                        <select name="month" id="month">
-                            <option> Chọn tháng ...</option>
-                        </select>
-                        <select name="year" id="year">
-                            <option> Chọn năm ...</option>
-                        </select><br/><br/>
-                        <select name="hour" id="hour" style="margin-left: 115px;">
-                            <option> Chọn giờ ...</option>
-                        </select>
-                        <select name="minute" id="minute">
-                            <option> Chọn phút ...</option>
-                        </select></p>
+                        <div class="row">
+                            <div class=" input-field col s6">
+                                <input id="date" type="text" class="datepicker">
+                                <label for="date">Ngày hẹn</label>  
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>    
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="time" type="text" class="timepicker">
+                                <label for="time">Giờ hẹn</label>   
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>   
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="icon_telephone" type="tel" class="validate">
+                                <label for="icon_telephone">Số điện thoại</label>
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>
+                            </div>
+                        </div>
 
-                    <label for="phone">Số điện thoại*:</label>&nbsp;&nbsp;&nbsp;
-                            <input type="text" placeholder="Số điện thoại" name="phone" id="reservation-phone"/><br/><br/>
-                            
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="address" type="text" class="validate">
+                                <label for="address">Địa chỉ</label>          
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>  
+                            </div>
+                        </div>
 
-                    <label for="address">Địa chỉ*:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="text" placeholder="Địa chỉ" name="address" id="reservation-address"/><br/><br/>
-                           
-
-                    <label for="note">Lưu ý:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="textarea" placeholder="Lưu ý" name="note" id="reservation-note"/><br/><br/>
-                    <button type="button" id="click-to-reserve" >Đặt lịch hẹn</button><br/>
-                    <span class="error"></span>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="address" type="text" class="validate">
+                                <label for="address">Lưu ý</label>   
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>         
+                            </div>
+                        </div> 
+                     <button type="button" id="click-to-reserve" >Đặt lịch hẹn</button><br/>
                 </form>
             </div>
         </div>
+        <div class="cart-icon"></div>
     </section>
 
 
@@ -81,41 +112,11 @@
         
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
+    <script src="script/order.js"></script>
     <script>
-
-        let d = document.getElementById("day");
-        let mo = document.getElementById("month");
-        let y = document.getElementById("year");
-        let h = document.getElementById("hour");
-        let mi = document.getElementById("minute");
-
         $(document).ready(function(){
-            for (i = 1; i <= 31; i++) {
-                d.insertAdjacentHTML('beforeend', `
-             <option value="${i}">${i}</option>
-            `)
-            }
-            for (i = 1; i <= 12; i++) {
-                mo.insertAdjacentHTML('beforeend', `
-             <option value="${i}">${i}</option>
-            `)
-            }
-            let n = 2019;
-            for (i = 0; i <= 10; i++) {
-                y.insertAdjacentHTML('beforeend', `
-             <option value="${n + i}">${n + i}</option>
-            `)
-            }
-            for (i = 9; i <= 20; i++) {
-                h.insertAdjacentHTML('beforeend', `
-             <option value="${i}">${i}</option>
-            `)
-            }
-            for (i = 1; i <= 60; i++) {
-                mi.insertAdjacentHTML('beforeend', `
-             <option value="${i}">${i}</option>
-            `)
-            }
+            $('.datepicker').datepicker();
+            $('.timepicker').timepicker();
         })
 
 let reservationInfo={};
@@ -155,6 +156,7 @@ let reservationInfo={};
 
        
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
             includeHTML();
         </script>

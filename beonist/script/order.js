@@ -1,6 +1,7 @@
 let info = {};
     let productGroup=[];
-    let itemCount = 0;
+    let itemCount = JSON.parse(localStorage.getItem('count')) || 0;
+    // let itemCount = 0;
         $('#add-to-cart').click(function (e) {
             let isValid = true;
             $('.measurements').each(function(){
@@ -34,22 +35,23 @@ let info = {};
             productGroup = JSON.parse(localStorage.getItem('productGroup')) || [];
     // Push the new data (whether it be an object or anything else) onto the array
     productGroup.push(info);
+    itemCount = parseInt(itemCount) + 1;
+    localStorage.setItem('count', JSON.stringify(itemCount));
     // $('.cart-icon').css('display', 'block');
-    $('.cart-icon').html('<i class="fas fa-shopping-cart"></i><span> ('+ productGroup.length +')</span>');
+    $('.cart-icon').html('<i class="fas fa-shopping-cart"></i><span> ('+ itemCount +')</span>');
     console.log(productGroup.length);
     localStorage.setItem('productGroup', JSON.stringify(productGroup));
-    localStorage.setItem('itemCount', JSON.stringify(productGroup.length));
+    
+    // console.log(itemCount);
+    // localStorage.setItem('itemCount', JSON.stringify(productGroup.length));
     $('#myModal').hide();
         }
         
-        // localStorage.setItem("productGroup", JSON.stringify(productGroup));
-            
-            
+        // localStorage.setItem("productGroup", JSON.stringify(productGroup));    
 
     });
-    
     $(document).ready(function() {
-        itemCount = JSON.parse(localStorage.getItem('itemCount')) || 0;
+        // itemCount = JSON.parse(localStorage.getItem('itemCount')) || 0;
             $('.cart-icon').html('<i class="fas fa-shopping-cart"></i><span> ('+ itemCount +')</span>');
         
     })
@@ -74,4 +76,3 @@ let info = {};
                     location.href = "cart.html";
                 });
 
-        

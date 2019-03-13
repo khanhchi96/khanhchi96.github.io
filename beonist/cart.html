@@ -25,17 +25,17 @@
 
     <section>
         <div class="cart-wrap wrap">
-            <h1>Giỏ hàng <span class="number-of-items"></span></h1><br/>
+            <h1>Giỏ hàng <span class="number-of-items">(0 sản phẩm)</span></h1><br/>
             <div class="cart-info"></div>
             <div class="cart-value">
                 <h3>Tạm tính: <span id="total-value"></span> VNĐ</h3>
                 <h3>Mã giảm giá: <span id="discount-code"></span></h3>
                 <h3>Tổng tiền: <span id="bill-value"></span>VNĐ</h3>
-            </div>
-            <div style="width: 100%; overflow: hidden">
-            <button type="button" class="check-out-button">Tiến hành thanh toán</button>
+                <button type="button" class="check-out-button">Tiến hành thanh toán</button>
             </div>
         </div>
+
+        
 
     
     </section>
@@ -52,18 +52,22 @@
 
 let groupPrice = [];
 let numberOfItems = [];
+let count = 0
         $(document).ready(function() {
+            count = JSON.parse(localStorage.getItem('count')) || 0;
             for(var i=0; i < orderInfo.length; i++ ){
                 
                 numberOfItems.push(parseInt(orderInfo[i].productQuantity));
                 $(".number-of-items").text('( ' + numberOfItems.reduce(function(a, b) { return a + b; }) + ' sản phẩm)');
+                localStorage.setItem('count', JSON.stringify($(".number-of-items").text().match(/\d/g).join("")));
                 $(".cart-info").append($('<div class="item-info"><div class="product-image-cart"><img src="'+orderInfo[i].productImage+'"/></div><div class="cart-content">'+
-                    '<div class="name-quantity-price"><h3 class="product-name-cart">'+orderInfo[i].productName+'</h3>'+
+                    '<div class="name-quantity-price"><img class="product-image-cart-mobile" src="'+orderInfo[i].productImage+'"/>'+
+                    '<h3 class="product-name-cart">'+orderInfo[i].productName+'</h3>'+
                     '<p class="quantity">Số lượng: <button type="button" class="sub">-</button>'+
                     '<input type="number" value="'+orderInfo[i].productQuantity+'" min="1" max="10"/><button type="button" class="add">+</button>'+
                     '<p class="product-price-cart">'+orderInfo[i].productPrice+
                     '</p><span style="margin-left: 20px;"><i class="fas fa-trash-alt"></i></span></div>'+
-                    '<p class="sodo">SỐ ĐO: </p>'+
+                    '<p class="sodo">SỐ ĐO (cm): </p>'+
                     '<div class="measurements-cart"><div>Cổ: '+orderInfo[i].neck+'</div>'+ 
                     '<div>Ngực: '+orderInfo[i].chest+'</div><div>Eo: '+orderInfo[i].belly+'</div>'+ 
                     '<div>Vai: '+orderInfo[i].shoulder+'</div><div>Dài tay: '+orderInfo[i].arm+'</div>'+ 
@@ -74,7 +78,7 @@ let numberOfItems = [];
                 ))
                         
                 let priceString;
-                priceString= orderInfo[i].productPrice.match(/\d/g).join("");
+                priceString = orderInfo[i].productPrice.match(/\d/g).join("");
                 
                 let price=parseInt(priceString);
                 groupPrice.push(price);
@@ -93,6 +97,7 @@ let numberOfItems = [];
                         let deleteNumber = $(this).parent().siblings("p").children('input').val();
                         // let newNumber = parseInt($(".number-of-items").text().match(/\d/g).join("")) - parseInt(deleteNumber)
                         $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) - parseInt(deleteNumber)) + ' sản phẩm)');
+                        localStorage.setItem('count', JSON.stringify($(".number-of-items").text().match(/\d/g).join("")));
                         console.log(deleteNumber);
                         $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(deletePrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
                         $('#bill-value').text($('#total-value').text());
@@ -116,6 +121,7 @@ let numberOfItems = [];
                         // console.log(parseInt(plusPrice)/parseInt($(this).prev('input').val() -1));
                         $(this).parent().siblings('p').text('Giá: '+ (parseInt(plusPrice) + parseInt(plusPrice)/(parseInt($(this).prev('input').val()) -1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ');
                         $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) + 1) + ' sản phẩm)');      
+                        localStorage.setItem('count', JSON.stringify($(".number-of-items").text().match(/\d/g).join("")));
                         $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) + parseInt(plusPrice)/(parseInt($(this).prev('input').val()) -1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
                         $('#bill-value').text($('#total-value').text());
                         orderInfo[itemPosition].productQuantity = $(this).prev('input').val();
@@ -135,6 +141,7 @@ let numberOfItems = [];
                         let minusPrice = $(this).parent().siblings('p').text().match(/\d/g).join("");
                         $(this).parent().siblings('p').text('Giá: '+ (parseInt(minusPrice) - parseInt(minusPrice)/(parseInt($(this).next('input').val()) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ');
                         $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) - 1) + ' sản phẩm)');
+                        localStorage.setItem('count', JSON.stringify($(".number-of-items").text().match(/\d/g).join("")));
                         $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(minusPrice)/(parseInt($(this).next('input').val()) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
                         $('#bill-value').text($('#total-value').text());
 
@@ -151,6 +158,14 @@ let numberOfItems = [];
                     location.href = "check-out.html";
                 });
 
+        $(window).scroll(function(){
+        if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+            $('.cart-value').addClass('fixed-bill');
+        }
+        else{
+            $('.cart-value').removeClass('fixed-bill');
+        }
+    })
     </script>
         <script>
             includeHTML();

@@ -119,9 +119,9 @@
         </div>
         <div class="cart-icon"></div>
 
-        <div id="myModal" class="modal">
+        <div id="myModal" class="mymodal">
 
-            <div class="modal-content">
+            <div class="mymodal-content">
                     <span id="close" onclick="hide()">&times;</span>
               
              <div style="overflow: hidden"> 
@@ -131,7 +131,7 @@
                     <p class="product-price"></p>
                     <div style="display:none" class="product-image"></div>
                     <form class="submit-to-order" action="#">
-                        <p style="font-size: 15px">Vui lòng nhập đầy đủ số đo:</p>
+                        <p style="font-size: 15px">Vui lòng nhập đầy đủ số đo (cm)</p>
                         <input type="text" class="measurements" id="neck" placeholder="Cổ"> 
                         <input type="text" class="measurements" id="chest" placeholder="Ngực"> 
                         <input type="text" class="measurements" id="belly"placeholder="Eo">
@@ -159,11 +159,11 @@
                     <span id="close" onclick="$('#modal-detail-id').hide()">&times;</span>
                     <div class="product-detail">
                         <div class="product-detail-image">
-                            
                         </div>
                         <div class="product-detail-info">
                             <h3 class="product-detail-name"></h3>
                             <p class="product-detail-price"></p>
+                            <div class="product-detail-image-mobile"></div>
                             <p>Chất liệu: cashmere</p>
                             <p>Mẫu áo được làm từ vải len lông cừu mềm mại và nhẹ giúp người mặc vận động dễ dàng cùng khả năng giữ nhiệt tốt, thoáng khí luôn sẵn sàng đương đầu với thời tiết giá lạnh của Hà Nội.</p>
                                 <button type="button" class="order-from-detail-modal">Đặt may</button>
@@ -260,6 +260,7 @@
                 $(".product-detail-name").text($(`#${id}>h1`).text())
                 $(".product-detail-price").text($(`#${id}>p`).text())
                 $(".product-detail-image").html('<img src = "'+ $(`#${id}>img`).attr('src') + '"/>')
+                $(".product-detail-image-mobile").html('<img src = "'+ $(`#${id}>img`).attr('src') + '"/>')
             });
 
             $(".order-from-detail-modal").click(function(){

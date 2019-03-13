@@ -9,12 +9,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <header class="header"> 
-        <div class="news-header-wrap">      
-            <nav id="nav-large" chi-include-html="menu.html"></nav>
-        </div>
-
-        <!-- <div class="wrap"><h1 class="page-title">Tin tức</h1></div> -->
+    <header class="header">       
+        <nav id="nav-large" chi-include-html="menu.html"></nav>
+                <div class="parallax parallax-header-news">
+                </div>
     </header>
 
     <section style="margin-bottom: 50px; margin-top: 20px;">
@@ -53,7 +51,7 @@
             <div class="media">
                 <h1 class="news-title">Truyền thông</h1>
                 <a href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
-                    <div class="media-item">
+                    <div class="media-item media-item-1">
                         <div class="media-image">
                             <img src="img/mc.jpg" alt="bo suu tap moi" name="bo-suu-tap-moi"/>
                         </div>
@@ -64,7 +62,7 @@
                 </a>
 
                 <a href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
-                    <div class="media-item">
+                    <div class="media-item media-item-2">
                         <div class="media-image">
                             <img src="img/mc.jpg" alt="bo suu tap moi" name="bo-suu-tap-moi"/>
                         </div>
@@ -74,11 +72,13 @@
                     </div>
                 </a>
             </div>
+            <div class="cart-icon"></div>
     </section>
 
     <footer chi-include-html="footer.html"></footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
+    <script src="script/order.js"></script>
     <script>
         let news=[
             {'image':'img/news-3.jpg', 'title': 'Chương trình ưu đãi tháng 01/2019', 'link':'https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/'},
