@@ -1,18 +1,28 @@
+
+$('.measurements').each(function(){
+    $(this).keydown(function(){
+    $(this).css('border', '1px solid #000');
+})})
+
+
 let info = {};
     let productGroup=[];
     let itemCount = JSON.parse(localStorage.getItem('count')) || 0;
     // let itemCount = 0;
         $('#add-to-cart').click(function (e) {
             let isValid = true;
-            $('.measurements').each(function(){
-            if ($.trim($(this).val()) == "" || $(this).val().match(/^\d+$/) == null){
-                $('.error').text('Vui lòng cung cấp đầy đủ số đo!')
-                isValid = false;
-                
-            } else {
-                $('.error').text('');
+            let sizeData = [];
+                $('.measurements').each(function(){
+                    sizeData.push($(this).val());
+                });
+            for (i = 0; i<sizeData.length; i++){
+                if(sizeData[i].match('^[1-9]+[0-9]*$') == null){
+                    $('.error').text('Vui lòng cung cấp đầy đủ số đo!')
+                    $('.measurements').eq(i).css('border', '1px solid red');
+                    isValid = false;
+                } 
             }
-        });
+            
         if (isValid == false) e.preventDefault();
 
         else {
@@ -46,10 +56,9 @@ let info = {};
     // localStorage.setItem('itemCount', JSON.stringify(productGroup.length));
     $('#myModal').hide();
         }
-        
-        // localStorage.setItem("productGroup", JSON.stringify(productGroup));    
-
     });
+
+    
     $(document).ready(function() {
         // itemCount = JSON.parse(localStorage.getItem('itemCount')) || 0;
             $('.cart-icon').html('<i class="fas fa-shopping-cart"></i><span> ('+ itemCount +')</span>');

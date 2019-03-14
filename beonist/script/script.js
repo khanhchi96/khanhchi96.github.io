@@ -48,24 +48,45 @@ window.onload = function() {
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     $(".menu-large").css("top", "0");
-    $("#nav-large").css("background-color", "rgba(0, 0, 0, 0.9");
+    $("#nav-large").css("background-color", "rgba(0, 0, 0)");
+    $("#nav-large").css("padding", "50px 0");
     $(".menu-large").children().css("padding", "1px 20px");
     $(".menu-large").css("background-color", "transparent");
-    // $(".menu-large").css("margin-right", "0");
     $(".menu-large").css("transition", "all 0.2s");
     $("#nav-large").css("transition", "all 0.2s");
     $(".logo").css("display", "none");
     $(".logo-scroll").css("display", "block");
+    $(".logo-beonist-scroll").css("width", "150px");
+    $(".logo-scroll").css("top", "0px");
     $(".logo").css("margin-top", "0");
   } else {
     $(".menu-large").css("top", "40px")
     $(".menu-large").css("width", "unset");
+    $("#nav-large").css("padding", "0px");
     // $(".menu-large").css("margin-right", "30px");
     $("#nav-large").css("background-color", "transparent");
     $(".logo-scroll").css("display", "none");
     $(".logo").css("display", "block");
     $(".menu-large").children().css("padding", "5px 20px 0 20px");
     $(".menu-large").css("background-color", "rgba(0, 0, 0, 0.6)");
+  }
+  let d = $(this).scrollTop();
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    $("#nav-large").css("padding-top",(150 - d/4)/4);
+    $("#nav-large").css("padding-bottom",(150 - d/4)/4);
+    $(".logo-beonist-scroll").css("width", (150 - d/6)) ;
+    // $(".logo-beonist-scroll").css("min-width", '60') ;
+    // $(".header-wrap").css("background-color", "transparent")
+  } 
+  else{
+    $("#nav-large").css("background-color", "transparent");
+    $(".menu-large").css("background-color", "rgba(0, 0, 0, 0.6)");
+    $(".header-wrap").css("background-color", "#000")
+  }
+
+  if (document.body.scrollTop > 520 || document.documentElement.scrollTop > 520){
+    $("#nav-large").css("padding", 0)
+    $(".logo-beonist-scroll").css("width", '60') ;
   }
 }
 

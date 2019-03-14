@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Liên hệ</title>
+    <link rel="icon" href="img/logo-dark-background.png" type="image/gif" sizes="15x15">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
-    
+    .helper-text{
+        color: red!important;
+        text-align: right;
+    }
 
     .active{
         background-color: transparent!important;
@@ -21,6 +25,15 @@
     .fa-bars{
         font-size: 35px!important;  
     }
+   
+    #contact::after{
+    content: '';
+    display: block;
+    bottom: 0;
+    border-bottom: 4px solid #fff!important;
+    width: 100%!important;
+    }
+
 </style>
 </head>
 <body>
@@ -58,8 +71,8 @@
                     <p style="text-align: center; font-style: italic;">Beonist Tailoring phục vụ tận nhà, lấy số đo và thử đồ</p>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="first_name" type="text" class="validate">
-                                <label for="first_name">Họ tên</label>   
+                                <input id="customer-name" type="text" class="validate" pattern="^[a-zA-Z ]+$">
+                                <label for="customer-name">Họ tên</label>   
                                 <span class="helper-text" data-error="wrong" data-success="right"></span>         
                             </div>
                         </div>
@@ -79,24 +92,24 @@
                         
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="icon_telephone" type="tel" class="validate">
-                                <label for="icon_telephone">Số điện thoại</label>
+                                <input id="customer-phone" type="tel" class="validate" pattern="^[0]{1}[19]{1}[0-9]{8,9}$">
+                                <label for="customer-phone">Số điện thoại</label>
                                 <span class="helper-text" data-error="wrong" data-success="right"></span>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="address" type="text" class="validate">
-                                <label for="address">Địa chỉ</label>          
+                                <input id="customer-address" type="text" class="validate">
+                                <label for="customer-address">Địa chỉ</label>          
                                 <span class="helper-text" data-error="wrong" data-success="right"></span>  
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="address" type="text" class="validate">
-                                <label for="address">Lưu ý</label>   
+                                <input id="note" type="text" class="validate">
+                                <label for="note">Lưu ý</label>   
                                 <span class="helper-text" data-error="wrong" data-success="right"></span>         
                             </div>
                         </div> 
@@ -112,43 +125,53 @@
         
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
-    <script src="script/order.js"></script>
+    <script src="script/validation.js"></script>
     <script>
         $(document).ready(function(){
             $('.datepicker').datepicker();
             $('.timepicker').timepicker();
+
+            $('#date').mousedown(function(){
+            $('#date').siblings('span').text('')
         })
+            $('#time').mousedown(function(){
+            $('#time').siblings('span').text('')
+        })
+        })
+
+
+        $('#customer-address').keydown(function(){
+            $('#customer-address').siblings('span').text('')
+        })
+        $('#customer-name').keydown(function(){
+            $('#customer-name').siblings('span').text('')
+        })
+        $('#customer-phone').keydown(function(){
+            $('#customer-phone').siblings('span').text('')
+        })
+
 
 let reservationInfo={};
         $('#click-to-reserve').click(function (e) {
+            validationInfo();
             let isValid = true;
-            $('.reservation>input[type=text]').each(function(){
-            if ($.trim($(this).val()) == ""){
-                $('.error').text('Vui lòng cung cấp đầy đủ thông tin!')
+            if ($('#date').val()  == "" ){
+                $('#date').siblings('span').text('Vui lòng cung cấp đầy đủ thông tin!')
                 isValid = false;    
-            } else {
-                $('.error').text('');
-            };
-            if (isNaN($('#day').val()) || isNaN($('#month').val()) || isNaN($('#year').val()) || isNaN($('#hour').val()) || isNaN($('#minute').val())){
-                $('.error').text('Vui lòng cung cấp đầy đủ thông tin!')
-                isValid = false;    
-            }else {
-                $('.error').text('');
             }
-        });
+            if ($('#time').val()  == "" ){
+                $('#time').siblings('span').text('Vui lòng cung cấp đầy đủ thông tin!')
+                isValid = false;    
+            }
         if (isValid == false) e.preventDefault();
 
         else {
             reservationInfo = JSON.parse(localStorage.getItem('reservationInfo')) || {};
-                reservationInfo.name = $('#reservation-name').val();
-                reservationInfo.day = $('#day').val();
-                reservationInfo.month = $('#month').val();
-                reservationInfo.year = $('#year').val();
-                reservationInfo.hour = $('#hour').val();
-                reservationInfo.minute = $('#minute').val();
-                reservationInfo.phone = $('#reservation-phone').val();
-                reservationInfo.address = $('#reservation-address').val();
-                reservationInfo.note = $('#reservation-note').val();
+                reservationInfo.name = $('#customer-name').val();
+                reservationInfo.date = $('#date').val();
+                reservationInfo.phone = $('#customer-phone').val();
+                reservationInfo.address = $('#customer-address').val();
+                reservationInfo.note = $('#note').val();
             localStorage.setItem('reservationInfo', JSON.stringify(reservationInfo));
             location.href = "reservation-confirm.html";
         }

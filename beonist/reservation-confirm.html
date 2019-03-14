@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Xác nhận đặt lịch</title>
+    <link rel="icon" href="img/logo-dark-background.png" type="image/gif" sizes="15x15">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
+    #contact::after{
+    content: '';
+    display: block;
+    bottom: 0;
+    border-bottom: 4px solid #fff!important;
+    width: 100%!important;
+    }
     .first-footer{
         bottom: 0!important;
     }
@@ -41,8 +49,7 @@
 
                 $(document).ready(function() {
                     $('.info').append('<p>Tên khách hàng: '+ reservation.name + '</p><p>Thời gian hẹn: '+
-                        reservation.hour + ' giờ ' + reservation.minute + ' phút '+ 'ngày '+
-                        reservation.day +' tháng ' + reservation.month + ' năm ' + reservation.year +
+                        reservation.date + ' giờ, ' + reservation.time +
                         '</p><p>Số điện thoại: '+ reservation.phone + '</p><p>Địa chỉ: '+ 
                         reservation.address +'</p><p>Lưu ý: ' + reservation.note +'</p>')
                     

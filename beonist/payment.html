@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Thanh toán</title>
+    <link rel="icon" href="img/logo-dark-background.png" type="image/gif" sizes="15x15">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
+    #product-list::after{
+    content: '';
+    display: block;
+    bottom: 0;
+    border-bottom: 4px solid #fff!important;
+    width: 100%!important;
+    }
+
     .first-footer{
         bottom: 0!important;
     }
@@ -39,8 +48,13 @@
         }
         .measurements-cart>div {
     flex-basis: calc(19% - 17px)!important;
-    }}
+        }
+    }
 
+    .helper-text{
+        color: red!important;
+        text-align: right;
+    }
 
 </style>
 </head>
@@ -55,7 +69,19 @@
         <div class="wrap">
             <div class="progressbar-container">
                 <ul class="progressbar">
-                    <li class="progress-active">Đăng nhập/Đăng ký</li>
+                    <style scoped>
+                        @media (max-width: 992px){
+                            .progressbar>li:before {
+                                height: 25px!important;
+                                width: 25px!important;
+                                line-height: 25px;
+                            }
+                        }
+                        .step1::after{
+                                content: none!important;
+                            }
+                    </style>
+                    <li class="step1 progress-active">Đăng nhập/Đăng ký</li>
                     <!-- <li class="step2">Địa chỉ giao hàng</li> -->
                     <li class="step3">Thanh toán & Đặt mua</li>    
                 </ul>
@@ -64,17 +90,14 @@
 
 
         <div class="wrap payment-wrap">
-                <div class="cart-value">
-                        <h3>Mã giảm giá: <span id="discount-code"></span></h3>
-                        <h3>Tổng tiền: <span id="bill-value"></span>VNĐ</h3>
-                </div>
                     <form class="payment">
                         <h1>Địa chỉ giao hàng</h1>
 
                     <div class="row">
                         <div class="input-field col">
-                          <input id="customer-name" type="text" class="validate">
+                          <input id="customer-name" type="text" class="validate" pattern="^[a-zA-Z ]+$">
                           <label for="customer-name">Họ tên khách hàng</label>
+                          <span class="helper-text" data-error="wrong" data-success="right"></span>
                         </div>
                     </div>
 
@@ -82,22 +105,24 @@
                         <div class="input-field col">
                           <input id="customer-address" type="text" class="validate">
                           <label for="customer-address">Địa chỉ</label>
+                          <span class="helper-text" data-error="wrong" data-success="right"></span>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col">
-                          <input id="customer-phone" type="text" class="validate">
+                          <input id="customer-phone" type="text" class="validate" pattern="^[0]{1}[19]{1}[0-9]{8,9}$">
                           <label for="customer-phone">Số điện thoại</label>
+                          <span class="helper-text" data-error="wrong" data-success="right"></span>
                         </div>
                     </div>
 
 
-                        <h1>Phương thức thanh toán</h1>
+                        <h1>Phương thức thanh toán</h1><span class="warning"></span>
 
                         <p>
                             <label>
-                              <input name="payment" type="radio" onclick="show1()" />
+                              <input name="payment"  value = "Chuyển khoản ngân hàng" type="radio" onclick="show1()" />
                               <span>Chuyển khoản ngân hàng</span>
                             </label>
                             
@@ -109,7 +134,7 @@
 
                         <p>
                             <label>
-                              <input name="payment" type="radio" id ="bank-card" onclick="show2()" />
+                              <input name="payment" value ="Thẻ ngân hàng" type="radio" id ="bank-card" onclick="show2()" />
                               <span>Thẻ ngân hàng</span>
                             </label>
 
@@ -135,20 +160,41 @@
                                 </label> 
                             </div>    
                                 <div class="bank-card-info">
-                                    <p>Số thẻ:<input id="number" type="text"/></p>
-                                    <p>Tên chủ thẻ:<input id="name" type="text"/></p>
-                                    <p>Ngày hết hạn:<input id="date" type="text"/></p>
+                                        <div class="row">
+                                            <div class="input-field col">
+                                              <input id="number" type="text" pattern="^((67\d{2})|(4\d{3})|(5[1-5]\d{2})|(6011))-?\s?\d{4}-?\s?\d{4}-?\s?\d{4}|3[4,7]\d{13}$" class="validate">
+                                              <label for="number">Số thẻ</label>
+                                              <span class="helper-text" data-error="wrong" data-success="right"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col">
+                                              <input id="name" type="text" pattern="[A-Z ]+" class="validate">
+                                              <label for="name">Tên chủ thẻ</label>
+                                              <span class="helper-text" data-error="wrong" data-success="right"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col">
+                                              <input id="date" type="text" pattern="(((0[123456789]|10|11|12)([/])(([1][9][0-9][0-9])|([2][0-9][0-9][0-9]))))" class="validate">
+                                              <label for="date">Ngày hết hạn</label>
+                                              <span class="helper-text" data-error="wrong" data-success="right"></span>
+                                            </div>
+                                        </div>
                                 </div>
                         </p>
                         <p>
                             <label>
-                              <input name="payment" type="radio" id="e-wallet" onclick="show3()" />
+                              <input name="payment" type="radio" value="Ví điện tử" id="e-wallet" onclick="show3()" />
                               <span>Ví điện tử</span>
                             </label>
                         </p>
                         <button type="button" id="complete">Tiến hành đặt hàng</button><br/>
                     </form>
             </div>
+
     
     </section>
     <footer chi-include-html="footer.html"></footer>
@@ -159,58 +205,42 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script/script.js"></script>
-    <script src="script/order.js"></script>
+    <script src="script/validation.js"></script>
     <script>
-    
-    let orderInfo = JSON.parse(localStorage.getItem("productGroup"));
-        let groupPrice = [];
-        $(document).ready(function() {
-            for(var i=0; i < orderInfo.length; i++ ){                        
-                let priceString;
-                priceString= orderInfo[i].productPrice.match(/\d/g).join("");
-                let price=parseInt(priceString);
-                groupPrice.push(price);
 
-            }
-            let totalValue = 0;
-                totalValue = groupPrice.reduce(function(a, b) { return a + b; }, 0);
-                $('#bill-value').text(totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+        $('input[name=payment]').click(function(){
+                $('.warning').text('')
+        })
+        $('#customer-address').keydown(function(){
+            $('#customer-address').siblings('span').text('')
+        })
+        $('#customer-name').keydown(function(){
+            $('#customer-name').siblings('span').text('')
+        })
+        $('#customer-phone').keydown(function(){
+            $('#customer-phone').siblings('span').text('')
+        })
+        $('#name').keydown(function(){
+            $('#name').siblings('span').text('')
+        })
+        $('#number').keydown(function(){
+            $('#number').siblings('span').text('')
+        })
+        $('#date').keydown(function(){
+            $('#date').siblings('span').text('')
+        })
 
-        
-        });
-
-    
     let customerInfo = {};
 
     $('#complete').click(function (e) {
+            validationInfo();
+            validationPayment();
             let isValid = true;
-            $('.shipping>input[type=text]').each(function(){
-            if ($.trim($(this).val()) == ""){
-                $('.error').text('Vui lòng cung cấp đầy đủ thông tin!')
-                isValid = false;
-                
-            } else {
-                $('.error').text('');
-            }
-        });
             if (!$("input[name='payment']:checked").val()) {
                 $('.warning').text('Hãy chọn phương thức thanh toán!');
-                isValid = false;
-                
-            } else if ($('#bank-card').prop('checked') && !$("input[name='card']:checked").val()){
-                $('.warning').text('Hãy chọn phương thức thanh toán!');
-                isValid = false;
-            }
-            else if ($('#bank-card').prop('checked') && ($('#visa').prop('checked') || $('#mastercard').prop('checked') || $('#amex').prop('checked') || $('#domestic').prop('checked')  )
-            && ($('#number').text().trim() == "" || $('#name').text().trim() == "" ||$ ('#date').text().trim() == "")){
-                $('.warning').text('Hãy điền đầy đủ thông tin!');
-                isValid = false;
-            }
-            else {
-                $('.error').text('');
-            }
-        if (isValid == false) e.preventDefault();
-
+                isValid = false;   
+            } 
+        if (isValid == false){e.preventDefault();}
         else {
             customerInfo = JSON.parse(localStorage.getItem('customerInfo')) || {};
             customerInfo.name = $('#customer-name').val();
@@ -218,7 +248,7 @@
             customerInfo.phone = $('#customer-phone').val();
             customerInfo.paymentMethod = $("input[name='payment']:checked").val();
             localStorage.setItem('customerInfo', JSON.stringify(customerInfo));
-            location.href = "confirm.html";
+            window.location.href = "confirm.html";
         }
     })
 

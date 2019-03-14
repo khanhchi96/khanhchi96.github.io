@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Giỏ hàng</title>
+    <link rel="icon" href="img/logo-dark-background.png" type="image/gif" sizes="15x15">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
+    #product-list::after{
+    content: '';
+    display: block;
+    bottom: 0;
+    border-bottom: 4px solid #fff!important;
+    width: 100%!important;
+    }
+
     .first-footer{
         bottom: 0!important;
     }
     .secondary-footer{
         display: none;
     }
+    @media (max-width: 992px) {
+        .cart-wrap{
+        margin-top: 74px!important;
+    }
+    }
+    
 </style>
 </head>
 <body>
@@ -66,7 +81,7 @@ let count = 0
                     '<p class="quantity">Số lượng: <button type="button" class="sub">-</button>'+
                     '<input type="number" value="'+orderInfo[i].productQuantity+'" min="1" max="10"/><button type="button" class="add">+</button>'+
                     '<p class="product-price-cart">'+orderInfo[i].productPrice+
-                    '</p><span style="margin-left: 20px;"><i class="fas fa-trash-alt"></i></span></div>'+
+                    '</p><span class="trash"><i class="fas fa-trash-alt"></i></span></div>'+
                     '<p class="sodo">SỐ ĐO (cm): </p>'+
                     '<div class="measurements-cart"><div>Cổ: '+orderInfo[i].neck+'</div>'+ 
                     '<div>Ngực: '+orderInfo[i].chest+'</div><div>Eo: '+orderInfo[i].belly+'</div>'+ 
@@ -78,10 +93,12 @@ let count = 0
                 ))
                         
                 let priceString;
+                let quantityString
                 priceString = orderInfo[i].productPrice.match(/\d/g).join("");
+                quantityString = orderInfo[i].productQuantity
                 
-                let price=parseInt(priceString);
-                groupPrice.push(price);
+                let value=parseInt(priceString)*parseInt(quantityString);
+                groupPrice.push(value);
                 
             }
             
@@ -99,12 +116,12 @@ let count = 0
                         $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) - parseInt(deleteNumber)) + ' sản phẩm)');
                         localStorage.setItem('count', JSON.stringify($(".number-of-items").text().match(/\d/g).join("")));
                         console.log(deleteNumber);
-                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(deletePrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(deletePrice)*parseInt(deleteNumber)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
                         $('#bill-value').text($('#total-value').text());
                         
                         $(this).parent().parent().parent().parent().remove();
                         orderInfo = orderInfo.filter(obj => obj.productName !== deleteName);
-                        console.log(orderInfo);
+                        // console.log(orderInfo);
                         localStorage.setItem('productGroup', JSON.stringify(orderInfo));
                     })
                 
@@ -116,16 +133,18 @@ let count = 0
                     
                         $(this).prev('input').val(parseInt($(this).prev('input').val()) + 1);
                         let plusPrice = $(this).parent().siblings('p').text().match(/\d/g).join("");
-                        console.log(plusPrice)
+                        // console.log(plusPrice)
                         // $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) + 1) + ' sản phẩm)');
                         // console.log(parseInt(plusPrice)/parseInt($(this).prev('input').val() -1));
-                        $(this).parent().siblings('p').text('Giá: '+ (parseInt(plusPrice) + parseInt(plusPrice)/(parseInt($(this).prev('input').val()) -1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ');
+                        
+                        // $(this).parent().siblings('p').text('Giá: '+ (parseInt(plusPrice) + parseInt(plusPrice)/(parseInt($(this).prev('input').val()) -1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ');
+                        
                         $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) + 1) + ' sản phẩm)');      
                         localStorage.setItem('count', JSON.stringify($(".number-of-items").text().match(/\d/g).join("")));
-                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) + parseInt(plusPrice)/(parseInt($(this).prev('input').val()) -1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) + parseInt(plusPrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
                         $('#bill-value').text($('#total-value').text());
                         orderInfo[itemPosition].productQuantity = $(this).prev('input').val();
-                        orderInfo[itemPosition].productPrice = $(this).parent().siblings('p').text();
+                        // orderInfo[itemPosition].productPrice = $(this).parent().siblings('p').text();
                         localStorage.setItem('productGroup', JSON.stringify(orderInfo));
                        
 
@@ -139,15 +158,18 @@ let count = 0
                     
                         if ($(this).next('input').val() > 1) $(this).next().val(parseInt($(this).next('input').val()) - 1);
                         let minusPrice = $(this).parent().siblings('p').text().match(/\d/g).join("");
-                        $(this).parent().siblings('p').text('Giá: '+ (parseInt(minusPrice) - parseInt(minusPrice)/(parseInt($(this).next('input').val()) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ');
+                        // $(this).parent().siblings('p').text('Giá: '+ (parseInt(minusPrice) - parseInt(minusPrice)/(parseInt($(this).next('input').val()) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ');
                         $(".number-of-items").text('( ' + (parseInt($(".number-of-items").text().match(/\d/g).join("")) - 1) + ' sản phẩm)');
                         localStorage.setItem('count', JSON.stringify($(".number-of-items").text().match(/\d/g).join("")));
-                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(minusPrice)/(parseInt($(this).next('input').val()) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                        $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(minusPrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
                         $('#bill-value').text($('#total-value').text());
+
+                        // hien thi gia tong san pham sau khi tru
+                        // $('#total-value').text((parseInt($('#total-value').text().match(/\d/g).join("")) - parseInt(minusPrice)/(parseInt($(this).next('input').val()) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
 
                         let itemPosition = orderInfo.findIndex(x => x.productName == $(this).parent().siblings('h3').text());
                         orderInfo[itemPosition].productQuantity = $(this).next('input').val();
-                        orderInfo[itemPosition].productPrice = $(this).parent().siblings('p').text();
+                        // orderInfo[itemPosition].productPrice = $(this).parent().siblings('p').text();
                         localStorage.setItem('productGroup', JSON.stringify(orderInfo));
                         }
                 });

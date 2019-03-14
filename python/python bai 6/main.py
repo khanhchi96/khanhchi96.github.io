@@ -4,6 +4,7 @@ from flask_restful import reqparse
 # from flask import jsonify
 # from flask.ext.jsonpify import jsonify
 from product import ProductApi
+# from database import Database
 
 PORT = '5000'
 app = Flask(__name__)

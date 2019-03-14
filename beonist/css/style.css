@@ -121,7 +121,7 @@ body{margin: 0 auto}
 }
 
 .logo-beonist-scroll{
-    width: 60px;
+    /* width: 60px; */
     margin: 0 auto;
     /* padding-top:3px; */
 }
@@ -394,17 +394,7 @@ body{margin: 0 auto}
     width: 62px;
 }
 
-.header-wrap{
-    background-color: #000;
-    height :140px;
-    overflow: hidden;
-}
-@media (max-width: 992px){
-    .header-wrap{
-        background-color: transparent;
-        height: auto;
-    }
-}
+
 
 .breadcrumb {
   padding: 5px 5px;
@@ -655,7 +645,7 @@ body{margin: 0 auto}
   }
 
 .parallax-about-us{
-    background-image: url('../img/suit-869380_1920.jpg');
+    background-image: url('https://images.pexels.com/photos/340012/pexels-photo-340012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
 }
 .reservation-homepage{
     position: absolute;
@@ -674,7 +664,7 @@ body{margin: 0 auto}
     letter-spacing: 3px;
     margin-bottom:0;
     display: inline-block;
-    color: #000;
+    color: #fff;
 }
 
 .reservation-homepage>p>span:not(:last-child){
@@ -687,8 +677,8 @@ body{margin: 0 auto}
     letter-spacing: 3px;
 }
 .reservation-homepage>button{
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     padding: 15px 15px;
     font-size: 30px;
     text-transform: uppercase;
@@ -1905,7 +1895,7 @@ footer{
     margin: 10px 10px;
     width: calc(33.33% - 39px);
     font-size: 12px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #000;
     border-radius: 5px;
     padding: 5px;
 }
@@ -2031,12 +2021,36 @@ footer{
 
 /* trang cart.html */
 
+
+.header-wrap{
+    background-image: none;
+    height: auto;
+}
+
+@media (min-width: 992px){
+    .header-wrap{
+        background-image: url('https://images.pexels.com/photos/139321/pexels-photo-139321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+        height :20vh!important;
+        overflow: hidden;
+    }
+}
+.trash{
+    float: right;
+    right: 45px;
+    position: absolute;
+    top: 22px;
+    font-size: 22px;
+    cursor: pointer;
+}
+.trash:hover{
+    transform: scale(1.3, 1.3);
+}
 .cart-wrap>h1{
     text-transform: uppercase;
 }
 
 .cart-wrap{
-    min-height: 100vh;
+    /* min-height: 100vh; */
     position: relative;
 }
 
@@ -2068,21 +2082,23 @@ footer{
     top: 160px;
     left: 70%;
     width: 274px;
+    z-index: 1;
     /* transform: translateX(-30%); */
     background-color: #f1f1f1;
 }
 
 .product-image-cart-mobile{
     display: none;
-    width: 12%;
+    width: 13%;
     float: left;
-    margin-right: 24px;
+    margin-right: 14px;
 }
 
 .product-image-cart{
     width: 15%;
     float: left;
     position: relative;
+    margin-top: 16px;
 }
 .product-image-cart>img, .product-image-cart-mobile{
     max-width: 100%;
@@ -2090,6 +2106,7 @@ footer{
 
 .name-quantity-price{
     display: inline-block;
+    width: 100%;
 }
 .cart-content{
     width: calc(85% - 44px);
@@ -2103,9 +2120,9 @@ footer{
 }
 .product-name-cart{
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 22px;
     display: inline-block;
-    margin-right: 50px;
+    width: 35%;
     margin-left: 0;
     
     
@@ -2118,7 +2135,7 @@ footer{
 
 .quantity{
     display: inline-block;
-    margin-right: 50px;
+    width: 30%;
     
     /* width: 25%; */
     
@@ -2133,7 +2150,7 @@ footer{
 }
 
 .measurements-cart>div{
-    flex-basis: calc(20% - 17px);
+    flex-basis: 20%;
     margin: 5px 0;
 }
 
@@ -2166,13 +2183,17 @@ footer{
 }
 
 .sub:hover, .add:hover{
-    border-radius: none;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 @media(min-width: 1300px){
     .fixed-bill{
         right: calc(50% - 604px + 23px);
     }
+    /* .product-name-cart{
+        width: 40%;
+    } */
 }
 
 @media(max-width: 1299px) and (min-width: 1208px){
@@ -2190,11 +2211,15 @@ footer{
         right: 44px;
         top: 130px;
     }
+    
 }
 
 @media(max-width: 1200px) {
-    .measurements-cart>div{
-        flex-basis: calc(20% - 17px);}
+    .trash{
+        top: 12px;
+    }
+    /* .measurements-cart>div{
+        flex-basis: calc(20% - 17px);} */
 
     .product-image-cart{
         display: none;
@@ -2209,7 +2234,7 @@ footer{
         width: calc(100% - 44px);
     }
     .product-name-cart{
-        margin: 5px 0 0 0;
+        margin: 12px 0 0 0;
     }
     .quantity{
         width: 70%;
@@ -2261,50 +2286,64 @@ footer{
 
     .quantity{
         margin-right: 20px;
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .product-price-cart{
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .note, .sodo, .measurements-cart>div{
-        font-size: 13px;
+        font-size: 16px;
     }
     .measurements-cart>div{
-        flex-basis: calc(17% - 17px)!important;}
-
-    .cart-wrap{
-        margin-top: 90px!important;
+        flex-basis: 20%;
     }
     .cart-info{
         margin-bottom: 70px;
     }
+    .trash {
+        right: 0px;
+    }
+    .product-name-cart, .quantity, .product-price-cart{
+        width: 60%;
+    }
 }
 
 @media(max-width: 600px){
+    .trash{
+        top: 0px;
+        right: 14px;
+    }
     .item-info{
         margin-bottom: 14px;
     }
     .quantity, .product-price-cart, .sodo{
-        font-size: 10px;
-    }
-    .product-name-cart{
         font-size: 12px;
     }
-    .name-quantity-price>p, .name-quantity-price>h3{
-        margin-top:2px; margin-bottom: 2px;
+    .product-name-cart{
+        font-size: 15px;
+    }
+    .name-quantity-price>p{
+        margin-top:3px; margin-bottom: 2px;
+    }
+    .name-quantity-price>h3{
+        margin-top:8px; margin-bottom: 6px;
     }
     .cart-wrap{
         padding: 44px 14px 14px 14px;
     }
     .measurements-cart>div{
-        flex-basis: 25%!important;
-        font-size: 10px;
+        flex-basis: 25%;
+        font-size: 12px;
         margin: 2px 0;
     }
     .measurements-cart{
         padding: 0 0 0 14px;
+    }
+
+    .quantity>input {
+        font-size: 13px;
     }
 
     .cart-value, .fixed-bill{
@@ -2335,6 +2374,10 @@ footer{
 }
 
 @media(max-width: 400px){
+    .trash {
+        right: 0px;
+        font-size: 18px;
+    }
     .cart-value{
         padding-left:14px;
         padding-right: 14px;
@@ -2352,10 +2395,13 @@ footer{
     .quantity>input{
         font-size: 12px;
     }
+    .name-quantity-price>h3 {
+        margin-top: 4px;
+    }
 }
 @media(max-width: 321px){
     .measurements-cart>div{
-        flex-basis: 25%!important;
+        flex-basis: 25%;
     }
     .cart-wrap>h1{
         font-size: 20px;
@@ -2370,6 +2416,9 @@ footer{
     .check-out-button{
         margin-bottom: 5px;
         font-size: 14px;
+    }
+    .product-image-cart-mobile{
+        width: 15%;
     }
 }
 
@@ -2417,7 +2466,7 @@ footer{
     z-index: -1;
 }
 .progressbar>li:first-child:after {
-    content: none;
+    content: none!important;
 }
 .progressbar li.progress-active {
     color: green;
@@ -2429,21 +2478,33 @@ footer{
     background-color: #55b776;
 }
 
-
+.parallax-login-signup{
+    height: 100vh;
+    /* background-color: red; */
+    position: relative;
+    background-image: url('https://images.pexels.com/photos/1352751/pexels-photo-1352751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+}
 .login-signup{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 600px;
-    border: 2px solid #f1f1f1;
+    border: 2px solid green;
+    border-radius: 18px;
     overflow: hidden;
     margin: auto;
-    height: 400px;
+    height: 420px;
     margin-bottom: 100px;
+    padding-bottom: 30px;
 }
 
 .login-signup>button{
     width: calc(50% - 24px);
-    background-color: green;
+    background-color: transparent;
     text-transform: uppercase;
-    color: white;
+    color: green;
+    font-weight: 300;
     float: left;
     font-size: 25px;
     text-align: center;
@@ -2451,13 +2512,34 @@ footer{
     position: relative;
     margin: 0;
     cursor: pointer;
-    border-width: 2px;
+    border: 2px solid green;
+    border-bottom-width: 4px;
 }
-.login-signup>button:hover{
-    border-radius: unset;
+
+.btn-login{
+    border-top-left-radius: 15px;
+
 }
+
+.btn-signup{
+    border-top-right-radius: 15px;
+
+}
+
+.btn-login:hover{
+    border-bottom-right-radius: unset;
+    border-top-left-radius: 15px;
+}
+
+.btn-signup:hover{
+    border-bottom-right-radius: unset;
+    border-top-right-radius: 15px;
+    border-top-left-radius: unset;
+}
+
 .btn-active{
-    border-color: green;
+    background-color: green!important;
+    color: white!important;
 }
 .login, .signup{
     padding: 64px 44px 44px 44px;
@@ -2466,6 +2548,8 @@ footer{
 .signup{
     display: none;
 }
+
+
 
 /* .login>input[type=text], .login>input[type=password], .signup>input[type=text], .signup>input[type=password], .shipping>input[type=text]{
   width: 100%;
@@ -2476,14 +2560,7 @@ footer{
   box-sizing: border-box;
 } */
 
-.login>button, .signup>button {
-  background-color: #000;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-}
+
 
 .login>button:hover, .signup>button:hover{
   opacity: 0.8;
@@ -2493,7 +2570,22 @@ footer{
     margin-top: 50px;
 }
 .signup>button{
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+@media(max-width: 992px){
+    .progressbar-container{
+        margin-top: 50px;
+    }
+    .cart-wrap{
+        top: 0;
+    }
+    .progressbar>li:before{
+        height: 22px;
+        width: 22px;
+        line-height: 25px;
+    }
 }
 @media(max-width: 600px){
     .login-signup{
@@ -2511,12 +2603,29 @@ footer{
         padding: 14px;
         margin-top: 50px;
     }
+    .progressbar>li{
+        font-size: 10px;
+    }
+    .mat-input{
+        padding: 4px 0;
+       }
+    .signup>button{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 }
 .login>button, .signup>button{
     width: 150px;
     text-transform: uppercase;
-    font-size: 16px;
-    margin-left: calc(50% - 75px);
+    font-size: 22px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
 }
 
 .login>a{
@@ -2576,9 +2685,36 @@ footer{
     display: none;
 }
 
+@media (max-width: 992px){
+    .row{
+        margin-bottom: 5px!important;
+    }
+    .input-field{
+        width: 100%!important;
+    }
+}
+@media (max-width: 600px){
+    .payment>h1{
+        font-size: 25px;
+    }
+    .transfer-info{
+        margin: 20px 20px;
+    }
+}
+
+
+@media (max-width: 320px){
+    .payment>h1{
+        font-size: 20px;
+    }
+    .transfer-info{
+        margin: 20px 10px;
+    }
+}
+
 /* trang contact.html */
 .parallax-header-contact{
-    background-image: url('https://images.pexels.com/photos/130855/pexels-photo-130855.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-image: url('https://images.pexels.com/photos/139321/pexels-photo-139321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     height: 60vh;
 }
 
@@ -2681,7 +2817,7 @@ footer{
 }
 
 #reservation{
-    background-image: url('https://images.pexels.com/photos/247929/pexels-photo-247929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-image: url('https://images.pexels.com/photos/139321/pexels-photo-139321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -2700,7 +2836,12 @@ footer{
 .row, .input-field, .helper-text{
     margin-bottom: 0;
     margin-top: 0;
-    
+}
+.input-field>input{
+    height: 2.5rem!important;
+}
+.helper-text{
+    margin-bottom: 16px;
 }
 #click-to-reserve{
     text-transform: uppercase;

@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Thông tin đơn hàng</title>
+    <link rel="icon" href="img/logo-dark-background.png" type="image/gif" sizes="15x15">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
+    #product-list::after{
+    content: '';
+    display: block;
+    bottom: 0;
+    border-bottom: 4px solid #fff!important;
+    width: 100%!important;
+    }
+    .logo-mobile{
+        margin-left: 44px!important;
+    }
+    .header-wrap{
+        background-image: url('https://images.pexels.com/photos/935871/pexels-photo-935871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+    }
     .first-footer{
         bottom: 0!important;
     }
@@ -18,6 +32,23 @@
         background-color: green!important;
         color: #fff!important;
     }
+    @media(max-width: 993px){
+        .cart-value, .fixed-bill{
+            position: fixed!important;
+            bottom: 36px!important;
+            z-index: 1!important;
+        }
+        .cart-info{
+            margin-bottom: 0!important;
+            border-bottom: none!important
+        }
+    }
+
+    @media (max-width: 600px){
+        .cart-value, .fixed-bill{
+            bottom: 26px!important;
+        }
+    }
     @media (min-width: 993px){
         .cart-value{
             top: 50px!important;
@@ -26,16 +57,65 @@
             top: 130px!important;
         }
         .measurements-cart>div {
-    flex-basis: calc(19% - 17px)!important;
-    }}
+            flex-basis: calc(19% - 17px)!important;
+        }
+        .product-name-cart{
+            width: 60%!important;
+        }
+    }
 
+    @media(min-width: 600px) and (max-width: 1200px){
+        .measurements-cart>div {
+            flex-basis: 25%!important;
+        }
+    
+        .product-image-cart-mobile{
+            width: 16%!important;
+        }
+    }
+    @media(max-width: 600px) and (min-width: 401px){
+        .product-image-cart-mobile{
+        width: 15%!important;
+        margin-top: 2%;
+    }
+    }
 
+    @media(max-width: 400px){
+        .product-image-cart-mobile{
+        width: 20%!important;
+        margin-top: 1px;
+    }
+        .measurements-cart>div {
+        font-size: 11px!important;
+        flex-basis: 33.33%!important;
+    }
+    }
+
+    @media(max-width: 321px){
+        .measurements-cart>div {
+        font-size: 10px!important;
+    }
+        .measurements-cart{
+            padding: 0 0 0 0px!important;
+        }
+        .product-image-cart-mobile {
+        width: 22%!important;
+        margin-top: 3px;
+}
+    }
+    /* .product-image-cart{
+        display: block!important;
+    }
+    .cart-content{
+        width: calc(85% - 44px);
+    } */
     .mat-label {
     display: block;
     font-size: 16px;
     transform: translateY(25px);
-    /* color: #e2e2e2; */
     transition: all 0.5s;
+    text-align: left;
+    color: #373f50;
     }
 
     .mat-input {
@@ -59,14 +139,14 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #e2e2e2; 
+    background-color: #373f50; 
     bottom: 0;
     left: 0;
     transition: all 0.5s;
     }
 
     .mat-div::after {
-    background-color:#3f84f0;
+    background-color:#066363;
     transform: scaleX(0);
     }
 
@@ -75,7 +155,7 @@
     }
 
     .is-active .mat-label {
-    color:#3f84f0;
+    color:#066363;
     }
 
     .is-completed .mat-label {
@@ -87,7 +167,7 @@
 
 <body>
     <header class="header"> 
-        <div class="header-wrap">      
+        <div class="header-wrap parallax">      
             <nav id="nav-large" chi-include-html="menu.html"></nav>
         </div>
     </header>
@@ -102,13 +182,14 @@
                 </ul>
             </div>
         </div>
-        <div class="cart-wrap wrap" style="min-height: unset">
+        <div class="cart-wrap wrap" style="min-height: unset;">
             <div class="cart-info"></div>
             <div class="cart-value">
                 <h3>Mã giảm giá: <span id="discount-code"></span></h3>
                 <h3>Tổng tiền: <span id="bill-value"></span>VNĐ</h3>
             </div>
         </div>
+        <div class="parallax parallax-login-signup">
             <div class="login-signup">
                 <button class="btn-active btn-login">Đăng nhập</button><button class="btn-signup">Đăng ký</button>
                 <div class="login-container">
@@ -124,7 +205,7 @@
                             </div>
                           
                         <button type="button" class="move-to-payment">Đăng nhập</button><br/>
-                        <a href="#">Quên mật khẩu?</a>
+                        <a href="#" style="margin-left: 0px;">Quên mật khẩu?</a>
                     </form>
                 </div>
 
@@ -148,6 +229,7 @@
                     </form>
                 </div>
             </div>
+        </div>
 
     
     </section>
@@ -166,7 +248,8 @@
             for(var i=0; i < orderInfo.length; i++ ){
                 $(".number-of-items").text('( ' + orderInfo.length + ' sản phẩm)');
                 $(".cart-info").append($('<div class="item-info"><div class="product-image-cart"><img src="'+orderInfo[i].productImage+'"/></div><div class="cart-content">'+
-                    '<div class="name-quantity-price"><h3 class="product-name-cart"> '+orderInfo[i].productQuantity+'x '+orderInfo[i].productName+'</h3>'+
+                    '<div class="name-quantity-price"><h3 class="product-name-cart">'+orderInfo[i].productQuantity+'x '+orderInfo[i].productName+'</h3>'+
+                    '<img class="product-image-cart-mobile" src="'+orderInfo[i].productImage+'"/>'+
                     '<p class="sodo">SỐ ĐO (cm): </p>'+
                     '<div class="measurements-cart"><div>Cổ: '+orderInfo[i].neck+'</div>'+ 
                     '<div>Ngực: '+orderInfo[i].chest+'</div><div>Eo: '+orderInfo[i].belly+'</div>'+ 
@@ -178,15 +261,19 @@
                 ))
                         
                 let priceString;
-                priceString= orderInfo[i].productPrice.match(/\d/g).join("");
+                let quantityString
+                priceString = orderInfo[i].productPrice.match(/\d/g).join("");
+                quantityString = orderInfo[i].productQuantity
                 
-                let price=parseInt(priceString);
-                groupPrice.push(price);
-
+                let value=parseInt(priceString)*parseInt(quantityString);
+                groupPrice.push(value);
+                
             }
+            
             let totalValue = 0;
                 totalValue = groupPrice.reduce(function(a, b) { return a + b; }, 0);
                 $('#bill-value').text(totalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."));
+                // $('#bill-value').text($('#total-value').text());
 
         
         })
@@ -216,8 +303,40 @@
         }
         else{
             $('.cart-value').removeClass('fixed-bill');
+            $('.cart-value').css('position', 'absolute')
+        }
+
+        let d = $(document).height();
+            let w = $(window).height();
+            let s = $(this).scrollTop();
+            let bottomBound = 350;
+
+        if(d - (w + s) < bottomBound) { 
+            $('.fixed-bill').css('margin-top', ((d-(w+s))-bottomBound ))
+        } 
+        else{
+            $('.fixed-bill').css('position', 'fixed')    
         }
     })
+
+//     function scrollBottom(){
+
+// let d = $(document).height();
+// let w = $(window).height();
+// let s = $(this).scrollTop();
+// let bottomBound = 72;
+
+// if(d - (w + s) < bottomBound) { 
+//     $('.first-footer').css({
+//         bottom: bottomBound - (d - (w + s))
+//     });
+// } else {
+//     $('.first-footer').css({
+//         bottom: 0
+//     });            
+// }
+// };
+
 
             $(".mat-input").focus(function(){
                 $(this).parent().addClass("is-active is-completed");

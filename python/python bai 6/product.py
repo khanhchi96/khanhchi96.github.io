@@ -2,6 +2,8 @@ from flask import *
 from flask_restful import *
 from flask_restful import reqparse
 from flask import jsonify
+from database import Database
+# from Database import *
 
 class ProductApi(Resource):
     
@@ -20,8 +22,10 @@ class ProductApi(Resource):
         parser.add_argument('product_year', type=int)
         args = parser.parse_args()
         print("args ="+ str(args))
-        results = {"results": "ok", "message":"insert new product successfully"}
-        return jsonify(results)
+        # database = Database()
+        result, message = Database.get_instance().insert_new_product(args['product_name'], args['product_year'])
+        # results = {"results": "ok", "message":"insert new product successfully"}
+        return jsonify({"result": result, "message": message})
 
     def put(self):
         parser = reqparse.RequestParser()
