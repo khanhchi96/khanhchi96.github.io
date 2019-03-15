@@ -6,57 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Thanh toán</title>
     <link rel="icon" href="img/logo-dark-background.png" type="image/gif" sizes="15x15">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-<style>
-    #product-list::after{
-    content: '';
-    display: block;
-    bottom: 0;
-    border-bottom: 4px solid #fff!important;
-    width: 100%!important;
-    }
+    <link rel="stylesheet" type="text/css" href="css/payment.css">
 
-    .first-footer{
-        bottom: 0!important;
-    }
-    .secondary-footer{
-        display: none;
-    }
-    .active{
-        background-color: transparent!important;
-    }
-    .row{
-        margin-bottom: 30px!important;
-    }
-
-    .input-field.col{
-        width: 70%;
-    }
-
-    .cart-value{
-        background-color: green!important;
-        color: #fff!important;
-    }
-    @media (min-width: 993px){
-        .cart-value{
-            top: 50px!important;
-        }
-        .fixed-bill{
-            top: 130px!important;
-        }
-        .measurements-cart>div {
-    flex-basis: calc(19% - 17px)!important;
-        }
-    }
-
-    .helper-text{
-        color: red!important;
-        text-align: right;
-    }
-
-</style>
 </head>
 <body>
     <header class="header"> 
@@ -206,76 +161,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script/script.js"></script>
     <script src="script/validation.js"></script>
-    <script>
-
-        $('input[name=payment]').click(function(){
-                $('.warning').text('')
-        })
-        $('#customer-address').keydown(function(){
-            $('#customer-address').siblings('span').text('')
-        })
-        $('#customer-name').keydown(function(){
-            $('#customer-name').siblings('span').text('')
-        })
-        $('#customer-phone').keydown(function(){
-            $('#customer-phone').siblings('span').text('')
-        })
-        $('#name').keydown(function(){
-            $('#name').siblings('span').text('')
-        })
-        $('#number').keydown(function(){
-            $('#number').siblings('span').text('')
-        })
-        $('#date').keydown(function(){
-            $('#date').siblings('span').text('')
-        })
-
-    let customerInfo = {};
-
-    $('#complete').click(function (e) {
-            validationInfo();
-            validationPayment();
-            let isValid = true;
-            if (!$("input[name='payment']:checked").val()) {
-                $('.warning').text('Hãy chọn phương thức thanh toán!');
-                isValid = false;   
-            } 
-        if (isValid == false){e.preventDefault();}
-        else {
-            customerInfo = JSON.parse(localStorage.getItem('customerInfo')) || {};
-            customerInfo.name = $('#customer-name').val();
-            customerInfo.address = $('#customer-address').val();
-            customerInfo.phone = $('#customer-phone').val();
-            customerInfo.paymentMethod = $("input[name='payment']:checked").val();
-            localStorage.setItem('customerInfo', JSON.stringify(customerInfo));
-            window.location.href = "confirm.html";
-        }
-    })
-
-    function show1(){
-        $('.transfer-info').css('display', 'block');
-        $('.bank-card-option').css('display', 'none');
-        $('.bank-card-info').css('display', 'none');
-        scrollBottom();
-    }
-    function show2(){
-        $('.bank-card-option').css('display', 'block');
-        $('.transfer-info').css('display', 'none');
-        scrollBottom();
-    }
-
-    function show3(){
-        $('.transfer-info').css('display', 'none');
-        $('.bank-card-option').css('display', 'none');
-        $('.bank-card-info').css('display', 'none');
-    }
-
-    function show4(){
-        $('.bank-card-info').css('display', 'block');
-        scrollBottom();
-    }
-            
-    </script>
+    <script src="script/payment.js"></script>
         <script>
             includeHTML();
         </script>

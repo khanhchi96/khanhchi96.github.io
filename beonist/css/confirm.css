@@ -1,0 +1,96 @@
+
+    #product-list::after{
+        content: '';
+        display: block;
+        bottom: 0;
+        border-bottom: 4px solid #fff!important;
+        width: 100%!important;
+        }
+    
+        .first-footer{
+            bottom: 0!important;
+        }
+        .secondary-footer{
+            display: none;
+        }
+    
+        .wrap>h3{
+            text-align: center;
+        }
+    
+        .customer-info-confirmation{
+            padding-bottom: 30px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+    
+        @media (max-width: 1200px) and (min-width: 993px) {
+            .measurements-cart>div {
+                flex-basis: 14.2%!important;
+            }
+            .product-image-cart-mobile{
+                width: 7%!important;
+            }
+            .wrap:not(:first-child){
+                padding-top: 0!important;
+            }
+            .wrap:last-child{
+                padding-bottom: 0!important;
+            }
+        }
+        @media (min-width: 1200px){
+            .wrap:first-child>h1{
+                margin-top: 54px!important;
+            }
+            .wrap:last-child{
+                padding-bottom: 0!important;
+            }
+        }
+        @media (max-width: 992px){
+            .wrap:first-child>h1{
+                margin-top: 74px!important;
+            }
+        }
+        @media (max-width: 992px) and (min-width: 601px) {
+            .product-image-cart-mobile{
+                width: 8%!important;
+            }
+            .wrap>h1{
+                font-size: 25px!important;
+            }
+            .product-name-cart{
+                font-size: 20px!important;
+            }
+        }
+    
+        @media(max-width: 600px) and (min-width: 321px){
+            .product-image-cart-mobile{
+                width: 10%!important;
+            }
+            .wrap>h1{
+                font-size: 25px!important;
+            }
+        }
+        @media(max-width: 320px){
+            .product-image-cart-mobile{
+                width: 12%!important;
+            }
+            .wrap>h1{
+                font-size: 20px!important;
+            }
+            .customer-info-confirmation>p{
+                font-size: 14px;
+            }
+        }
+    
+        @media (min-width: 1200px){
+            .measurements-cart>div {
+                flex-basis: calc(15% - 17px)!important;
+            }
+            .wrap{
+                padding-top: 0!important;
+            }
+        }
+        .customer-info-confirmation{
+            margin-top: 44px;
+    
+        }

@@ -8,9 +8,21 @@
     <link rel="icon" href="img/logo-dark-background.png" type="image/gif" sizes="15x15">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" href="css/all.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+<style>
+    .news-homepage-2-text{
+        opacity: 0;
+        margin-top: 60px;
+    }
+    .news-homepage-1-text{
+        display: none;
+        /* margin-top: 50px; */
+
+    }
+</style>
 </head>
 <body>
     <header class="header">       
@@ -53,7 +65,7 @@
 
         <div class="parallax parallax-about-us">
           <div style="width: 100%; height: 100%; background-color: rgba(0,0,0, 0.3) ">
-            <div class="reservation-homepage" style="color: white">
+            <div class="reservation-homepage" style="color: white; display: none">
                 <p><span>"Made to measure" -</span><span>Quy trình may đo 5 sao</span></p>
                 <p class="reservation-detail">Beonist Tailoring phục vụ tận nhà, lấy số đo và thử đồ.</p>
                 <button type="button" onclick ="location.href='contact.html#reservation'">Đặt lịch ngay</button>
@@ -73,6 +85,7 @@
                             </div>
                             <div class="news-homepage-1-text">
                                 <h3>Ra mắt bộ sưu tập mới</h3>
+                                    <p class="date-posted">TIN MỚI | 25/01/2019, 7:59PM</p>
                                     <p>Sản phẩm của Beonist tailoring khi ra đời luôn có một sự chăm chút nhất định trong việc chọn nguyên liệu, phối màu cũng như kiểm định sản phẩm.
                                             Trong quá trình sử dụng, người mặc sẽ dần khám phá sự xuất sắc của người thợ trong từng chi tiết sản phẩm.
                                             Sản phẩm của Beonist tailoring khi ra đời luôn có một sự chăm chút nhất định trong việc chọn nguyên liệu, phối màu cũng như kiểm định sản phẩm.
@@ -90,6 +103,7 @@
                             </div>
                             <div class="news-homepage-2-text">
                                 <h3>Chương trình ưu đãi tháng 01/2019</h3>
+                                <p class="date-posted">TIN MỚI | 25/01/2019, 7:59PM</p>
                             </div>
                         </a>
                     </div>
@@ -101,6 +115,7 @@
                             </div>
                             <div class="news-homepage-2-text">
                                 <h3>Chương trình ưu đãi tháng 01/2019</h3>
+                                <p class="date-posted">TIN MỚI | 25/01/2019, 7:59PM</p>
                             </div>
                         </a>
                     </div>
@@ -112,6 +127,7 @@
                             </div>
                             <div class="news-homepage-2-text">
                                 <h3>Chương trình ưu đãi tháng 01/2019</h3>
+                                <p class="date-posted">TRUYỀN THÔNG | 25/01/2019, 7:59PM</p>
                             </div>
                         </a>
                     </div>
@@ -119,6 +135,7 @@
             </div>
         </div>
         <div class="cart-icon"></div>
+        <p id="noti">Đã thêm vào giỏ hàng</p>
 
         <div id="myModal" class="mymodal">
 
@@ -181,103 +198,9 @@
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
+    <script src="script/slideshow.js"></script>
+    <script src="script/index.js"></script>
     <script src="script/order.js"></script>
-    <!-- <script src="script/footer.js"></script> -->
-    
-
-    <script>
-        let bestSeller=[
-            {"image":"img/ao_khoac_1.jpg", "price":"2000000", "category": "Áo khoác", "id":"A0002"}, 
-            {"image":"img/ao_khoac_2.jpg", "price":"3000000", "category": "Áo khoác", "id":"A0006"}, 
-            {"image":"img/ao_khoac_3.jpg", "price":"4000000", "category": "Áo vest", "id":"V0009"}, 
-            {"image":"img/ao_khoac_5.jpg", "price":"1900000", "category": "Áo vest", "id":"V0010"},
-            {"image":"img/sp_1.jpg", "price":"2000000", "category": "Áo vest", "id":"V0001"}, 
-            {"image":"img/sp_2.jpg", "price":"3000000", "category": "Áo sơ mi", "id":"S0003"}, 
-            {"image":"img/sp_3.jpg", "price":"4000000", "category": "Quần tây", "id":"Q0005"}, 
-            {"image":"img/sp_4.jpg", "price":"1900000", "category": "Quần tây", "id":"Q0004"}
-        ]
-
-        $(document).ready(function() {
-        for (var i=0;i<bestSeller.length; i++) {
-        $(".slider").append($('<div class="slide" id="'+bestSeller[i].id+'"><img src="'+bestSeller[i].image+'" alt="" class="img-responsive"/>'+
-              '<h1>'+bestSeller[i].category +' '+ bestSeller[i].id+'</h1><p>Giá: '+ bestSeller[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ</p>'+
-              '<button type="button" class="order">Đặt may</button><button type="button" class="view-detail">Xem thêm</button></div>'));
-        }
-
-        $('.slider').slick({
-  autoplay:true,
-  autoplaySpeed:1500,
-  arrows:true,
-  prevArrow: '<span class="slick-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>',
-  nextArrow: '<span class="slick-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>',
-
-  // nextArrow: '<a class="slick-right"><i class="fas fa-chevron-right"></i></a>',
-  // prevArrow: '<a class="slick-left"><i class="fas fa-chevron-left"></i></a>',
-  // centerMode:true,
-  // centerPadding: '50px',
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  infinite: true,
-  responsive: [
-    {
-      breakpoint: 1124,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      }
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]});
-            
-            $(".order").click(function(){
-                $('#myModal').show();
-                let id = $(this).parent().attr("id");
-                $(".product-name").text($(`#${id}>h1`).text())
-                $(".product-price").text($(`#${id}>p`).text())
-                $(".product-image").text($(`#${id}>img`).attr('src'))
-                // $(".product-name").text(this.parent().parent().find(h1).html())
-                
-            });
-
-            $(".view-detail").click(function(){
-                $('.modal-detail').css('display', 'block');
-                let id = $(this).parent().attr("id");
-                $(".product-detail-name").text($(`#${id}>h1`).text())
-                $(".product-detail-price").text($(`#${id}>p`).text())
-                $(".product-detail-image").html('<img src = "'+ $(`#${id}>img`).attr('src') + '"/>')
-                $(".product-detail-image-mobile").html('<img src = "'+ $(`#${id}>img`).attr('src') + '"/>')
-            });
-
-            $(".order-from-detail-modal").click(function(){
-                $('.modal-detail').css('display', 'none');
-                $('#myModal').show();
-                $(".product-name").text($(this).siblings('h3').text())
-                $(".product-price").text($(this).siblings('p').eq(0).text())
-                $(".product-image").text($(this).parent().siblings('div').children('img').attr('src'));
-            });
-
-        });
-
-
-        
-
-    </script>
         <script>
             includeHTML();
         </script>

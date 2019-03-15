@@ -46,7 +46,7 @@ window.onload = function() {
   scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
     $(".menu-large").css("top", "0");
     $("#nav-large").css("background-color", "rgba(0, 0, 0)");
     $("#nav-large").css("padding", "50px 0");
@@ -72,8 +72,8 @@ function scrollFunction() {
   }
   let d = $(this).scrollTop();
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    $("#nav-large").css("padding-top",(150 - d/4)/4);
-    $("#nav-large").css("padding-bottom",(150 - d/4)/4);
+    $("#nav-large").css("padding-top",(150 - d/4)/3);
+    $("#nav-large").css("padding-bottom",(150 - d/4)/3);
     $(".logo-beonist-scroll").css("width", (150 - d/6)) ;
     // $(".logo-beonist-scroll").css("min-width", '60') ;
     // $(".header-wrap").css("background-color", "transparent")
@@ -84,10 +84,10 @@ function scrollFunction() {
     $(".header-wrap").css("background-color", "#000")
   }
 
-  if (document.body.scrollTop > 520 || document.documentElement.scrollTop > 520){
+  if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450){
     $("#nav-large").css("padding", 0)
     $(".logo-beonist-scroll").css("width", '60') ;
-  }
+  };
 }
 
 
@@ -124,89 +124,6 @@ $(window).on('load',function(){
   // {$('.first-footer').css('bottom', '0');
   //  $('.secondary-footer').css('display', 'none')}
 });
-
-
-
-// display slideshow
-var slideIndex = 0;
-showSlides();
-var slides,dots;
-
-function showSlides() {
-    var i;
-    slides = document.getElementsByClassName("move");
-    dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex> slides.length) {slideIndex = 1}    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 8000); // Change image every 8 seconds
-}
-
-function plusSlides(position) {
-    slideIndex +=position;
-    if (slideIndex> slides.length) {slideIndex = 1}
-    else if(slideIndex<1){slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-}
-
-function currentSlide(index) {
-    if (index> slides.length) {index = 1}
-    else if(index<1){index = slides.length}
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[index-1].style.display = "block";  
-    dots[index-1].className += " active";
-}
-
-
-
-// var slideIndex = 1;
-// var timer = null;
-// showSlides(slideIndex);
-
-// function currentSlide(n) {
-//   clearTimeout(timer);
-//   showSlides(slideIndex = n);
-// }
-
-// function showSlides(n) {
-//   var i;
-//   var slides = document.getElementsByClassName("move");
-//   var dots = document.getElementsByClassName("dot");
-//   if (n==undefined){n = ++slideIndex}
-//   if (n > slides.length) {slideIndex = 1}
-//   if (n < 1) {slideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";
-//   }
-//   for (i = 0; i < dots.length; i++) {
-//       dots[i].className = dots[i].className.replace(" active", "");
-//   }
-//   slides[slideIndex-1].style.display = "block";
-//   dots[slideIndex-1].className += " active";
-//   timer = setTimeout(showSlides, 8000);
-// } 
-
-
-
 
 
 function openNav() {

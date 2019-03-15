@@ -1,0 +1,70 @@
+#product-list::after{
+    content: '';
+    display: block;
+    bottom: 0;
+    border-bottom: 4px solid #fff!important;
+    width: 100%!important;
+    }
+
+    .first-footer{
+        bottom: 0!important;
+    }
+    .secondary-footer{
+        display: none;
+    }
+    @media (max-width: 992px) {
+        .cart-wrap{
+        margin-top: 74px!important;
+    }
+    }
+    @media(min-width: 1200px){
+      .modal-content{max-width: 30%;}
+  }
+  .modal-content>p{
+      text-align: center;
+  }
+  .confirmmodal{
+      width: 280px;
+      margin: 10px auto;
+  }
+
+    #deleteconfirm, #cancel{
+        padding: 10px 10px;
+        background-color: green;
+        color: white;
+        border-radius: 10px;
+        font-size: 20px;
+        margin: 0 10px;
+        font-weight: 300;
+        /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+        cursor: pointer;
+    }
+
+    #cancel{
+        background-color: #626262;
+        color: #fff;
+        font-weight: 300;
+    }
+
+    #close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        font-weight: 300;
+    }
+    
+    #close:hover,
+    #close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    @media(max-width: 992px){
+  .mymodal-content>p{
+      font-size: 15px!important;
+  }
+  #deleteconfirm, #cancel{
+      font-size: 16px
+  }
+}

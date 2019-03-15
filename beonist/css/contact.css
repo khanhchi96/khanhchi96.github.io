@@ -1,0 +1,29 @@
+.fa-bars{
+    font-size: 35px!important;
+}
+.menu-icon{
+    font-size: unset!important;
+}
+.helper-text{
+    color: red!important;
+    text-align: right;
+}
+
+.active{
+    background-color: transparent!important;
+}
+
+.menu-icon{
+margin-top:2px!important;
+}
+.fa-bars{
+    font-size: 35px!important;  
+}
+
+#contact::after{
+content: '';
+display: block;
+bottom: 0;
+border-bottom: 4px solid #fff!important;
+width: 100%!important;
+}

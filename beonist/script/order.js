@@ -55,6 +55,7 @@ let info = {};
     // console.log(itemCount);
     // localStorage.setItem('itemCount', JSON.stringify(productGroup.length));
     $('#myModal').hide();
+    $('#noti').hide().fadeIn(800).delay(2000).fadeOut(800);
         }
     });
 
@@ -67,6 +68,7 @@ let info = {};
 
     let modal = document.getElementById('myModal');
     let modalDetail = document.getElementById('modal-detail-id');
+    let deleteModal = document.getElementById('delete-modal');
 
                 window.onclick = function(event) {
                 if (event.target == modal) {
@@ -74,6 +76,9 @@ let info = {};
                 }
                 if (event.target == modalDetail) {
                     modalDetail.style.display = "none";
+                }
+                if (event.target == deleteModal) {
+                    deleteModal.style.display = "none";
                 }
                 }
 
