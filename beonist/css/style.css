@@ -3331,7 +3331,7 @@ footer{
     text-transform: uppercase;
 }
 .instagram{
-    margin: -44px auto !important;
+    margin: -44px auto 80px auto !important;
 }
 .instagram>h1{
     margin-bottom: -16px;
@@ -3353,7 +3353,7 @@ footer{
     }
 
     .instagram{
-        margin: -80px auto 100px auto!important;
+        margin: -80px auto 80px auto!important;
     }
     .media-item{
         width: calc(50% - 22px);
@@ -3400,7 +3400,7 @@ footer{
     font-size: 25px;
     }
     .instagram{
-        margin: -80px auto 100px auto!important;
+        margin: -80px auto 80px auto!important;
     }
     .instagram>h1{
         margin-bottom: 10px;
