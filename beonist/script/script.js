@@ -39,7 +39,7 @@ window.onscroll = function() {
   };
 window.onload = function() { 
   scrollBottom();
-  scrollFunction()};
+  if (window.innerWidth > 992) scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
