@@ -2555,6 +2555,9 @@ footer{
 }
 
 @media(max-width: 600px){
+    .sub, .add{
+        padding: 0 3px;
+    }
     .trash{
         top: 0px;
         right: 14px;
