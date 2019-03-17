@@ -14,7 +14,7 @@
 </head>
 <body>
     <header class="header"> 
-        <div class="parallax image-gallery-header-wrap">      
+        <div class="image-gallery-header-wrap">      
             <nav id="nav-large" chi-include-html="menu.html"></nav>
         </div>
     </header>
@@ -49,6 +49,7 @@
         
    </div>
    <div id="imgModal" class="img-modal">
+        <span class="close">&times;</span>
         <img class="img-modal-content">
         <div id="caption"></div>
     </div>
@@ -69,6 +70,10 @@
                 if (event.target == imgModal) {
                     imgModal.style.display = "none";
                 }}
+
+        $('.close').click(function(){
+            $('.img-modal').hide();
+        })
     </script>
     <script>
         includeHTML();

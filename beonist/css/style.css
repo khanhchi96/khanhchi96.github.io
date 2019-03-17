@@ -3443,8 +3443,8 @@ footer{
   }
 
   .image-gallery-header-wrap{
-      background-image: url('https://images.pexels.com/photos/340012/pexels-photo-340012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-      background-position: bottom!important;
+      background-image: url('https://images.pexels.com/photos/1058770/pexels-photo-1058770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+      background-position: center!important;
       height: 30vh;
       width: 100%;
   }
