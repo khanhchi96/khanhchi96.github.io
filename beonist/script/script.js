@@ -3,30 +3,26 @@
 
 
 function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /*loop through a collection of all HTML elements:*/
+  let z, i, elmnt, file, xhttp;
   
   z = document.getElementsByTagName("*");
   for (i = 0; i < z.length; i++) {
     elmnt = z[i];
     
-    /*search for elements with a certain atrribute:*/
     file = elmnt.getAttribute("chi-include-html");
     if (file) {
-      /*make an HTTP request using the attribute value as the file name:*/
       xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
           if (this.status == 200) {elmnt.innerHTML = this.responseText;}
           if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-          /*remove the attribute, and call this function once more:*/
           elmnt.removeAttribute("chi-include-html");
           includeHTML();
         }
       }      
       xhttp.open("GET", file, true);
       xhttp.send();
-      /*exit the function:*/
+
       return;
     }
   }
@@ -46,7 +42,7 @@ window.onload = function() {
   scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
     $(".menu-large").css("top", "0");
     $("#nav-large").css("background-color", "rgba(0, 0, 0)");
     $("#nav-large").css("padding", "50px 0");
@@ -72,19 +68,23 @@ function scrollFunction() {
   }
   let d = $(this).scrollTop();
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    $("#nav-large").css("padding-top",(150 - d/4)/3);
-    $("#nav-large").css("padding-bottom",(150 - d/4)/3);
-    $(".logo-beonist-scroll").css("width", (150 - d/6)) ;
-    // $(".logo-beonist-scroll").css("min-width", '60') ;
-    // $(".header-wrap").css("background-color", "transparent")
+    $("#nav-large").css("padding-top",(100 - d));
+    $("#nav-large").css("padding-bottom",(100 - d));
+    $(".logo-beonist-scroll").css("width", (250 - 2*d)) ;
+    // transition cham hon / ben duoi la 450
+    // $("#nav-large").css("padding-top",(150 - d/4)/3);
+    // $("#nav-large").css("padding-bottom",(150 - d/4)/3);
+    // $(".logo-beonist-scroll").css("width", (150 - d/6)) ;
   } 
   else{
     $("#nav-large").css("background-color", "transparent");
     $(".menu-large").css("background-color", "rgba(0, 0, 0, 0.6)");
     $(".header-wrap").css("background-color", "#000")
   }
-
-  if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450){
+  if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
+    $(".logo-beonist-scroll").css("width", (160 - d)) ;
+  }
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
     $("#nav-large").css("padding", 0)
     $(".logo-beonist-scroll").css("width", '60') ;
   };

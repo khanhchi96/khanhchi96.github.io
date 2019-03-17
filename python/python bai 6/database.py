@@ -26,6 +26,30 @@ class Database:
             return ('ok', "Insert data to product successfully")
         except Exception as ex:
             return ('failed', "Insert data to product failed. Error: {}".format(ex))
-            
+    
+    def update_product(self, productName, year, productid):
+        try:
+            params = []
+            if(productName != ''):
+                params.append('productName=%s')
+            if(int(year) > 1900):
+                params.append('year=%s')
+            paramString = ','.join(params)
+            sql = """UPDATE Products SET """+ paramString +""" where productid = %s"""
+            self.cursor.execute(sql, (productName, year, productid))
+            self.connection.commit()
+            return ('ok', "Update data in Products successfully")
+        except Exception as ex:
+            return ('failed', "Update data in Products failed. Error: {}".format(ex))
+
+    def delete_product(self, productid = 0):
+        try: 
+            sql = """DELETE FROM Products WHERE productid = %s"""
+            self.cursor.execute(sql, (productid))
+            self.connection.commit()
+            return ('ok', "Delete product successfully")
+        except Exception as ex:
+            return ('failed', "Delete product failed. Error: {}".format(ex))
+        
         
             

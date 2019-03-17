@@ -12,8 +12,10 @@ let bestSeller=[
 $(document).ready(function() {
 for (var i=0;i<bestSeller.length; i++) {
 $(".slider").append($('<div class="slide" id="'+bestSeller[i].id+'"><img src="'+bestSeller[i].image+'" alt="" class="img-responsive"/>'+
-      '<h1>'+bestSeller[i].category +' '+ bestSeller[i].id+'</h1><p>Giá: '+ bestSeller[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ</p>'+
-      '<button type="button" class="order">Đặt may</button><button type="button" class="view-detail">Xem thêm</button></div>'));
+    '<h1>'+bestSeller[i].category +' '+ bestSeller[i].id+'</h1><p>Giá: '+ bestSeller[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +'VNĐ</p>'+
+    '<button type="button" class="order">Đặt may</button><button type="button" style="margin-left:10px" class="view-detail">Xem thêm</button>'+
+    '<div class="overlay"><div class="overlay-content"><h4>Mẫu áo được làm từ vải len lông cừu mềm mại và nhẹ giúp người mặc vận động dễ dàng cùng khả năng giữ nhiệt tốt, thoáng khí luôn sẵn sàng đương đầu với thời tiết giá lạnh của Hà Nội.</h4>'+
+    '</div></div></div>'));
 }
 
 $('.slider').slick({
@@ -87,30 +89,12 @@ let offsetNews2 = $(".news-homepage-2").offset().top;
 $(window).scroll(function() {
 var scrollTop = $(window).scrollTop();
 if (scrollTop > offsetTopAboutUs) {
-$(".reservation-homepage").fadeIn(3000);
+$(".reservation-homepage").fadeIn(1500);
 }
 if (scrollTop > offsetNews1) {
-$(".news-homepage-1-text").fadeIn(3000);
+$(".news-homepage-1-text").fadeIn(1000);
 }
-if (scrollTop > offsetNews2) {
-// $(".news-homepage-2-text").fadeIn(800);
-$(".news-homepage-2-text").animate({
-opacity: 1
-}, {
-duration: 1000,
-queue: false
-});
-$(".news-homepage-2-text").animate({
-"margin-top": "0px",
 
-}, {
-duration: 300,
-specialEasing: {
-    "margin-top": "easeOutCirc"
-},
-queue: false
-});
-}
 
 
 });

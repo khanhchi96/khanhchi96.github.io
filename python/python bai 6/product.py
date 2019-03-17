@@ -29,18 +29,22 @@ class ProductApi(Resource):
 
     def put(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('product_id', type=int)
         parser.add_argument('product_name')
-        parser.add_argument('product_year', type=int)
+        parser.add_argument('product_year')
+        parser.add_argument('product_id')
         args = parser.parse_args()
         print("args PUT ="+ str(args))
-        results = {"results": "ok", "message":"update product successfully"}
-        return jsonify(results)
+        result, message = Database.get_instance().update_product(args['product_name'], args['product_year'], args['product_id'])
+        # results = {"results": "ok", "message":"update product successfully"}
+        return jsonify({"result": result, "message": message})
 
     def delete(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('product_id', type=int)
+        parser.add_argument('product_id')
         args = parser.parse_args()
         print("args DELETE ="+ str(args))
-        results = {"results": "ok", "message":"update product successfully"}
-        return jsonify(results)
+        # results = {"results": "ok", "message":"update product successfully"}
+        result, message = Database.get_instance().delete_product(args['product_id'])
+        # results = {"results": "ok", "message":"delete product successfully"}
+        return jsonify({"result": result, "message": message})
+        # return jsonify(results)

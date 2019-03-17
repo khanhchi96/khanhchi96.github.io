@@ -13,9 +13,9 @@
     background-color: transparent!important;
 }
 
-.menu-icon{
-margin-top:2px!important;
-}
+/* .menu-icon{
+margin-top:5px!important;
+} */
 .fa-bars{
     font-size: 35px!important;  
 }
@@ -27,3 +27,23 @@ bottom: 0;
 border-bottom: 4px solid #fff!important;
 width: 100%!important;
 }
+@media(min-width: 993px){
+#nav-large{
+    height: auto!important;
+}
+/* .menu-icon{
+    margin-top:2px!important;
+    } */
+}
+
+@media(max-width: 9920px){
+    .menu-icon{
+        font-size: unset!important;
+        margin-top: 3px!important;
+}}
+    
+@media(max-width: 600px){
+.menu-icon{
+    font-size: unset!important;
+    margin-top: 5px!important;
+}}

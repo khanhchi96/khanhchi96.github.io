@@ -13,15 +13,42 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
-    .news-homepage-2-text{
-        opacity: 0;
-        margin-top: 60px;
-    }
     .news-homepage-1-text{
         display: none;
-        /* margin-top: 50px; */
-
     }
+    .reservation-homepage{
+        display: none;
+    }
+    .slide{
+        position: relative!important;
+    }
+    .overlay {
+    position: absolute;
+    height: calc(100% - 158px);
+    width: calc(100% - 30px);
+    margin: 10px 15px;
+    top: 0;
+    left: 0;
+    background: rgba(1, 1, 1, .6);
+    transition: 0.2s;
+    opacity: 0;
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+.overlay-content {
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    text-align: left;
+    width: 100%;
+    padding: 14px;
+    font-size: 14px;
+}
 </style>
 </head>
 <body>
@@ -79,9 +106,13 @@
                 <div class="news-homepage-detail">
                     
                     <div class="news-homepage-1">
-                        <a href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
+                        <a target="_blank" href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
                             <div class="news-homepage-1-image">
-                                <img src="img/new-shirt-collection.jpg" alt="bo suu tap moi" name="bo-suu-tap-moi"/>
+                                <!-- <img src="img/new-shirt-collection.jpg" alt="bo suu tap moi" name="bo-suu-tap-moi"/> -->
+                                <!-- <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FBeonist.Tailoring%2Fvideos%2F830672360615886%2F&show_text=0&width=560" width="560" height="420" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe> -->
+                                <video autoplay muted loop>
+                                    <source src="img/video_trang_chu.mp4" type="video/mp4">
+                                </video>
                             </div>
                             <div class="news-homepage-1-text">
                                 <h3>Ra mắt bộ sưu tập mới</h3>
@@ -97,9 +128,9 @@
 
                     
                     <div class="news-homepage-2">
-                        <a href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
+                        <a target="_blank" href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
                             <div class="news-homepage-2-image">
-                                <img src="img/news-2.jpg" alt="bo suu tap moi" name="bo-suu-tap-moi"/>
+                                <img src="https://images.pexels.com/photos/8444/tie-watch-cufflinks.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="bo suu tap moi" name="bo-suu-tap-moi"/>
                             </div>
                             <div class="news-homepage-2-text">
                                 <h3>Chương trình ưu đãi tháng 01/2019</h3>
@@ -109,9 +140,9 @@
                     </div>
                 
                     <div class="news-homepage-2">
-                        <a href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
+                        <a target="_blank" href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
                             <div class="news-homepage-2-image">
-                                <img src="img/news-3.jpg" alt="bo suu tap moi" name="bo-suu-tap-moi"/>  
+                                <img src="https://images.pexels.com/photos/162589/antique-art-painting-paper-162589.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="bo suu tap moi" name="bo-suu-tap-moi"/>  
                             </div>
                             <div class="news-homepage-2-text">
                                 <h3>Chương trình ưu đãi tháng 01/2019</h3>
@@ -121,7 +152,7 @@
                     </div>
 
                     <div class="news-homepage-2">
-                        <a href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
+                        <a target="_blank" href="https://www.facebook.com/Beonist.Tailoring/videos/259981804690919/">
                             <div class="news-homepage-2-image">
                                 <img src="img/giam-gia-homepage.png" alt="bo suu tap moi" name="bo-suu-tap-moi"/>  
                             </div>
@@ -134,6 +165,17 @@
                     
             </div>
         </div>
+
+        <div class="parallax parallax-about-us-2">
+            <div style="width: 100%; height: 100%; background-color: rgba(0,0,0, 0.3) ">
+              <div class="reservation-homepage-2" style="color: white">
+                  <p class="detail">Beonist <span>không chỉ</span> <span>mang đến</span> <span>sản phẩm</span> 
+                    <span>âu phục</span> <span>may đo,</span> Beonist <span>mang tới</span> 
+                    <span>phong cách</span> và những <span>tư vấn</span> <span>cần thiết</span> cho <span>người mặc</span>.
+            </p>
+              </div>
+            </div>
+          </div>
         <div class="cart-icon"></div>
         <p id="noti">Đã thêm vào giỏ hàng</p>
 
@@ -201,11 +243,10 @@
     <script src="script/slideshow.js"></script>
     <script src="script/index.js"></script>
     <script src="script/order.js"></script>
-        <script>
-            includeHTML();
-        </script>
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-				
+    <script>
+        includeHTML();
+    </script>			
 </body>
 </html>

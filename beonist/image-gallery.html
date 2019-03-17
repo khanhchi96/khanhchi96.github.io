@@ -9,19 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-<style>
-    #image-gallery::after{
-    content: '';
-    display: block;
-    bottom: 0;
-    border-bottom: 4px solid #fff!important;
-    width: 100%!important;
-    }
-</style>
+    <link rel="stylesheet" type="text/css" href="css/image-gallery.css">
+
 </head>
 <body>
     <header class="header"> 
-        <div class="image-gallery-header-wrap">      
+        <div class="parallax image-gallery-header-wrap">      
             <nav id="nav-large" chi-include-html="menu.html"></nav>
         </div>
     </header>
@@ -55,12 +48,28 @@
         </div>
         
    </div>
+   <div id="imgModal" class="img-modal">
+        <img class="img-modal-content">
+        <div id="caption"></div>
+    </div>
    <div class="cart-icon"></div>
    </section>
    <footer chi-include-html="footer.html"></footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
     <script src="script/order.js"></script>
+    <script>
+        $('.column>img').click(function(){
+            $('.img-modal').show();
+            $('.img-modal-content').attr('src', $(this).attr('src'))
+            $('#caption').text($('.img-modal-content').attr('title'))
+        })
+        let imgModal = document.getElementById('imgModal');
+                window.onclick = function(event) {
+                if (event.target == imgModal) {
+                    imgModal.style.display = "none";
+                }}
+    </script>
     <script>
         includeHTML();
     </script>

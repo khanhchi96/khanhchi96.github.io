@@ -15,15 +15,15 @@ let news=[
 ]
 $(document).ready(function(){
     for(var i = 0; i<4; i++){
-        $('.page1').append('<div class="older-news"><a href="'+news[i].link+'"><div class="older-news-image"><img src="'+ news[i].image+
+        $('.page1').append('<div class="older-news"><a target="_blank" href="'+news[i].link+'"><div class="older-news-image"><img src="'+ news[i].image+
             '" alt="news" title="news"/></div><div class="older-news-text"><h3>'+ news[i].title +'</h3></div></a></div>')
     }
     for(var i = 4; i<8; i++){
-        $('.page2').append('<div class="older-news"><a href="'+news[i].link+'"><div class="older-news-image"><img src="'+ news[i].image+
+        $('.page2').append('<div class="older-news"><a target="_blank" href="'+news[i].link+'"><div class="older-news-image"><img src="'+ news[i].image+
             '" alt="news" title="news"/></div><div class="older-news-text"><h3>'+ news[i].title +'</h3></div></a></div>')
     }
     for(var i = 8; i<news.length; i++){
-        $('.page3').append('<div class="older-news"><a href="'+news[i].link+'"><div class="older-news-image"><img src="'+ news[i].image+
+        $('.page3').append('<div class="older-news"><a target="_blank" href="'+news[i].link+'"><div class="older-news-image"><img src="'+ news[i].image+
             '" alt="news" title="news"/></div><div class="older-news-text"><h3>'+ news[i].title +'</h3></div></a></div>')
     }
     $('.pagination').children('a').eq(1).addClass('active');
@@ -64,4 +64,40 @@ $(document).ready(function(){
             }
         });
     if($('#1').hasClass('active')){$('#prev').css('visibility', 'hidden')}
+    
+    $('.slider').slick({
+        autoplay:true,
+        autoplaySpeed:1500,
+        arrows:true,
+        prevArrow: '<span class="slick-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>',
+        nextArrow: '<span class="slick-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>',
+        
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        responsive: [
+        {
+        breakpoint: 1124,
+        settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        }
+        },
+        {
+        breakpoint: 800,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        }
+        },
+        {
+        breakpoint: 480,
+        settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        }
+        }
+        ]});
+        
+    
 })

@@ -1,9 +1,23 @@
+
+@media(min-width: 993px){
+    #nav-large{
+        height: auto!important;
+    }}
 .fa-bars{
     font-size: 35px!important;
 }
+
+@media(max-width: 9920px){
+    .menu-icon{
+        font-size: unset!important;
+        margin-top: 3px!important;
+}}
+    
+@media(max-width: 600px){
 .menu-icon{
     font-size: unset!important;
-}
+    margin-top: 5px!important;
+}}
 #product-list::after{
 content: '';
 display: block;

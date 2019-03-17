@@ -16,7 +16,9 @@
             coat[i].pattern +' '+ coat[i].color +' '+ coat[i].priceRange +' '+ '" data-price="'+coat[i].price+ '" data-number="'+coat[i].id+
              '"><img src="' + coat[i].image + '"/><h1>Áo khoác A'+ coat[i].id +'</h1>'+
             '<p>Giá: ' + coat[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +
-            ' VNĐ</p><div class="button-wrap"><button type="button" class="order">Đặt may</button><button type="button" class="view-detail">Xem thêm</button></div></div>'));
+            ' VNĐ</p><div class="button-wrap"><button type="button" class="order">Đặt may</button><button type="button" class="view-detail">Xem thêm</button></div>'+
+            '<div class="overlay"><div class="overlay-content"><h4>Mẫu áo được làm từ vải len lông cừu mềm mại và nhẹ giúp người mặc vận động dễ dàng cùng khả năng giữ nhiệt tốt, thoáng khí luôn sẵn sàng đương đầu với thời tiết giá lạnh của Hà Nội.</h4>'+
+            '</div></div></div>'));
         $('.product-total-number').text('(' + coat.length + ' sản phẩm)');
         }
             

@@ -17,6 +17,56 @@
     border-bottom: 4px solid #fff!important;
     width: 100%!important;
     }
+    
+
+    .product-wrap{
+        position: relative!important;
+    }
+    .overlay {
+    position: absolute;
+    height: calc(100% - 186px);
+    width: calc(100% - 28px);
+    margin-left: 14px;
+    /* margin: 10px 15px; */
+    top: 0;
+    left: 0;
+    background: rgba(1, 1, 1, .6);
+    transition: 0.2s;
+    opacity: 0;
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+.overlay-content {
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    text-align: left;
+    width: 90%;
+    
+    font-size: 14px;
+}
+
+@media(max-width: 992px){
+    #nav-large{
+        margin-top: -16px
+    }
+    .overlay{
+        width: calc(100% - 42px);
+        margin-left: 21px;
+    }
+}
+
+@media(max-width: 600px){
+    .overlay{
+        width: 100%;
+        margin-left: 0px;
+    }
+}
 </style>
 </head>
 <body>
@@ -32,7 +82,7 @@
         </ul>
     </header>
 
-    <section style="margin-bottom: 100px;">
+    <section style="margin-bottom: 44px;">
         <div class="title wrap">
             <h1>Áo khoác<span class="product-total-number"></span></h1>
             <div class="sorting-select">
