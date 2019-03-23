@@ -587,7 +587,7 @@ body{margin: 0 auto}
 }
 .modal-homepage>p{
     font-size: 16px;
-    letter-spacing: 3px;
+    letter-spacing: 0px;
     line-height: 20px;
     text-align: left;
     padding: 5px 44px;
@@ -1651,7 +1651,7 @@ footer{
 }
 
 .about-us-1>p, .about-us-3-text>p{
-    letter-spacing: 2px;
+    letter-spacing: 0px;
     font-size: 20px;
     line-height: 32px;
     padding: 50px 0 0 0;
@@ -1675,7 +1675,7 @@ footer{
 }
 
 .about-us-2>p{
-    letter-spacing: 2px;
+    letter-spacing: 0px;
     font-size: 20px;
     line-height: 32px;
     padding: 0;
@@ -2329,6 +2329,7 @@ footer{
     z-index: 1;
     /* transform: translateX(-30%); */
     background-color: #f1f1f1;
+    font-size: 15px;
 }
 
 .product-image-cart-mobile{
@@ -2375,11 +2376,13 @@ footer{
 .product-price-cart{
     display: inline-block;
     right: 0;
+    font-size: 15px;
 }
 
 .quantity{
     display: inline-block;
     width: 30%;
+    font-size: 15px;
     
     /* width: 25%; */
     
@@ -2396,6 +2399,7 @@ footer{
 .measurements-cart>div{
     flex-basis: 20%;
     margin: 5px 0;
+    font-size: 15px;
 }
 
 .note{
@@ -2538,7 +2542,7 @@ footer{
     }
 
     .note, .sodo, .measurements-cart>div{
-        font-size: 16px;
+        font-size: 14px;
     }
     .measurements-cart>div{
         flex-basis: 20%;
@@ -3239,6 +3243,9 @@ footer{
     padding: 24px 24px;
     width: calc(100% - 48px)
 }
+.newest-text>p{
+    line-height: 22px;
+}
 
 .newest-image{
     margin-bottom: 0;
@@ -3273,6 +3280,9 @@ footer{
     background-color: #f1f1f1;
     padding: 24px;
     text-transform: uppercase;
+}
+.older-news-text>h3{
+    line-height: 25px;
 }
 .older-news>a, .news>a, .media>a, .news-homepage-1>a, .news-homepage-2>a{
     text-decoration: none;
@@ -3316,6 +3326,10 @@ footer{
     padding: 14px;
     background-color: #f1f1f1;
     text-transform: uppercase;
+}
+
+.media-text>h3{
+    line-height: 25px;
 }
 
 .media-item{
