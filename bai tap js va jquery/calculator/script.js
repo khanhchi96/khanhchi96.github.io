@@ -1,5 +1,6 @@
 function press(button){
-    document.getElementById("line1").innerHTML += button.value;
+    document.getElementById("line2").innerHTML = '';
+    document.getElementById("line2").innerHTML += button.value;
     console.log(document.getElementById("line1").innerHTML)
   }
   function sum(){
