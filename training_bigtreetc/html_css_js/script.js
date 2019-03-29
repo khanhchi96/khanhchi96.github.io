@@ -10,12 +10,6 @@ $('#btn').click(function(e){
 
     if (isValid == false) e.preventDefault();
     else{
-            $('#myModal').show();
-            console.log(delta)
-            console.log(a)
-            console.log(b)
-            console.log(c)
-            
             if (delta < 0){
                 $('#result').text('Phương trình vô nghiệm')
             }
@@ -28,6 +22,7 @@ $('#btn').click(function(e){
                 $('#result').html('Phương trình có 2 nghiệm: x<sub><small>1</small></sub> = ' + (((-b) + Math.sqrt(delta)) / (2 * a)) +
                                 ', x<sub><small>2</small></sub> = ' +  (((-b) - Math.sqrt(delta)) / (2 * a)) ) 
             }
+           $('#a').val(''); $('#b').val(''); $('#c').val('');
         }
 })
 
