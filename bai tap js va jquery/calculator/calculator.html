@@ -18,42 +18,41 @@
         </div>
         <div id="header">
             <p id ="line1"></p>
-            <p id ="line2">0</p>
+            <p id ="line2"></p>
         </div>
         
         <button class="label" style="margin-left: 4px;">MC</button>
         <button class="label">MR</button>
-        <button class="label">M<small>+</small></button>
-        <button class="label">M<small>-</small></button>
-        <button class="label">MS</button>
+        <button class="label active">M<small>+</small></button>
+        <button class="label active">M<small>-</small></button>
+        <button class="label active">MS</button>
         <button class="label">M<sup><i class="fas fa-sort-down"></i></sup></button>
 
         <div class = "button-container">
-            <button class="btn" onclick="press(this)" value="/100">%</button>
+            <button class="btn" value="/100">%</button>
             <button class="btn" onclick="sqrt()" value="√">√</button>
             <button class="btn" onclick="square()" value="^2">x<sup><small>2</small></sup></button>
-            <button class="btn" onclick="press(this)" value="">1/x</button>
+            <button class="btn" value="">1/x</button>
 
             <button class="btn" onclick="reset()">CE</button>
             <button class="btn" onclick="reset()">C</button>
             <button class="btn" ><i class="fas fa-backspace"></i></button>
-            <button class="btn blue" onclick="press(this)" value= "/"><img class="icon icons8-Divide" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAo0lEQVRYR+2VSxGDMBRFTxTUAkioklrAQSVAHSChjmqhdYCDMm8mCz7DIp/yurisQ+6Zk5u8gPMXnPMRgAyUGBiBWyzxE3jkFDoXwMLvm0ADGFIhcgEm4AJcY+ALeAOtJ8AHaM4CMNW95xFYtkF0ixImn7/9m9uBVNOH6wVwZOBbzfF6o13e3wL8SMB+W5WwxICmoaahpmGVx6rkGgpABqoYmAH2Lh4hfK3KfwAAAABJRU5ErkJggg==">
-            </button>
+            <button class="btn blue" onclick="cal(this)" value= "/"><i class="fas fa-divide"></i></button>
             
             <button class="btn white" onclick="press(this)" value= "7">7</button>
             <button class="btn white" onclick="press(this)" value= "8">8</button>
             <button class="btn white" onclick="press(this)" value= "9">9</button>
-            <button class="btn blue" onclick="press(this)" value="*">x</button>
+            <button class="btn blue" onclick="cal(this)" value="*">x</button>
             
             <button class="btn white" onclick="press(this)" value= "4">4</button>
             <button class="btn white" onclick="press(this)" value= "5">5</button>
             <button class="btn white" onclick="press(this)" value= "6">6</button>
-            <button class="btn blue" onclick="press(this)" value= "-">-</button>
+            <button class="btn blue" onclick="cal(this)" value= "-">-</button>
             
             <button class="btn white" onclick="press(this)" value="1">1</button>
             <button class="btn white" onclick="press(this)" value= "2">2</button>
             <button class="btn white" onclick="press(this)" value= "3">3</button>
-            <button class="btn blue" onclick="press(this)" value= "+">+</button>
+            <button class="btn blue" onclick="cal(this)" value= "+">+</button>
             
             <button class ="btn"><img class="icon icons8-Plus-Minus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAYUlEQVRYR+2VMQ4AIAgD4f+P1gUdCakx1VB3pL0UcCM/J/c3CfiewIgMwUbgwmgsASLQg8ByiW7tdNIqY0gXkDnvkQEREIGnCaDLaddVFtFxk+wDCagQoN8CugCFUASuEpjXIBIhP3OSdgAAAABJRU5ErkJggg==">
             </button>
@@ -62,7 +61,7 @@
             <button class="btn blue" onclick="sum()">=</button>
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
