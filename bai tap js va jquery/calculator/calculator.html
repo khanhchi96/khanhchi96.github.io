@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calculator</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -21,44 +21,47 @@
             <p id ="line2"></p>
         </div>
         
-        <button class="label" style="margin-left: 4px;">MC</button>
-        <button class="label">MR</button>
-        <button class="label active">M<small>+</small></button>
-        <button class="label active">M<small>-</small></button>
-        <button class="label active">MS</button>
-        <button class="label">M<sup><i class="fas fa-sort-down"></i></sup></button>
+        <button class="label" id="memory-clear" style="margin-left: 4px;">MC</button>
+        <button class="label" id="memory-recall">MR</button>
+        <button class="label active" id ="memory-plus">M<small>+</small></button>
+        <button class="label active" id ="memory-minus">M<small>-</small></button>
+        <button class="label active" id ="save-to-memory">MS</button>
+        <button class="label" id="show-memory">M<sup><i class="fas fa-sort-down"></i></sup></button>
 
         <div class = "button-container">
-            <button class="btn" value="/100">%</button>
-            <button class="btn" onclick="sqrt()" value="√">√</button>
-            <button class="btn" onclick="square()" value="^2">x<sup><small>2</small></sup></button>
-            <button class="btn" value="">1/x</button>
+            <button class="btn first-row" onclick = "percentage()">%</button>
+            <button class="btn first-row" onclick="sqrt()">√</button>
+            <button class="btn first-row" onclick="sqr()">x<sup><small>2</small></sup></button>
+            <button class="btn first-row" onclick="inverse()">1/x</button>
 
             <button class="btn" onclick="reset()">CE</button>
             <button class="btn" onclick="reset()">C</button>
-            <button class="btn" ><i class="fas fa-backspace"></i></button>
-            <button class="btn blue" onclick="cal(this)" value= "/"><i class="fas fa-divide"></i></button>
+            <button class="btn backspace" onclick="backSpace()"> ⌫ </button>
+            <button class="btn blue" onclick="cal(this)" value= "/"> ÷ </button>
             
             <button class="btn white" onclick="press(this)" value= "7">7</button>
             <button class="btn white" onclick="press(this)" value= "8">8</button>
             <button class="btn white" onclick="press(this)" value= "9">9</button>
-            <button class="btn blue" onclick="cal(this)" value="*">x</button>
+            <button class="btn blue" onclick="cal(this)" value="*"> × </button>
             
             <button class="btn white" onclick="press(this)" value= "4">4</button>
             <button class="btn white" onclick="press(this)" value= "5">5</button>
             <button class="btn white" onclick="press(this)" value= "6">6</button>
-            <button class="btn blue" onclick="cal(this)" value= "-">-</button>
+            <button class="btn blue" onclick="cal(this)" value= "-"> − </button>
             
             <button class="btn white" onclick="press(this)" value="1">1</button>
             <button class="btn white" onclick="press(this)" value= "2">2</button>
             <button class="btn white" onclick="press(this)" value= "3">3</button>
-            <button class="btn blue" onclick="cal(this)" value= "+">+</button>
+            <button class="btn blue" onclick="cal(this)" value= "+"> + </button>
             
-            <button class ="btn"><img class="icon icons8-Plus-Minus" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAYUlEQVRYR+2VMQ4AIAgD4f+P1gUdCakx1VB3pL0UcCM/J/c3CfiewIgMwUbgwmgsASLQg8ByiW7tdNIqY0gXkDnvkQEREIGnCaDLaddVFtFxk+wDCagQoN8CugCFUASuEpjXIBIhP3OSdgAAAABJRU5ErkJggg==">
-            </button>
+            <button class ="btn plus-minus" onclick="changeSide()"> ± </button>
             <button class="btn white" onclick="press(this)" value="0">0</button>
-            <button class="btn" onclick="press(this)" value=".">.</button>
-            <button class="btn blue" onclick="sum()">=</button>
+            <button class="btn" id="dot" onclick="press(this)" value="."><strong>.</strong></button>
+            <button class="btn blue" onclick="sum()"> = </button>
+        </div>
+
+        <div class="show-memory">
+            
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
